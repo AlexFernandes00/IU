@@ -1,0 +1,32 @@
+{
+  "name": "iu",
+  "version": "1.0.0",
+  "description": "projeto da uc informatica urbana",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.0",
+    "express-handlebars": "^5.3.0",
+    "express-sanitizer": "^1.0.6",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.10.0",
+    "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "parse": "^3.2.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "querystring": "^0.2.1",
+    "request": "^2.88.2",
+    "sequelize": "^6.6.2"
+  }
+}
