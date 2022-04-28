@@ -1,0 +1,186 @@
+/*-------------------------------------------------------------------
+  ===== Table of Contents =====
+
+  * Bootstrap functions
+  * Template variables
+  * SCSS Compass Functions
+  * Boostrap Main SCSS
+  * Template mixins
+    + Animation Mixins
+    + Background Mixins
+    + Badge Mixins
+    + Button Mixins
+    + Miscellaneous Mixins
+    + BlockQuote Mixins
+    + Cards Mixins
+    + Color Functions Mixins
+    + Tooltips
+    + popovers
+  * Core Styles
+    + Reset Styles
+    + Fonts
+    + Functions
+    + Backgrounds
+    + Typography
+    + Miscellaneous
+    + Footer
+    + Layouts
+    + Utilities
+    + Demo styles
+  * Components
+    + Badges
+    + Boostrap Progress
+    + Buttons
+    + Breadcrumbs
+    + Cards
+    + Checkboxes and Radios
+    + Dropdowns
+    + Forms
+    + Icons
+    + Preview
+    + Tables
+    + Todo List
+  * Landing screens
+    + Auth
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------*/
+/* === Import Bootstrap functions and variables === */
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+/*-------------------------------------------------------------------*/
+/* === Import template variables === */
+@import './variables';
+
+/*-------------------------------------------------------------------*/
+/* === SCSS Compass Functions === */
+@import "../../node_modules/compass-mixins/lib/compass";
+@import "../../node_modules/compass-mixins/lib/animate";
+
+/*-------------------------------------------------------------------*/
+/* === Boostrap Main SCSS === */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/*-------------------------------------------------------------------*/
+/* === Template mixins === */
+@import "./mixins/misc";
+@import "./mixins/animation";
+@import "./mixins/background";
+@import "./mixins/badges";
+@import "./mixins/blockqoute";
+@import "./mixins/buttons";
+@import "./mixins/breadcrumbs";
+@import "./mixins/cards";
+@import "./mixins/pagination";
+@import "./mixins/popovers";
+@import "./mixins/tooltips";
+@import "./mixins/text";
+
+/*-------------------------------------------------------------------*/
+/* === Core Styles === */
+@import "./reset";
+@import "./fonts";
+@import "./functions";
+@import "./typography";
+@import "./misc";
+@import "./footer";
+@import "./utilities";
+@import "./demo";
+@import "./dashboard";
+
+/*-------------------------------------------------------------------*/
+/* === Components === */
+@import "./components/badges";
+@import "./components/bootstrap-progress";
+@import "./components/buttons";
+@import "./components/breadcrumbs";
+@import "./components/cards";
+@import "./components/checkbox-radio";
+@import "./components/dropdown";
+@import "./components/forms";
+@import "./components/icons";
+@import "./components/lists";
+@import "./components/preview";
+@import "./components/tables";
+@import "./components/todo-list";
+
+/*-------------------------------------------------------------------*/
+/* === Landing screens === */
+@import "./landing-screens/auth";
+
+
+@import './navbar';
+@import './sidebar';
+@import './layouts';
+@import './vertical-wrapper';
+
+
+
+
+/* Preloder */
+#preloder {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: #F0F7F4;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 60px;
+  animation: loader 0.8s linear infinite;
+  -webkit-animation: loader 0.8s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    border: 4px solid #f44336;
+    border-left-color: transparent;
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border: 4px solid #673ab7;
+    border-left-color: transparent;
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border: 4px solid #f44336;
+    border-left-color: transparent;
+  }
+}
+
+@-webkit-keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    border: 4px solid #f44336;
+    border-left-color: transparent;
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    border: 4px solid #673ab7;
+    border-left-color: transparent;
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    border: 4px solid #f44336;
+    border-left-color: transparent;
+  }
+}
