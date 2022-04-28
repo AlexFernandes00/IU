@@ -31,7 +31,7 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="a-index.html"><img src="admin/assets/images/logo2.png" alt="logo" style="width: 160px; height: 84px; padding-top: 5px;" /></a>
+          <a class="navbar-brand brand-logo" href="a-index.html"><img src="admin/assets/images/logocm.png" alt="logo" style="width: 2000px; height: 110px; padding-top: 5px;" /></a>
           <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a> -->
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -147,11 +147,11 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img id ="imagem" src="admin/assets/images/faces/logoLO.png" alt="image"> 
+                  <!--<img id ="imagem" src="admin/assets/images/faces/logoLO.png" alt="image"> -->
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p  id="nomePerfil" class="mb-1 text-black"></p>
+                  <p  id="nomePerfil" class="mb-1 text-black"> Helena Martins</p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -176,7 +176,8 @@
             <li class="nav-item nav-profile" style="padding-top: 30px;">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img id = imagemEsq  alt="profile">
+                  <!--<img id = imagemEsq  alt="profile">-->
+                  <i class="mdi mdi-account menu-icon"> Helena Martins </i>
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
@@ -194,15 +195,15 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Produtos</span>
+                <span class="menu-title">Parques</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-food-fork-drink menu-icon"></i>
+                <i class="mdi mdi-tree menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="./a-verprodutos.html">Lista de Produtos</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./a-adicionarProduto.html">Adicionar Produto </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./a-ativarProdutos.html">Ativar Produto</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-verprodutos.html">Lista de Parques</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-adicionarProduto.html">Adicionar Parque </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-ativarProdutos.html">Ativar Parque</a></li>
                 </ul>
               </div>
             </li>
@@ -214,8 +215,8 @@
             </li> -->
             <li class="nav-item">
               <a class="nav-link" href="./a-encomendas.html">
-                <span class="menu-title">Encomendas</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                <span class="menu-title">Funcionários</span>
+                <i class="mdi mdi-account menu-icon"></i>
               </a>
             </li>
            <!--  <li class="nav-item">
@@ -281,7 +282,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home" id="bannerClose"></i>
-                </span> Dashboard
+                </span> Parque Eduardo VII
               </h3>
             
             </div>
@@ -290,11 +291,11 @@
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Vendas Última Semana <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3"> Número médio de visitas diárias<i class="mdi mdi-chart-line mdi-24px float-right"></i>
                     </h4>
-                    <div name="loading"></div> 
-                    <h2 id="vendasSemanais" class="mb-5"> </h2>
-                    <!-- <h6 class="card-text">Cresceu  60%</h6> -->
+                    <!--<div name="loading"></div> -->
+                    <h2 id="vendasSemanais" class="mb-5"> 42 </h2>
+                     <h6 class="card-text">Cresceu  10%</h6> 
                   </div>
                 </div>
               </div>
@@ -302,11 +303,12 @@
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Encomendas Semanais  <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3"> Tempo médio de permanência <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                     </h4>
-                    <div name="loading"></div> 
-                    <h2 id="encomendasSemanais" class="mb-5"> </h2>
-                    <!-- <h6 class="card-text">Baixou 10%</h6> -->
+                    <!--<div name="loading"> </div> -->
+                    
+                    <h2 id="encomendasSemanais" class="mb-5"> 15 min </h2>
+                     <h6 class="card-text">Baixou 10%</h6> 
                   </div>
                 </div>
               </div>
@@ -314,38 +316,55 @@
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">  Encomendas entregues na última semana <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">  Distância média percorrida   <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <div name="loading"></div> 
-                    <h2 id="entregas" class="mb-5"></h2>
-                    <!-- <h6 class="card-text">Cresceu  5%</h6> -->
+                    <!--<div name="loading"></div> -->
+                    <h2 id="entregas" class="mb-5"> 1,8 km</h2>
+                     <h6 class="card-text">Cresceu  5%</h6> 
                   </div>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 grid-margin stretch-card">
-                <div class="card">
+                  <!--<div class="card></div>"-->
+                <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">Vendas Online Mensais</h4>
+                      <h4 class="card-title float-left"> Evolução temporal das visitas  </h4>
                       <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right" ></div>
                     </div>
-                    <div name="loading"></div> 
+                    <!--<div name="loading"></div> -->
+                   
                     <canvas id="visit-sale-chart" class="mt-4" style="height: 100%; width: 100%; object-fit: contain"></canvas>
+                    
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
-                    <h4 class="card-title" style="padding-bottom: 20px;">Top 5 Produtos mais vendidos</h4>
-                    <div name="loading"></div> 
-                    <canvas id="traffic-chart"></canvas>
-                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
-                    <div id=legenda></div>
+                    <img src="admin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3"> % de Visitantes Estrangeiros<i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    </h4>
+                    <!--<div name="loading"></div> -->
+                    <h2 id="entregas" class="mb-5"> 6%</h2>
+                     <h6 class="card-text">Cresceu  0,1%</h6> 
                   </div>
                 </div>
+              </div>
+              <!--<div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="padding-bottom: 20px;">% de Visitantes Estrangeiros</h4>
+                    <!--<div name="loading"></div> 
+                    <canvas id="traffic-chart"></canvas>
+                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"> </div>
+                    <h2>6%
+                    </h2>
+                    <div id=legenda></div>
+                  </div>
+                </div>-->
               </div>
             </div>
            
