@@ -25,6 +25,33 @@ function registo (req, callback){
         })
 }
 
+function login(request, response) {
+	let email = request.body.email;
+	let password = request.body.password;
+    
+	if (email && password) {
+		
+		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [email, password], function(error, results, fields) {
+			
+			if (error) throw error;
+			// Se existe
+			if (results.length > 0) {
+				// Autenticar utilizador
+				request.session.loggedin = true;
+				request.session.email = email;
+				// redireciona para pagina
+				response.redirect('/index.html');
+			} else {
+				response.send('Email ou password incorretos!');
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Introduzir email e password');
+		response.end();
+	}
+}
+
 
 
 module.exports = {
