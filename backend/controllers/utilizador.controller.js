@@ -31,7 +31,7 @@ function login(request, response) {
     
 	if (email && password) {
 		
-		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [email, password], function(error, results, fields) {
+		connect.con.query('SELECT * FROM utilizador WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
 			
 			if (error) throw error;
 			// Se existe
@@ -40,21 +40,24 @@ function login(request, response) {
 				request.session.loggedin = true;
 				request.session.email = email;
 				// redireciona para pagina
-				response.redirect('/index.html');
+				response({
+                    'statusCode': 200,
+                    'body': ("Login feito com sucesso")
+                });
 			} else {
 				response.send('Email ou password incorretos!');
 			}			
-			response.end();
+			//response.end();
 		});
 	} else {
 		response.send('Introduzir email e password');
-		response.end();
 	}
 }
 
 
 
 module.exports = {
-    registo: registo
+    registo: registo,
+    login: login
    
 }

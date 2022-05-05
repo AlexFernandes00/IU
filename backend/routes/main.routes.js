@@ -18,7 +18,7 @@ router.post('/registo', (req,res)=>{
 });
 
 router.post('/login', (req,res)=>{
-  controllerUtilizador.registo(req, function(result){
+  controllerUtilizador.login(req, function(result){
 
     res.send(result);
 
