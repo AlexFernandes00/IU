@@ -5,6 +5,7 @@ const connect = require ('../config/connectMySQL');
 
 const controllerUtilizador = require('./utilizador.controller.js');
 const { con } = require('../config/connectMySQL');
+const utilizadorController = require('./utilizador.controller.js');
 
 function criarComentario (req, callback){
     console.log(req.body);
@@ -23,25 +24,23 @@ function criarComentario (req, callback){
     let year = date_ob.getFullYear();
 
     const data = year + "-" + month + "-" + date;
-    const idUtilizador=  (req,res)=>{
-        controllerUtilizador.getId(req, function(result){
-      
-          return result.body.idUtilizador;
-      
-          }
-        );
-      }
-    console.log(idUtilizador())
-    console.log(data)
+    utilizadorController.getId(req, (res)=> {
+        const idUtilizador = res.body.idUtilizador;
 
-    const post = { conteudo: conteudo, data: data, idPost: idPost, idUtilizador: idUtilizador};
-    const query = connect.con.query('INSERT INTO comentario SET ?', post, function(err, rows, fields) {
-    console.log(query.sql);
-    });
-        callback({
-            'statusCode': 200,
-            'body': ("Comentario feito com sucesso")
-        })
+        console.log(idUtilizador)
+        console.log(data)
+    
+        const post = { conteudo: conteudo, data: data, idParque: idParque, idUtilizador: idUtilizador};
+        const query = connect.con.query('INSERT INTO comentario SET ?', post, function(err, rows, fields) {
+        console.log(query.sql);
+        });
+            callback({
+                'statusCode': 200,
+                'body': ("Comentario feito com sucesso")
+            })
+
+    })
+    
 
     }
 
