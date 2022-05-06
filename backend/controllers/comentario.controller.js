@@ -30,9 +30,9 @@ function criarComentario (req, callback){
         console.log(idUtilizador)
         console.log(data)
         
-        const idParque = 1;
+        const idPost = 1;
 
-        const post = { conteudo: conteudo, data: data, idParque: idParque, idUtilizador: idUtilizador};
+        const post = { conteudo: conteudo, data: data, idPost: idPost, idUtilizador: idUtilizador};
         const query = connect.con.query('INSERT INTO comentario SET ?', post, function(err, rows, fields) {
         console.log(query.sql);
         });
