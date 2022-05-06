@@ -54,10 +54,36 @@ function login(request, response) {
 	}
 }
 
+async function getId(request, response) {
+	let email = request.session.email;
+    console.log(email);
+	if (email) {
+		
+		connect.con.query('SELECT idUtilizador FROM utilizador WHERE email = ?', [email], function(error, results, fields) {
+			
+			if (error) throw error;
+			// Se existe
+			if (results.length > 0) {
+				
+				response({
+                    'statusCode': 200,
+                    'body': (results[0])
+                });
+			} else {
+				response.send('Erro com este email');
+			}			
+			//response.end();
+		});
+	} else {
+		response.send('Erro, falta email');
+	}
+}
+
 
 
 module.exports = {
     registo: registo,
-    login: login
+    login: login,
+    getId: getId
    
 }
