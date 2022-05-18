@@ -56,7 +56,6 @@ function login(request, response) {
 
 async function getId(request, response) {
 	let email = request.session.email;
-    console.log(email);
 	if (email) {
 		
 		connect.con.query('SELECT idUtilizador FROM utilizador WHERE email = ?', [email], function(error, results, fields) {

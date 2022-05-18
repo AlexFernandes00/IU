@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const controllerUtilizador = require('../controllers/utilizador.controller.js');
 const controllerComentario = require('../controllers/comentario.controller.js');
+const controllerPublicacao = require('../controllers/publicacao.controller.js');
 
 
 router.get('/', (req, res) => {
@@ -39,6 +40,15 @@ router.get('/getId', (req,res)=>{
 
 router.post('/criarComentario', (req,res)=>{
   controllerComentario.criarComentario(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+router.post('/fazerpublicacao', (req,res)=>{
+  controllerPublicacao.fazerpublicacao(req, function(result){
 
     res.send(result);
 
