@@ -13,9 +13,9 @@ function registo (req, callback){
     const telefone =req.body.telefone;
     const dataNascimento = req.body.dataNascimento;
     const password = req.body.password;
+	const idTipoUtilizador = 21;
 
-
-    const post = { nome: nome, apelido: apelido, email: email, numeroTrabalhador: numeroTrabalhador, nif: nif, telefone: telefone, dataNascimento: dataNascimento, password: password};
+    const post = { nome: nome, apelido: apelido, email: email, numeroTrabalhador: numeroTrabalhador, nif: nif, telefone: telefone, dataNascimento: dataNascimento, password: password, idTipoUtilizador: idTipoUtilizador};
     const query = connect.con.query('INSERT INTO utilizador SET ?', post, function(err, rows, fields) {
     console.log(query.sql);
     });
@@ -78,11 +78,58 @@ async function getId(request, response) {
 	}
 }
 
+async function getIdTipoUtilizador(request, response) {
+	let email = request.session.email;
+	if (email) {
+		
+		connect.con.query('SELECT idTipoUtilizador FROM utilizador WHERE email = ?', [email], function(error, results, fields) {
+			
+			if (error) throw error;
+			// Se existe
+			if (results.length > 0) {
+				
+				response({
+                    'statusCode': 200,
+                    'body': (results[0])
+                });
+			} else {
+				response.send('Erro com este email');
+			}			
+			//response.end();
+		});
+	} else {
+		response.send('Erro, falta email');
+	}
+}
+
+
+function registoManutencao (req, callback){
+    console.log(req.body);
+    const nome = req.body.nome;
+    const apelido = req.body.apelido;
+    const email = req.body.email;
+    const numeroTrabalhador = req.body.numeroTrabalhador;
+    const nif = req.body.nif;
+    const telefone =req.body.telefone;
+    const dataNascimento = req.body.dataNascimento;
+    const password = req.body.password;
+	const idTipoUtilizador = 11;
+
+    const post = { nome: nome, apelido: apelido, email: email, numeroTrabalhador: numeroTrabalhador, nif: nif, telefone: telefone, dataNascimento: dataNascimento, password: password, idTipoUtilizador: idTipoUtilizador};
+    const query = connect.con.query('INSERT INTO utilizador SET ?', post, function(err, rows, fields) {
+    console.log(query.sql);
+    });
+        callback({
+            'statusCode': 200,
+            'body': ("Registo feito com sucesso")
+        })
+}
 
 
 module.exports = {
     registo: registo,
     login: login,
-    getId: getId
-   
+    getId: getId,
+	registoManutencao: registoManutencao,
+	getIdTipoUtilizador: getIdTipoUtilizador,
 }
