@@ -4,6 +4,7 @@ const controllerUtilizador = require('../controllers/utilizador.controller.js');
 const controllerComentario = require('../controllers/comentario.controller.js');
 const controllerPublicacao = require('../controllers/publicacao.controller.js');
 const controllerParque = require('../controllers/parque.controller.js');
+const controllerParqueEstacionamento = require('../controllers/parqueestacionamento.controller.js');
 
 
 router.get('/', (req, res) => {
@@ -85,6 +86,15 @@ router.post('/criarParque', (req,res)=>{
   );
 });
 
+router.post('/adicionarParqueEstacionamentoParque', (req,res)=>{
+  controllerParque.adicionarParqueEstacionamentoParque(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
 router.put('/editarParque', (req,res)=>{
   controllerParque.editarParque(req, function(result){
 
@@ -96,6 +106,36 @@ router.put('/editarParque', (req,res)=>{
 
 router.delete('/apagarParque', (req,res)=>{
   controllerParque.apagarParque(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+router.post('/criarParqueEstacionamento', (req,res)=>{
+  controllerParqueEstacionamento.criarParqueEstacionamento(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+router.put('/editarParqueEstacionamento', (req,res)=>{
+  controllerParqueEstacionamento.editarParqueEstacionamento(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+router.delete('/apagarParqueEstacionamento', (req,res)=>{
+  controllerParqueEstacionamento.apagarParqueEstacionamento(req, function(result){
 
     res.send(result);
 

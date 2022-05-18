@@ -76,10 +76,29 @@ function apagarParque(req, callback) {
 };
 
 
+function adicionarParqueEstacionamentoParque (req, callback){
+    console.log(req.body);
+    const idParque = req.body.idParque;
+    const idParqueEstacionamento = req.body.idParqueEstacionamento;
+
+    const post = { idParque: idParque, idParqueEstacionamento: idParqueEstacionamento};
+    const query = connect.con.query('INSERT INTO ParqueEstacionamentoParque SET ?', post, function(err, rows, fields) {
+    console.log(query.sql);
+    });
+        callback({
+            'statusCode': 200,
+            'body': ("Parque de estacionamento adicionado com sucesso")
+        })
+    
+    
+
+    }
+
 
 module.exports = {
     criarParque: criarParque,
     editarParque: editarParque,
     apagarParque: apagarParque,
+    adicionarParqueEstacionamentoParque: adicionarParqueEstacionamentoParque,
    
 }
