@@ -5,6 +5,7 @@ const controllerComentario = require('../controllers/comentario.controller.js');
 const controllerPublicacao = require('../controllers/publicacao.controller.js');
 const controllerParque = require('../controllers/parque.controller.js');
 const controllerParqueEstacionamento = require('../controllers/parqueestacionamento.controller.js');
+const controllerAtividade = require('../controllers/atividade.controller.js');
 
 
 router.get('/', (req, res) => {
@@ -136,6 +137,16 @@ router.put('/editarParqueEstacionamento', (req,res)=>{
 
 router.delete('/apagarParqueEstacionamento', (req,res)=>{
   controllerParqueEstacionamento.apagarParqueEstacionamento(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+router.post('/criarAtividade', (req,res)=>{
+  controllerAtividade.criarAtividade(req, function(result){
 
     res.send(result);
 
