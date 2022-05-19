@@ -29,12 +29,13 @@ window.onload = function () {
       return response.json();
     })
       .then((result) => {
+        console.log(result)
         //alert(result.body.company)
         //if (result.body.message == "Login com sucesso" && result.body.company == "false") {
           /* response.text().then((data) => {*/
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
-          if (result.body.message == "Login com sucesso") {
+          if (result.body == "Login feito com sucesso") {
           window.location.href = 'index.html';
 
         }
