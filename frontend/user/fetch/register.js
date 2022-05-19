@@ -14,18 +14,18 @@ window.onload = function () {
         } else {
 
             let data = {
-                email: document.getElementById("email").value,
-                password: document.getElementById("pass").value,
                 nome: document.getElementById("nome").value,
                 apelido: document.getElementById("apelido").value,
+                email: document.getElementById("email").value,
+                numeroTrabalhador: document.getElementById("ntrab").value,
                 nif: document.getElementById("nif").value,
-                telefone: document.getElementById("telefone").value,
                 dataNascimento: document.getElementById("datanascimento").value,
-                morada: document.getElementById("morada").value
+                password: document.getElementById("pass").value,
             }
 
-
-            fetch(`https://easymarket-backend.beagoddess.repl.co/register`, {
+            
+            fetch(`http://127.0.0.1:8080/registo`, {
+                
 
                 headers: {
                     "Content-Type": "application/json"
@@ -40,7 +40,7 @@ window.onload = function () {
                 console.log("dsdsdsf"+result)
 
                 if (result.body.message == "Criado com sucesso") {
-
+console.log("ola")
                     swal({
                         title: 'Registo com sucesso!',
                         type: 'success',
@@ -49,12 +49,12 @@ window.onload = function () {
                         showLoaderOnConfirm: false,
                         timer: 2000
                     }).then(result => {
-                        window.location.reload();
+                        window.location.href = 'login.html';
                     })
 
                 } else {
 
-                    if (result.body.error == "Email em uso") {
+                    /*if (result.body.error == "Email em uso") {
 
                         swal.fire({
                             icon: 'error',
@@ -87,7 +87,7 @@ window.onload = function () {
                             })
                         }
 
-                    }
+                    }*/
                 }
             })
         }
