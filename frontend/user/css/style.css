@@ -1089,7 +1089,7 @@ header__menu.ul {
 .breadcrumb-section {
 	display: flex;
 	align-items: center;
-	padding: 30px 0 30px;
+	padding: 100px 0 30px;
 }
 
 .breadcrumb__text h2 {
