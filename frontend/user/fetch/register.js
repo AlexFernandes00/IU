@@ -39,7 +39,7 @@ window.onload = function () {
             }).then((result) => {
                 console.log("dsdsdsf"+result)
 
-                if (result.body.message == "Criado com sucesso") {
+                if (result.body == "Registo feito com sucesso") {
 console.log("ola")
                     swal({
                         title: 'Registo com sucesso!',
