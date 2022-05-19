@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   <link rel="shortcut icon" href="user/img/MiniM.png" />
+    <title>Contacto</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="user/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="user/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="user/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="user/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="user/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="user/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="user/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="user/css/style.css" type="text/css">
+</head>
+
+<style>
+    
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 760px) and (max-device-width: 1024px)  {
+
+    .contact {
+    padding-top: 8px;
+    padding-bottom: 5px;
+}
+
+
+    .header__menu{
+        display:block;
+        padding: 0px 0px;
+        padding-left: 40px;
+        
+    }
+
+    .header__menu ul li a{
+        padding: 5px 0px;
+        align-content: center;
+        margin-right: auto;
+        margin-left: auto;
+    font-size: 10px;
+    }
+    
+    .header__cart{
+        padding: 37px 0 24px;
+    }
+    .header__logo{
+        display:inherit;
+    }
+
+      .humberger__open{
+        display: none;
+
+    }  
+
+     .header__top{
+        display: block;
+    } 
+
+    .header__top__left{
+        display: none;
+    }
+    
+     /* .header__top__right__auth{
+        display: block;
+        
+    }  */
+}
+</style>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> easy@market.pt</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div id="header" class="header__top__right">
+                            <!--
+                            <div class="header__top__right__language">
+                                <div>Português</div>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="login.html"> Entrar</a>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="user/img/logo2.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./produtos.html">Parques</a></li>
+                            <li><a href="./promocao.html">Atividades a decorrer</a></li>
+                            <li><a href="./maps.html">Sobre nós
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="./shoping-cart.html" onclick=getCookie()><i class="fa fa-shopping-cart"></i> <span id="valor"></span></a></li>
+                        </ul>
+                        <div class="header__cart__price">Total <span id="tot"></span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+   <!--  <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Todos os departamentos</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Bio e Saudável</a></li>
+                            <li><a href="#">Mercearia</a></li>
+                            <li><a href="#">Frescos</a></li>
+                            <li><a href="#">Laticínios</a></li>
+                            <li><a href="#">Congelados</a></li>
+                            <li><a href="#">Bebidas</a></li>
+                            <li><a href="#">Limpeza</a></li>
+                            <li><a href="#">Higiene e Beleza</a></li>
+                            <li><a href="#">Animais</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    Todas as categorias
+                                </div>
+                                <input type="text" placeholder="Pesquise aqui o seu produto">
+                                <button type="submit" class="site-btn">Pesquisar</button>
+                            </form>
+                        </div>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Hero Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="user/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Contacta-nos!</h2>
+                        <br>
+                            <span>Encontre as informações ou esclarecimentos relacionados</span>
+                            <br>
+                            <span>com os nossos produtos e serviços.</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_phone"></span>
+                        <h4>Telefone</h4>
+                        <p>+351 932 000 000</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_mail_alt"></span>
+                        <h4>Email</h4>
+                        <p>easy@market.pt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Contact Form Begin -->
+    <div class="contact-form spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact__form__title">
+                        <h2>Deixa-nos uma mensagem!</h2>
+                    </div>
+                </div>
+            </div>
+            <form id="contactForm">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Nome" id="nameC">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Email" id="emailC">
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <textarea placeholder="Mensagem" id="messageC"></textarea>
+                        <button type="submit" class="site-btn">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Contact Form End -->
+
+ <!-- Footer Section Begin -->
+ <footer class="footer spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <div class="footer__about__logo">
+                        <a href="./index.html"><img src="user/img/logo3.png" width="150" height="90" alt=""></a>
+                    </div>
+                    <ul>
+                        <li>Telefone: +351 932 000 000</li>
+                        <li>Email: easy@market.pt</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="footer__widget">
+                    <br>
+                    <h6>Ajuda e Suporte</h6>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="promocao.html">Sobre nós</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="maps.html">Lojas</a></li>
+                        <li><a href="contact.html">Contactos</a></li>
+                        <li><a href="#">Método de pagamento</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="footer__widget">
+                    <br>
+                    <h6>As nossas lojas</h6>
+                    <p>Mercado Ló - R. do Carmo, Merelim (São Pedro), Braga.
+                        Mini-Mercado Coutinho - Av. Dom João II, Nogueiró, Braga.
+                    </p> 
+                    <div class="footer__widget__social">
+                        <a href="https://www.facebook.com/isi.easyMarket"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/isi.easymarket/"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer__copyright">
+                    <div class="footer__copyright__payment"><img src="user/img/payment-item.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+<script src="user/fetch/contactar.js"></script>
+    <!-- Js Plugins -->
+    
+    <script src="user/js/jquery-3.3.1.min.js"></script>
+    <script src="user/js/bootstrap.min.js"></script>
+    <script src="user/js/jquery.nice-select.min.js"></script>
+    <script src="user/js/jquery-ui.min.js"></script>
+    <script src="user/js/jquery.slicknav.js"></script>
+    <script src="user/js/mixitup.min.js"></script>
+    <script src="user/js/owl.carousel.min.js"></script>
+    <script src="user/js/main.js"></script> <script src="user/js/cart.js"></script>
+    <script src="user/js/car.js"></script>
+
+    <script>
+  if('serviceWorker' in navigator){
+      try {
+        navigator.serviceWorker.register('sw.js');
+        console.log('SW registered');
+      } catch(error) {
+        console.log('SW register failed');
+      }
+    }
+</script>
+
+</body>
+
+</html>
