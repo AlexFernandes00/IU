@@ -15,7 +15,7 @@ window.onload = function () {
     data.password = password.value;
     console.log(data)
 
-    fetch(`https://easymarket-backend.beagoddess.repl.co/login`, {
+    fetch(`http://127.0.0.1:8080/login`, {
       mode: 'cors',
       method: 'POST',
       headers: {
@@ -29,17 +29,16 @@ window.onload = function () {
       return response.json();
     })
       .then((result) => {
-        alert(result.body.company)
-        if (result.body.message == "Login com sucesso" && result.body.company == "false") {
+        //alert(result.body.company)
+        //if (result.body.message == "Login com sucesso" && result.body.company == "false") {
           /* response.text().then((data) => {*/
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
-
-          window.location.href = 'https://easymarketisi.web.app/index.html';
-
+          if (result.body.message == "Login com sucesso") {
+          window.location.href = 'index.html';
 
         }
-        else {
+        /*else {
           if (result.body.message == "Login com sucesso" && result.body.company == "true") {
             window.location.href = 'https://easymarketisi.web.app/a-index.html';
           } else {
@@ -64,7 +63,7 @@ window.onload = function () {
               }
             }
           }
-        }
+        }*/
       }).catch(error => { console.log(error) })
 
   })

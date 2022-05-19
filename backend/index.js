@@ -12,9 +12,10 @@ const validator = require('express-validator');
 const sanitizer = require('express-sanitizer');
 //const session = require('express-session');
 var env = require('dotenv').config();
-
+const cors = require('cors');
 
 app.use(sanitizer());
+app.use(cors());
 //app.use(validator());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
