@@ -153,3 +153,23 @@ router.post('/criarAtividade', (req,res)=>{
     }
   );
 });
+
+
+router.put('/editarAtividade', (req,res)=>{
+  controllerAtividade.editarAtividade(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+router.delete('/apagarAtividade', (req,res)=>{
+  controllerAtividade.apagarAtividade(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});

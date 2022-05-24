@@ -29,35 +29,36 @@ function criarAtividade (req, callback){
     }
 
 //update
-function editarParqueEstacionamento(req, callback) {
-    const idParqueEstacionamento = req.body.idParqueEstacionamento;
+function editarAtividade(req, callback) {
+    const idAtividade = req.body.idAtividade;
     const nome = req.body.nome;
-    const longitude = req.body.longitude;
-    const latitude = req.body.latitude;
-    const lotacao = req.body.lotacao;
+    const descricao = req.body.descricao;
+    const dataInicio = req.body.dataInicio;
+    const dataFim = req.body.dataFim;
+    const idParque = req.body.idParque;
 
 
-    if (idParqueEstacionamento != "NULL" && typeof (idParqueEstacionamento) != 'undefined') {
-        const update = [nome, longitude, latitude, lotacao, idParqueEstacionamento];
-        const query = connect.con.query('UPDATE ParqueEstacionamento SET nome = ?, longitude = ?, latitude = ?, lotacao = ? WHERE idParqueEstacionamento=?', update, function(err, rows, fields) {
+    if (idAtividade != "NULL" && typeof (idAtividade) != 'undefined') {
+        const update = [nome, descricao, dataInicio, dataFim, idParque, idAtividade];
+        const query = connect.con.query('UPDATE ParqueEstacionamento SET nome = ?, descricao = ?, dataInicio = ?, dataFim = ?, idParque = ? WHERE idAtividade=?', update, function(err, rows, fields) {
             console.log(query.sql);
             });
         callback({
             'statusCode': 200,
-            'body': ("Parque editado com sucesso")
+            'body': ("Atividade editado com sucesso")
         })
         
     }
 };
 
 
-function apagarParqueEstacionamento(req, callback) {
-    const idParqueEstacionamento = req.body.idParqueEstacionamento;
+function apagarAtividade(req, callback) {
+    const idAtividade = req.body.idAtividade;
 
 
-    if (idParqueEstacionamento != "NULL" && typeof (idParqueEstacionamento) != 'undefined') {
-        const update = [idParqueEstacionamento];
-        const query = connect.con.query('DELETE FROM ParqueEstacionamento WHERE idParqueEstacionamento=?', update, function(err, rows, fields) {
+    if (idAtividade != "NULL" && typeof (idAtividade) != 'undefined') {
+        const update = [idAtividade];
+        const query = connect.con.query('DELETE FROM Atividade WHERE idAtividade = ?', update, function(err, rows, fields) {
             console.log(query.sql);
             });
         callback({
@@ -72,6 +73,6 @@ function apagarParqueEstacionamento(req, callback) {
 
 module.exports = {
     criarAtividade: criarAtividade,
-    editarParqueEstacionamento: editarParqueEstacionamento,
-    apagarParqueEstacionamento: apagarParqueEstacionamento,
+    editarAtividade: editarAtividade,
+    apagarAtividade: apagarAtividade,
 }
