@@ -5588,7 +5588,6 @@ h6 {
 
 
 /*# sourceMappingURL=../css/style.map */
-
 a{
   color: rgb(25, 162, 121);
   font-weight: bolder;
@@ -5600,6 +5599,10 @@ h1{
   font-weight: bolder;
 }
 
+/* ########################################### */
+/*           Forums.html                       */
+/* ########################################### */
+
 .subforum{
   margin-top: 20px;
 }
@@ -5610,5 +5613,79 @@ h1{
   border-radius: 5px;
   margin: 4px;
 }
+.subforum-row{
+  display: grid;
+  grid-template-columns: 7% 60% 13% 20%;
+}
+.subforum-column{
+  padding: 10px;
+  margin:4px;
+  border-radius: 5px;
+  background-color:#a5d2bc;
+}
+.subforum-description *{
+  margin-block: 0;
+}
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.subforum-icon i{
+  font-size: 45px;
+}
+
+.subforum-devider{
+  display: none;   
+}
+/* Search Box styles */
+.search-box{
+  border: solid 1px #a5d2bc;
+  margin-top: 20px;
+  padding: 40px;
+  display:flex;
+  justify-content: center;
+  box-shadow:1px 2px 3px #a5d2bc;
+}
+
+.search-box select{
+  padding: 10px;
+}
+
+.search-box input{
+  padding: 10px;
+}
+
+.search-box button{
+  padding: 10px;
+  background-color:#fff;
+  color:#a5d2bc;
+}
+
+.search-box button:hover{
+  background-color: #a5d2bc;
+  color: #fff;
+  box-shadow: 1px 2px 3px #fff;
+}
+/* For the smartphones */
+/*@media screen and (max-width: 460px) {
+  .container{
+      margin: 10px;
+      padding: 10px;
+  }
+
+  .subforum-row{
+      display: grid;
+      grid-template-columns: 25% 75%;
+      grid-template-rows: 65% 35%;
+  }
+
+  .subforum-devider{
+      display: block;
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(190, 190, 190, 0), rgba(255, 255, 255, 0.75), rgba(190, 190, 190, 0));
+  }
+}*/
