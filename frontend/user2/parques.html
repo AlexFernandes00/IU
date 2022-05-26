@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+	<link href='https://fonts.googleapis.com/css?family=Caesar Dressing' rel='stylesheet'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ParkLisbon</title>
+    <link rel="icon" href="img/logo.png">
+    <!-- Bootstrap CSS -->
+	<link href='https://fonts.googleapis.com/css?family=Caesar Dressing' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <!-- fontawesome CSS -->
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <!-- magnific CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/gijgo.min.css">
+    <!-- niceselect CSS -->
+    <link rel="stylesheet" href="css/nice-select.css">
+    <!-- slick CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="csscarateristicas\buton.css">
+	<link rel="stylesheet" href="csscarateristicas\banner.css">
+	<link rel="stylesheet" href="csscarateristicas\comum.css">
+</head>
+
+<body>
+    <!--::header part start::-->
+    <header class="main_menu">
+        <div class="main_menu_iner">
+            <div class="container">
+                <div class="row align-items-center ">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+                            <a class="navbar-brand" href="home.html"> <img width="220,25" height="90,375" src="img/logo2.png" alt="logo"> </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                                id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="home.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="parques.html">Parques</a>
+                                    </li>
+                        
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Atividades
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                            <a class="dropdown-item" href="riosmaisreq.html">Parque Jardim da Estrela</a>
+											<a class="dropdown-item" href="riosmaiordif.html">Parque Eduardo VII</a>
+											<a class="dropdown-item" href="riosmenordif.html">Parque Florestal de Monsanto</a>
+                                            <a class="dropdown-item" href="riosmenordif.html">Parque da Bela Vista</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="forum.html">Fórum</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contacto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="singin.html" class="btn_12">ENTRAR</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item text-center">
+                            <h2 id=h2>Parques</h2>
+                            <p>home .  parques</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+     <!--top place start-->
+     <section class="top_place section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="section_tittle text-center">
+                        <h2>Todos os Parques</h2>
+                        <p>Conheça todos os parques disponíveis na nossa aplicação!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_place">
+                        <img src="img/park1.jpg" width="560" height="382" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <button type="place_btn" class="place_btn" onclick="openPopup()">Sobre</button>
+                                <div class="popup" id="popup">
+                                    <img src="img/info.jpg"> 
+                                    <h6> INFORMAÇÕES DO PARQUE JARDIM DA ESTRELA</h6>
+                                    <br>
+                                    <h5> Lotação atual do parque: xxx </h5>
+                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
+                                    <h5> Lotação do parque de estacionamento: xxx </h5>
+                                    <h5> Meteorlogia no local:  xxx </h5>
+                                    <button type="button" onclick="closePopup()">OK</button>
+                                </div>
+                                <h3>Parque Jardim da Estrela</h3>
+                                <br>
+                                <p>O Jardim da Estrela, mais tarde renomeado Jardim Guerra Junqueiro, é um jardim público situado na freguesia da Estrela, em Lisboa, estando uma das suas entradas em frente da Basílica da Estrela. O Jardim da Estrela foi construído ao estilo dos jardins ingleses, de inspiração romântica.</p>
+                                <div class="place_review">
+                                    
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(146)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_place">
+                        <img src="img/park2.jpg"   width="560" height="382" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <button type="place_btn" class="place_btn" onclick="openPopup2()">Sobre</button>
+                                <div class="popup2" id="popup2">
+                                    <img src="img/info.jpg"> 
+                                    <h6> INFORMAÇÕES DO PARQUE EDUARDO VII</h6>
+                                    <br>
+                                    <h5> Lotação atual do parque: xxx </h5>
+                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
+                                    <h5> Lotação do parque de estacionamento: xxx </h5>
+                                    <h5> Meteorlogia no local:  xxx </h5>
+                                    <button type="button" onclick="closePopup2()">OK</button>
+                                </div>
+                                <h3>Parque Eduardo VII</h3>
+                                <br>
+                                <p>O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(216)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_place">
+                        <img src="img/park3.jpg" width="560" height="382" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <button type="place_btn" class="place_btn" onclick="openPopup3()">Sobre</button>
+                                <div class="popup3" id="popup3">
+                                    <img src="img/info.jpg"> 
+                                    <h6> INFORMAÇÕES DO PARQUE FLORESTAL DE MONSANTO</h6>
+                                    <br>
+                                    <h5> Lotação atual do parque: xxx </h5>
+                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
+                                    <h5> Lotação do parque de estacionamento: xxx </h5>
+                                    <h5> Meteorlogia no local:  xxx </h5>
+                                    <button type="button" onclick="closePopup3()">OK</button>
+                                </div>
+                                <h3>Parque Florestal de Monsanto</h3>
+                                <p>O Parque Florestal de Monsanto situa-se na Serra de Monsanto, no concelho de Lisboa. Tem uma área de 1000 hectares submetidos ao regime florestal total, cerca de 10% do concelho de Lisboa, integrando o território de sete freguesias: Benfica; São Domingos de Benfica; Campolide; Campo de Ourique; Belém; Ajuda.</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(179)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_place">
+                        <img src="img/park4.jpg" width="560" height="382" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <button type="place_btn" class="place_btn" onclick="openPopup4()">Sobre</button>
+                                <div class="popup4" id="popup4">
+                                    <img src="img/info.jpg"> 
+                                    <h6> INFORMAÇÕES DO PARQUE DA BELA VISTA</h6>
+                                    <br>
+                                    <h5> Lotação atual do parque: xxx </h5>
+                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
+                                    <h5> Lotação do parque de estacionamento: xxx </h5>
+                                    <h5> Meteorlogia no local:  xxx </h5>
+                                    <button type="button" onclick="closePopup4()">OK</button>
+                                </div>
+                                <h3>Parque da Bela Vista</h3>
+                                <p>O Parque da Bela Vista é um parque na Bela Vista, de grande extensão. É uma antiga quinta cujo aspecto rural foi preservado. Na sua extensa área encontram-se vários exemplos de fauna e flora tipicamente portuguesas, destacando-se uma grande variedade de aves.</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(193)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    let popup = document.getElementById ("popup");
+                    function openPopup (){
+                        popup.classList.add("open-popup");
+                    }
+                    function closePopup (){
+                        popup.classList.remove("open-popup");
+                    }
+
+                    //popUP para o 2º parque
+                    let popup2 = document.getElementById ("popup2");
+                    function openPopup2 (){
+                        popup2.classList.add("open-popup2");
+                    }
+                    function closePopup2 (){
+                        popup2.classList.remove("open-popup2");
+                    }
+
+                     //popUP para o 3º parque
+                     let popup3 = document.getElementById ("popup3");
+                    function openPopup3 (){
+                        popup3.classList.add("open-popup3");
+                    }
+                    function closePopup3 (){
+                        popup3.classList.remove("open-popup3");
+                    }
+
+                     //popUP para o 4º parque
+                     let popup4 = document.getElementById ("popup4");
+                    function openPopup4 (){
+                        popup4.classList.add("open-popup4");
+                    }
+                    function closePopup4 (){
+                        popup4.classList.remove("open-popup4");
+                    }
+
+                </script>
+                <a href="parques.html" class="btn_1 text-cnter">Descubra mais</a>
+            </div>
+        </div>
+    </section>
+    <!--top place end-->
+
+
+    <!--::industries start::-->
+    <section class="best_services section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="section_tittle text-center">
+                        <h2>Serviços prestados</h2>
+                        <p>O RaftMinho disponibiliza:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_ihotel_list">
+                        <img src="img/services_1.png" alt="">
+                        <h6><a>Transportes</a></h6>
+                        <p>Inclui os custos de transportes na tua aventura</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_ihotel_list">
+                        <img src="img/services_2.png" alt="">
+                        <h6><a>Instrutores</a></h6>
+                        <p>Acompanhamento professional durante a atividade</p>
+                    </div>
+                </div>
+				<div class="col-lg-4 col-sm-6">
+                    <div class="single_ihotel_list">
+                        <img src="img/services_3.png" alt="">
+                        <h6><a> Materiais</a></h6>
+                        <p>Disponabilização de materiais da atividade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::industries end::-->
+
+    <!-- footer part start-->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-6 col-md-3">
+                    <div class="single-footer-widget">
+                        <a href="./home.html"><img src="img/logo2.png" width="500" height="95" alt="">
+                            <ul>
+                                
+                            </ul>
+                    </div>
+                </div>
+              <!--  <div class="col-sm-6 col-md-3">
+                    <div class="single-footer-widget">
+                        <h4>Coloraboradores</h4>
+                        <ul>
+                            <a id="a1">Empresa xx</a>
+							<a id="a1">Empresa xx</a>
+                            
+                        </ul>
+
+                    </div> 
+                </div> -->
+                <div class="col-sm-6 col-md-3">
+                    <div class="single-footer-widget">
+                        <h4>Newsletter</h4>
+                        <div class="form-wrap" id="mc_embed_signup">
+                            <form target="_blank"
+                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                method="get" class="form-inline">
+                                <input class="form-control" name="EMAIL" placeholder="Your Email Address"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+                                    required="" type="email">
+                                <button class="click-btn btn btn-default text-uppercase"> <i class="far fa-paper-plane"></i>
+                                </button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                        type="text">
+                                </div>
+
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="single-footer-widget footer_icon">
+                        <h4>Contact Us</h4>
+                        <p id="a1">Prado, Braga
+                                <br>253 456 872</p>
+                        <span>contact@ParkLisbon.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- magnific js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- masonry js -->
+    <script src="js/masonry.pkgd.js"></script>
+    <!-- masonry js -->
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <!-- contact js -->
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/contact.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
