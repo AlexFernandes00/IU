@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Gestão de Parques Admin</title>
+    <title>Gestão de Estacionamento Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="admin/assets/vendors/css/vendor.bundle.base.css">
@@ -157,7 +157,7 @@
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" id="logout" href="./index.html" > 
+                <a class="dropdown-item" id="logout" href="./a-index.html" > 
                   <i class="mdi mdi-logout mr-2 text-primary"></i> Sair </a>
               </div>
             </li>
@@ -202,8 +202,23 @@
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="./a-listaparques.html">Lista de Parques</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./adicionar_parque.html">Adicionar Parque </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./a-ativarProdutos.html">Ativar Parque</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-adicionarparque.html">Adicionar Parque </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-ativarparques.html">Ativar Parque</a></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Estacionamento</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-car menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="./a-listaestacionamentos.html">Lista de Estacionamentos</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-adicionarestacionamento.html">Adicionar Estacionamento </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-ativarestacionamento.html">Ativar Estacionamento</a></li>
                 </ul>
               </div>
             </li>
@@ -214,11 +229,33 @@
               </a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="./a-encomendas.html">
-                <span class="menu-title">Funcionários</span>
-                <i class="mdi mdi-account menu-icon"></i>
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Posts</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-bell menu-icon"></i>
               </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="./a-listposts.html">Lista de Posts</a></li>
+                </ul>
+              </div>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Atividades</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-bookmark menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="./a-listaatividades.html">Lista de Atividades</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-adicionaratividades.html">Adicionar Atividades </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./a-ativaratividades.html">Ativar Atividades</a></li>
+                </ul>
+              </div>
+            </li>
+
            <!--  <li class="nav-item">
               <a class="nav-link" href="pages/charts/chartjs.html">
                 <span class="menu-title">Charts</span>
@@ -270,11 +307,11 @@
         <div class="main-panel">
             <div class="content-wrapper">
               <div class="page-header">
-                <h3 class="page-title"> Adicionar Parque </h3>
+                <h3 class="page-title"> Adicionar Estacionamento </h3>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a >Parques</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Adicionar Parque</li>
+                    <li class="breadcrumb-item"><a >Estacionamento</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Adicionar Estacionamento</li>
                   </ol>
                 </nav>
               </div>
@@ -283,9 +320,9 @@
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Registar Parque</h4>
+                      <h4 class="card-title">Registar Estacionamento</h4>
                       <form id="registoProduto" class="form-sample">
-                        <p class="card-description"> Inserir os dados do Parque: </p>
+                        <p class="card-description"> Inserir os dados do Estacionamento: </p>
                         <!-- <div class="row">
                           <div class="col-md-12">
                             <div class="form-group row">
@@ -306,18 +343,25 @@
                         </div> -->
   
                         <div class="form-group row">
-                          <label for="exampleInputMobile" class="col-sm-3 col-form-label">Nome do Parque</label>
+                          <label for="exampleInputMobile" class="col-sm-3 col-form-label">Nome do Estacionamento</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="desigNovoProd" placeholder="Nome do Parque" required>
+                            <input type="text" class="form-control" id="desigNovoProd" placeholder="Nome do Estacionamento" required>
                           </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Descrição</label>
+                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Parque</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="desigNovoProd" placeholder="Descrição do Parque" required>
+                              <input type="text" class="form-control" id="desigNovoProd" placeholder="Parque" required>
                             </div>
                           </div>
+
+                          <div class="form-group row">
+                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Capacidade</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="desigNovoProd" placeholder="Capacidade do Estacionamento" required>
+                            </div>
+                          </div>  
                         
   
                     <!--    <div class="form-group row">
@@ -341,22 +385,22 @@
                           </div>
                         </div> -->
   
-                        <br>
+                        <!-- <br>
                         <div class="form-group row">
                           <label for="exampleInputMobile" class="col-sm-3 col-form-label">Imagem do Parque</label>
                           <div class="col-sm-9">
                             <input type="file" class="form-control" id="imgNovoProd" placeholder="Imagem do Parque" required>
                           </div>
-                        </div> 
+                        </div>  -->
     
-                        <br>
+                        <!-- <br>
                         
                         <div class="form-group row">
                             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mapa do Parque</label>
                             <div class="col-sm-9">
                               <input type="file" class="form-control" id="imgNovoProd" placeholder="Mapa do Parque" required>
                             </div>
-                          </div> 
+                          </div>  -->
 
                           <div class="form-group row">
                             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Localização</label>
@@ -365,29 +409,29 @@
                             </div>
                           </div>  
   
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Latitude</label>
-                              <div class="col-sm-9">
-                                <input id="qtdNovoProd" type="number" min="1" oninput="validity.valid||(value='');"  class="form-control" placeholder="Latitude" required/>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Latitude</label>
+                                <div class="col-sm-9">
+                                  <input id="latitude" type="number" step="0.000001" min="-10" oninput="validity.valid||(value='');"  class="form-control" placeholder="Latitude" required/>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Longitude</label>
-                              <div class="col-sm-9">
-                                <input id="qtdRef" type="number" min="1" oninput="validity.valid||(value='');" class="form-control" placeholder="Longitude" required/>
+                            
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Longitude</label>
+                                <div class="col-sm-9">
+                                  <input id="longitude" type="number" step="0.000001" min="-10" oninput="validity.valid||(value='');" class="form-control" placeholder="Longitude" required/>
+                                </div>
                               </div>
                             </div>
+    
+    
+    
+    
                           </div>
-  
-  
-  
-  
-                        </div>
   
                         <br>
   
