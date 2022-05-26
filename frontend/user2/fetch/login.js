@@ -1,6 +1,6 @@
 window.onload = function () {
 
-  const btnLogin = document.getElementById("signup")
+  const btnLogin = document.getElementById("login")
 
   // Autenticar gestor de espaço na área privada
   btnLogin.addEventListener("click", async function (event) {
@@ -36,7 +36,7 @@ window.onload = function () {
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
           if (result.body == "Login feito com sucesso") {
-          window.location.href = 'index.html';
+          window.location.href = 'home.html';
 
         }
         /*else {
