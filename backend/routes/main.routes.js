@@ -23,6 +23,7 @@ router.post('/registo', (req,res)=>{
   );
 });
 
+
 router.post('/registoManutencao', (req,res)=>{
   controllerUtilizador.registoManutencao(req, function(result){
 
