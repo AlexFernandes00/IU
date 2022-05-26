@@ -25,7 +25,7 @@ window.onload = function () {
             }
 
             
-            fetch(`http://127.0.0.1:8080/registo`, {
+            fetch(`http://127.0.0.1:8080/registoManutencao`, {
             
                 headers: {
                     "Content-Type": "application/json"
