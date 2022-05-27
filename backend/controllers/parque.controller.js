@@ -94,11 +94,34 @@ function adicionarParqueEstacionamentoParque (req, callback){
 
     }
 
+function listarparques(req, res){
+    const idParque = req.body.idParque;
+    const nome = req.body.nome;
+    const descricao = req.body.descricao;
+    const imagem = req.body.imagem;
+    const localizacao = req.body.localizacao;
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
+    const capacidade = req.body.capacidade;
+    const mapa = req.body.mapa;
+
+
+    const get = [nome, descricao, imagem, localizacao, longitude, latitude, capacidade, mapa, idParque];
+    const query = connect.con.query('SELECT * FROM parque', get, function(error, results, fields) {
+        console.log(results)
+        });
+            res({
+                'statusCode': 200,
+                'body': ("Parques listados com sucesso")
+            }) 
+}
+
 
 module.exports = {
     criarParque: criarParque,
     editarParque: editarParque,
     apagarParque: apagarParque,
     adicionarParqueEstacionamentoParque: adicionarParqueEstacionamentoParque,
+    listarparques: listarparques
    
 }

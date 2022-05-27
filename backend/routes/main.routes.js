@@ -115,6 +115,15 @@ router.delete('/apagarParque', (req,res)=>{
   );
 });
 
+router.get('/listarparques', (req,res)=>{
+  controllerParque.listarparques(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
 
 router.post('/criarParqueEstacionamento', (req,res)=>{
   controllerParqueEstacionamento.criarParqueEstacionamento(req, function(result){
