@@ -25,10 +25,17 @@ function criarParque (req, callback){
     let file = 'controllers/EIS-01.jpg';
     let b = fs.readFileSync(file, { encoding: 'base64' });
 
+//<img src="data:image/jpeg;base64,
+    const base64imagem = req.body.imagem;
+    const base64mapa = req.body.mapa;
+    
+    base64imagem = "base64imagem".replace('<img src="data:image/jpeg;base64,','');
+    base64mapa = "base64mapa".replace('<img src="data:image/jpeg;base64,','');
+    
     var bodyData = new FormData();
     var bodyData2 = new FormData();
-    bodyData.append('image', req.body.imagem);
-    bodyData2.append('image', req.body.mapa);
+    bodyData.append('image', base64imagem);
+    bodyData2.append('image', base64mapa);
     //console.log("bodyData. " + b)
 
     let data = {
