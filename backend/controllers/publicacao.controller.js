@@ -41,7 +41,53 @@ function fazerpublicacao (req, callback) {
         })
 }
 
+function editarpublicacao (req, callback) {
+    const idPost = req.body.idPost;
+    const titulo = req.body.titulo;
+    const conteudo = req.body.conteudo;
+    utilizadorController.getId(req, (res)=> {
+        const idUtilizador = res.body.idUtilizador;
+        //temos que verificar se o id do Utilizador de quem quer editar é igual a quem criou o post
+
+        const idParque = 1;
+        if (idPost != "NULL" && typeof (idPost) != 'undefined') {
+        const put = [titulo, conteudo, idParque, idPost]
+        const query = connect.con.query('UPDATE post SET titulo = ?, conteudo = ?, idParque = ? WHERE idPost = ?', put, function(err, rows, fields) {
+            console.log(query.sql);
+            });
+                callback({
+                    'statusCode': 200,
+                    'body': ("Publicação editada com sucesso")
+                })
+            }
+    
+        })
+    
+}
+
+
+function apagarpublicacao (req, callback) {
+    const idPost = req.body.idPost;
+//temos que verificar se o id do Utilizador de quem quer apagar é igual a quem criou o post
+
+    if (idPost != "NULL" && typeof (idPost) != 'undefined') {
+        const update = [idPost];
+        const query = connect.con.query('DELETE FROM post WHERE idPost = ?', update, function(err, rows, fields) {
+            console.log(query.sql);
+            });
+        callback({
+            'statusCode': 200,
+            'body': ("Publicacao apagada com sucesso")
+        })
+        
+    }
+}
+
+//temos que mudar o idParque de estático
+
 module.exports = {
-    fazerpublicacao: fazerpublicacao
+    fazerpublicacao: fazerpublicacao,
+    editarpublicacao:editarpublicacao,
+    apagarpublicacao:apagarpublicacao
    
 }

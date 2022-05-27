@@ -42,14 +42,23 @@ function criarComentario (req, callback){
             })
 
     })
-    
-
     }
+
+
+function editarcomentario (req, callback) {
+
+}
+
+function apagarcomentario(req, callback) {
+
+}
 
 
 
 
 module.exports = {
-    criarComentario: criarComentario
+    criarComentario: criarComentario,
+    editarcomentario:editarcomentario,
+    apagarcomentario:apagarcomentario
    
 }

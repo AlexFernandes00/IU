@@ -79,6 +79,25 @@ router.post('/fazerpublicacao', (req,res)=>{
   );
 });
 
+router.put('/editarpublicacao', (req,res)=>{
+  controllerPublicacao.editarpublicacao(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+router.delete('/apagarpublicacao', (req,res)=>{
+  controllerPublicacao.apagarpublicacao(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
 router.post('/criarParque', (req,res)=>{
   controllerParque.criarParque(req, function(result){
 
