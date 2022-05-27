@@ -11,12 +11,29 @@ function criarParque (req, callback){
     console.log(req.body);
     const nome = req.body.nome;
     const descricao = req.body.descricao;
-    const imagem = req.body.imagem;
+    //const imagem = req.body.imagem;
     const localizacao = req.body.localizacao;
     const longitude = req.body.longitude;
     const latitude = req.body.latitude;
     const capacidade = req.body.capacidade;
     const mapa = req.body.mapa;
+
+    async () => {
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var requestOptions = {
+            mode: 'cors',
+            method: 'GET',
+            headers: myHeaders,
+            credentials: 'include'
+        };
+
+        const response = await fetch(`https://easymarket-backend.beagoddess.repl.co/user/produto`, requestOptions)
+        let products = await response.json();
+    }
+
 
     const post = { nome: nome, descricao: descricao, imagem: imagem, localizacao: localizacao, longitude: longitude, latitude: latitude, capacidade: capacidade, mapa: mapa};
     const query = connect.con.query('INSERT INTO parque SET ?', post, function(err, rows, fields) {
@@ -94,11 +111,34 @@ function adicionarParqueEstacionamentoParque (req, callback){
 
     }
 
+function listarparques(req, res){
+    const idParque = req.body.idParque;
+    const nome = req.body.nome;
+    const descricao = req.body.descricao;
+    const imagem = req.body.imagem;
+    const localizacao = req.body.localizacao;
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
+    const capacidade = req.body.capacidade;
+    const mapa = req.body.mapa;
+
+
+    const get = [nome, descricao, imagem, localizacao, longitude, latitude, capacidade, mapa, idParque];
+    const query = connect.con.query('SELECT * FROM parque', get, function(error, results, fields) {
+        console.log(results)
+        });
+            res({
+                'statusCode': 200,
+                'body': ("Parques listados com sucesso")
+            }) 
+}
+
 
 module.exports = {
     criarParque: criarParque,
     editarParque: editarParque,
     apagarParque: apagarParque,
     adicionarParqueEstacionamentoParque: adicionarParqueEstacionamentoParque,
+    listarparques: listarparques
    
 }
