@@ -2787,7 +2787,7 @@ ul {
 }
 
 /* line 7, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
-.top_place .single_place:after {
+/* .top_place .single_place:after {
   position: absolute;
   content: "";
   left: 0;
@@ -2799,7 +2799,7 @@ ul {
   z-index: 1;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-}
+} */
 
 /* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
 .top_place .single_place .hover_Text {
