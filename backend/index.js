@@ -1,6 +1,8 @@
 const port = process.env.PORT || 8080; 
 const host = process.env.HOST || '127.0.0.1';
 
+
+const fetch = require('node-fetch');
 const express = require('express');
 const app = express();
 global.urlBase = `127.0.0.1`;

@@ -2,6 +2,10 @@ const req = require('request');
 const querystring = require('querystring');
 const request = require('request');
 const connect = require ('../config/connectMySQL');
+const fetch = require('node-fetch');
+const FormData = require('form-data');
+const Axios = require('axios').default;
+const fs = require('fs');
 
 const controllerUtilizador = require('./utilizador.controller.js');
 const { con } = require('../config/connectMySQL');
@@ -16,26 +20,44 @@ function criarParque (req, callback){
     const longitude = req.body.longitude;
     const latitude = req.body.latitude;
     const capacidade = req.body.capacidade;
-    const mapa = req.body.mapa;
+    //const mapa = req.body.mapa;
+    //const imagem = "exemplo";
+    let file = 'controllers/EIS-01.jpg';
+    let b = fs.readFileSync(file, { encoding: 'base64' });
 
-    async () => {
+    var bodyData = new FormData();
+    var bodyData2 = new FormData();
+    bodyData.append('image', req.body.imagem);
+    bodyData2.append('image', req.body.mapa);
+    //console.log("bodyData. " + b)
 
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var requestOptions = {
-            mode: 'cors',
-            method: 'GET',
-            headers: myHeaders,
-            credentials: 'include'
-        };
-
-        const response = await fetch(`https://easymarket-backend.beagoddess.repl.co/user/produto`, requestOptions)
-        let products = await response.json();
+    let data = {
+        image: req.body.imagem,
     }
 
 
-    const post = { nome: nome, descricao: descricao, imagem: imagem, localizacao: localizacao, longitude: longitude, latitude: latitude, capacidade: capacidade, mapa: mapa};
+
+    //console.log("image: " + req.body.imagem)
+    /*
+    fetch(`https://api.imgbb.com/1/upload?expiration=600&key=8b6ee1c4b875473d85898d90a8209aac`, {
+        
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+        mode: 'cors',
+        method: 'POST',
+        body: {
+            image: bodyData
+          }
+
+    }).then(response => {
+        return response.json();
+    }).then((result) => {
+        console.log(result)
+        imagem = result.data.url
+
+        const post = { nome: nome, descricao: descricao, imagem: imagem, localizacao: localizacao, longitude: longitude, latitude: latitude, capacidade: capacidade, mapa: mapa};
     const query = connect.con.query('INSERT INTO parque SET ?', post, function(err, rows, fields) {
     console.log(query.sql);
     });
@@ -43,7 +65,42 @@ function criarParque (req, callback){
             'statusCode': 200,
             'body': ("Parque registado com sucesso")
         })
+    })*/
+
+    /*Axios({
+        method: 'post',
+        url: 'https://api.imgbb.com/1/upload?expiration=600&key=8b6ee1c4b875473d85898d90a8209aac',
+        headers: bodyData.getHeaders(),
+        data: {
+          image: bodyData
+        }
+      }).then((resolve) => {
+        console.log(resolve.data);
+      }).catch(error => console.log(error.response.data));*/
     
+      Axios.post('https://api.imgbb.com/1/upload?expiration=600&key=8b6ee1c4b875473d85898d90a8209aac', bodyData, {
+        headers: bodyData.getHeaders(),
+      }).then(result => {
+        // Handle result…
+        console.log("resultado " + result.data.data.url);
+        const imagem = result.data.data.url;
+
+        Axios.post('https://api.imgbb.com/1/upload?expiration=600&key=8b6ee1c4b875473d85898d90a8209aac', bodyData2, {
+            headers: bodyData2.getHeaders(),
+        }).then(result => {
+            // Handle result…
+            console.log("resultado " + result.data.data.url);
+            const mapa = result.data.data.url;
+            const post = { nome: nome, descricao: descricao, imagem: imagem, localizacao: localizacao, longitude: longitude, latitude: latitude, capacidade: capacidade, mapa: mapa};
+            const query = connect.con.query('INSERT INTO parque SET ?', post, function(err, rows, fields) {
+            console.log(query.sql);
+            });
+                callback({
+                    'statusCode': 200,
+                    'body': ("Parque registado com sucesso")
+                })
+        });
+      });
     
 
     }

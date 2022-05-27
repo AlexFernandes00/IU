@@ -8,7 +8,7 @@ function registo (req, callback){
     const nome = req.body.nome;
     const apelido = req.body.apelido;
     const email = req.body.email;
-    const numeroTrabalhador = req.body.numeroTrabalhador;
+    const numeroTrabalhador = 0;
     const nif = req.body.nif;
     const telefone =req.body.telefone;
     const dataNascimento = req.body.dataNascimento;
