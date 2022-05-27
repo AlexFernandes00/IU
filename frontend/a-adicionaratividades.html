@@ -322,7 +322,7 @@
                   <div class="card">
                     <div class="card-body">
                       <h4 class="card-title">Registar Atividade</h4>
-                      <form id="registoProduto" class="form-sample">
+                      <form id="registoAtivi" class="form-sample">
                         <p class="card-description"> Inserir os dados da Atividade: </p>
                         <!-- <div class="row">
                           <div class="col-md-12">
@@ -346,28 +346,35 @@
                         <div class="form-group row">
                           <label for="exampleInputMobile" class="col-sm-3 col-form-label">Nome da Atividade</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="desigNovoProd" placeholder="Nome da Atividade" required>
+                            <input type="text" class="form-control" id="nomeat" placeholder="Nome da Atividade" required>
                           </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Descrição</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="desigNovoProd" placeholder="Descrição da Atividade" required>
+                              <input type="text" class="form-control" id="descricao" placeholder="Descrição da Atividade" required>
                             </div>
                           </div>
                         
                         <div class="form-group row">
                             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Data Inicio</label>
                             <div class="col-sm-9">
-                              <input type="datetime-local" class="form-control" id="desigNovoProd" >
+                              <input type="datetime-local" class="form-control" id="dataIn" >
                             </div>
                           </div>
 
                           <div class="form-group row">
                             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Data Fim</label>
                             <div class="col-sm-9">
-                              <input type="datetime-local" class="form-control" id="desigNovoProd" >
+                              <input type="datetime-local" class="form-control" id="dataF" >
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Id Parque</label>
+                            <div class="col-sm-9">
+                              <input type="number" class="form-control" id="parque" >
                             </div>
                           </div>
   
@@ -689,5 +696,6 @@
   
      <script src="admin/assets/js/preloder.js"></script>
      <script src="admin/fetch/dashboardgrafico.js"></script>
+     <script src="admin/fetch/adicionaratividade.js"></script>
    </body>
  </html>

@@ -1,6 +1,6 @@
 window.onload = function () {
 
-  const btnLogin = document.getElementById("signup")
+  const btnLogin = document.getElementById("login")
 
   // Autenticar gestor de espaço na área privada
   btnLogin.addEventListener("click", async function (event) {
@@ -31,19 +31,20 @@ window.onload = function () {
       .then((result) => {
         console.log(result)
         //alert(result.body.company)
-        //if (result.body.message == "Login com sucesso" && result.body.company == "false") {
+        //if (result.body.message == "Login feito com sucesso" && result.body.company == "false") {
+         // window.location.href = 'home.html';
           /* response.text().then((data) => {*/
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
           if (result.body == "Login feito com sucesso") {
-          window.location.href = 'index.html';
+          window.location.href = 'home.html';
 
         }
         /*else {
-          if (result.body.message == "Login com sucesso" && result.body.company == "true") {
-            window.location.href = 'https://easymarketisi.web.app/a-index.html';
+          if (result.body.message == "Login feito com sucesso" && result.body.company == "true") {
+            window.location.href = 'a-index.html';
           } else {
-            if (result.body.message == "Login com sucesso" && result.body.company == "none") {
+            if (result.body.message == "Login feito com sucesso" && result.body.company == "none") {
               window.location.href = 'https://easymarketisi.web.app/a-entregador.html';
             } else {
 

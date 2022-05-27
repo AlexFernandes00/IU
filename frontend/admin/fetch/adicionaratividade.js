@@ -1,48 +1,32 @@
 window.onload = function () {
-    const formRegisto = document.getElementById("registoForm");
-
-    formRegisto.addEventListener('submit', async function (event) {
+    const formParque = document.getElementById("registoAtivi");
+    
+    formParque.addEventListener('submit', async function (event) {
         event.preventDefault();
-
-        if (document.getElementById("confirmpass").value != document.getElementById("pass").value) {
-
-            swal.fire({
-                icon: 'error',
-                title: 'As passwords não se coincidem!'
-            })
-
-        } else {
-
             let data = {
-                nome: document.getElementById("nome").value,
-                apelido: document.getElementById("apelido").value,
-                email: document.getElementById("email").value,
-                numeroTrabalhador: document.getElementById("ntrab").value,
-                nif: document.getElementById("nif").value,
-                dataNascimento: document.getElementById("datanascimento").value,
-                password: document.getElementById("pass").value,
+                nome: document.getElementById("nomeat").value,
+                descricao: document.getElementById("descricao").value,
+                dataInicio: document.getElementById("dataIn").value,
+                datafim: document.getElementById("dataF").value,
+                idParque: document.getElementById("parque").value,
             }
-
-            
-            fetch(`http://127.0.0.1:8080/registo`, {
-                
-
+            fetch(`http://127.0.0.1:8080/criarAtividade`, {
                 headers: {
                     "Content-Type": "application/json"
                 },
                 mode: 'cors',
                 method: 'POST',
                 body: JSON.stringify(data)
-
             }).then(response => {
                 return response.json();
             }).then((result) => {
-                console.log("dsdsdsf"+result)
+                window.location.href = 'a-listaatividades.html';
 
+/*
                 if (result.body == "Registo feito com sucesso") {
 console.log("ola")
                     swal({
-                        title: 'Registo com sucesso!',
+                        title: 'Parque adicionado com sucesso!',
                         type: 'success',
                         showCancelButton: false,
                         showConfirmButton: false,
@@ -88,9 +72,9 @@ console.log("ola")
                         }
 
                     }*/
-                }
+               /* }*/
             })
-        }
+        
 
     });
 
