@@ -1,5 +1,5 @@
 window.onload = function () {
-    const formRegisto = document.getElementById("registoForm");
+    const formRegisto = document.getElementById("registoM");
 
     formRegisto.addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -17,16 +17,16 @@ window.onload = function () {
                 nome: document.getElementById("nome").value,
                 apelido: document.getElementById("apelido").value,
                 email: document.getElementById("email").value,
-                numeroTrabalhador: document.getElementById("ntrab").value,
+                numeroTrabalhador: document.getElementById("numero").value,
                 nif: document.getElementById("nif").value,
+                telefone: document.getElementById("telefone").value,
                 dataNascimento: document.getElementById("datanascimento").value,
                 password: document.getElementById("pass").value,
             }
 
             
-            fetch(`http://127.0.0.1:8080/registo`, {
-                
-
+            fetch(`http://127.0.0.1:8080/registoManutencao`, {
+            
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -40,17 +40,17 @@ window.onload = function () {
                 console.log("dsdsdsf"+result)
 
                 if (result.body == "Registo feito com sucesso") {
-console.log("ola")
-                    swal({
+                    /*swal({
                         title: 'Registo com sucesso!',
                         type: 'success',
                         showCancelButton: false,
                         showConfirmButton: false,
                         showLoaderOnConfirm: false,
                         timer: 2000
-                    }).then(result => {
-                        window.location.href = 'login.html';
-                    })
+                    }).then(result => {*/
+                    alert("Login com sucesso")
+                        window.location.href = 'singin.html';
+                   // })
 
                 } else {
 
