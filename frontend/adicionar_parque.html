@@ -640,41 +640,7 @@
      <script src="admin/assets/js/todolist.js"></script>
      <!-- End custom js for this page -->
      <script src="admin/assets/js/chart.js"></script>
-    <script> 
-    window.onload = () => {
-     logout()} 
-     
-     function logout(){
-     const logout = document.getElementById("logout");
- 
-     logout.addEventListener("click", async function (event) {
-         event.preventDefault();
-         var myHeaders = new Headers();
- 
-         myHeaders.append("Content-Type", "application/json");
-         
-         var requestOptions = {
-           mode : 'cors',
-           method: 'GET',
-           headers: myHeaders,
-           credentials : 'include'
-         };
- 
-         fetch(`https://easymarket-backend.beagoddess.repl.co/logout`,requestOptions)
-         .then(response => {
-             return response.json();
-         })
-         .then((result) => {
-             
-             if(result.login=="off"){
-                 window.location.href = logout.href;
-             }
-         })
- 
-     });
-     
- }
-   </script>
+    
   <script src="admin/fetch/adicionarparque.js"></script>
      <script src="admin/assets/js/preloder.js"></script>
     

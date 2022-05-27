@@ -14,7 +14,7 @@ window.onload = function () {
                 capacidade: document.getElementById("capacidade").value,
                 mapa: document.getElementById("mapaParque").value,
             }
-
+            
             console.log(data)
             fetch(`http://127.0.0.1:8080/criarParque`, {
                 headers: {
