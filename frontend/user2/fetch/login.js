@@ -31,7 +31,8 @@ window.onload = function () {
       .then((result) => {
         console.log(result)
         //alert(result.body.company)
-        //if (result.body.message == "Login com sucesso" && result.body.company == "false") {
+        //if (result.body.message == "Login feito com sucesso" && result.body.company == "false") {
+         // window.location.href = 'home.html';
           /* response.text().then((data) => {*/
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
@@ -40,10 +41,10 @@ window.onload = function () {
 
         }
         /*else {
-          if (result.body.message == "Login com sucesso" && result.body.company == "true") {
-            window.location.href = 'https://easymarketisi.web.app/a-index.html';
+          if (result.body.message == "Login feito com sucesso" && result.body.company == "true") {
+            window.location.href = 'a-index.html';
           } else {
-            if (result.body.message == "Login com sucesso" && result.body.company == "none") {
+            if (result.body.message == "Login feito com sucesso" && result.body.company == "none") {
               window.location.href = 'https://easymarketisi.web.app/a-entregador.html';
             } else {
 
