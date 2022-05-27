@@ -40,7 +40,7 @@ input:hover, input:focus {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 18, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_common.scss */
   .section_padding {
-    padding: 80px 0px;
+    padding: 20px 0px;
   }
 }
 
@@ -5603,6 +5603,11 @@ h1{
 /*           Forums.html                       */
 /* ########################################### */
 
+.container2{
+  margin: 20px;
+  padding: 20px;
+}
+
 .subforum{
   margin-top: 20px;
 }
@@ -5623,6 +5628,7 @@ h1{
   border-radius: 5px;
   background-color:#a5d2bc;
 }
+
 .subforum-description *{
   margin-block: 0;
 }
@@ -5638,8 +5644,34 @@ h1{
 }
 
 .subforum-devider{
+  display: none;
+}
+
+/* smartphone */
+@media screen and (max-width: 460px){
+  .container2{
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .subforum-row{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 65% 35%;
+  }
+  .subforum-devider{
+    display: block;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(119, 221, 190, 0.982), rgb(0, 0, 0));
+}
+
+}
+
+.subforum-devider{
   display: none;   
 }
+
 /* Search Box styles */
 .search-box{
   border: solid 1px #a5d2bc;
@@ -5669,13 +5701,99 @@ h1{
   color: #fff;
   box-shadow: 1px 2px 3px #fff;
 }
-/* For the smartphones */
-/*@media screen and (max-width: 460px) {
-  .container{
-      margin: 10px;
-      padding: 10px;
+ /* Nav Bar styles */
+ .navbar{
+  display:flex;
+  align-items: center;
+}
+.navigation{
+  background-color:#52057b;
+  padding: 10px;
+  width: 65%;
+  display: inline-block;
+  border-radius: 5px;
+  max-height: 80px;
+  margin-right:10px;
+}
+
+.close-icon i{
+  font-size:60px;
+  float: left;
+  cursor: pointer;
+}
+
+.nav-list{
+  list-style-type:none;
+  overflow: hidden;
+}
+
+.nav-item a{
+  float: right;
+  display:block;
+  text-align: center;
+  margin-inline: 20px;
+  font-size: 20px;
+  padding: 10px;
+  color:#fff;
+}
+
+.nav-item a:hover{
+  background-color: rgb(0,0,0,0.1);
+}
+
+.hide{
+  display: none;
+}
+
+.bar-icon{
+  font-size: 60px;
+  display: inline-block;
+  margin-right:10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family:aquire;
+  src:url(aquire.otf);
+}
+
+.brand{
+  font-size:60px;
+  display: inline-block;
+  font-family:aquire;
+}
+
+/*Navbar for the smartphones*/
+@media screen and (max-width: 460px){
+  .navigation{
+      max-height: auto;
+  }
+  
+  .close-icon i{
+      font-size:30px;
+  }
+  
+  .nav-item a{
+      float:left;
+      display:inline;
+      margin-inline: 3px;
+      font-size: 10px;
+      padding: 5px;
+  }
+  
+  
+  .bar-icon{
+      font-size: 30px;
   }
 
+  .brand{
+      font-size:20px;
+  }
+}
+
+
+/*
   .subforum-row{
       display: grid;
       grid-template-columns: 25% 75%;
