@@ -36,6 +36,7 @@
 </head>
 
 <body>
+    
    <!--::header part start::-->
    <header class="main_menu">
         <div class="main_menu_iner">
@@ -94,6 +95,51 @@
     <!-- Header part end-->
 
     <!-- banner part start-->
+    <div class="popup-screen">
+        <div class="popup-box">
+            <i class="fas fa-times close-btn"> </i>
+            <h2>AJUDA-NOS A MELHORAR</h2>
+            <div class="user-details">
+                <div class="input-box">
+                  <span class="details">Qual a lotação atual do parque?</span>
+                  <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Username</span>
+                  <input type="text" placeholder="Enter your username" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Email</span>
+                  <input type="text" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Phone Number</span>
+                  <input type="text" placeholder="Enter your number" required>
+                </div>
+              </div>
+              <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                  <label for="dot-1">
+                  <span class="dot one"></span>
+                  <span class="gender">Male</span>
+                </label>
+                <label for="dot-2">
+                  <span class="dot two"></span>
+                  <span class="gender">Female</span>
+                </label>
+                <label for="dot-3">
+                  <span class="dot three"></span>
+                  <span class="gender">Prefer not to say</span>
+                  </label>
+                </div>
+              </div>
+        <a href="#" class="btn">Submeter</a>
+        </div>
+    </div>
     <section class="banner_part">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -110,6 +156,22 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+        const popupScreen = document.querySelector (".popup-screen");
+        const popupBox = document.querySelector (".popup-box");
+        const closeBtn = document.querySelector (".close-btn");
+
+        window.addEventListener("load", () => {
+            setTimeout (() => {
+                popupScreen.classList.add("active");
+
+            }, 2000); //popup the screen in 02 seconds after the page is loaded
+        });
+        closeBtn.addEventListener("click", () => {
+            popupScreen.classList.remove("active"); //close the popup screen on click the close button
+        });
+
+    </script>
     <!-- banner part start-->
 
        <!-- about us css start-->
