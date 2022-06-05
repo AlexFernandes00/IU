@@ -90,8 +90,53 @@
         </div>
     </header>
     <!-- Header part end-->
-
-    <!-- breadcrumb start-->
+<!-- INICIO POPUPS para cada parque-->
+<div class="popup-screen" id="popup" >
+    <div class="popup-box" >
+        <span class="details"><h6> INFORMAÇÕES DO PARQUE JARDIM DA ESTRELA</h6></span>
+        <br>
+        <span class="details"><h5> Lotação atual do parque: </h5></span><h5>xxx</h5>
+        <span class="details"><h5> Tempo médio de permanencia no parque:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Lotação do parque de estacionamento:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Meteorlogia no local:</h5></span><h5>xxx</h5>
+        <a href="#" class="btn" onclick="closePopup()">Ok</a>
+    </div>
+</div>
+<div class="popup-screen" id="popup2" >
+    <div class="popup-box" >
+        <span class="details"><h6> INFORMAÇÕES DO PARQUE EDUARDO VII</h6></span>
+        <br>
+        <span class="details"><h5> Lotação atual do parque: </h5></span><h5>xxx</h5>
+        <span class="details"><h5> Tempo médio de permanencia no parque:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Lotação do parque de estacionamento:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Meteorlogia no local:</h5></span><h5>xxx</h5>
+        <a href="#" class="btn" onclick="closePopup2()">Ok</a>
+    </div>
+</div>
+<div class="popup-screen" id="popup3" >
+    <div class="popup-box" >
+        <span class="details"><h6> INFORMAÇÕES DO PARQUE FLORESTAL DE MONSANTO</h6></span>
+        <br>
+        <span class="details"><h5> Lotação atual do parque: </h5></span><h5>xxx</h5>
+        <span class="details"><h5> Tempo médio de permanencia no parque:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Lotação do parque de estacionamento:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Meteorlogia no local:</h5></span><h5>xxx</h5>
+        <a href="#" class="btn" onclick="closePopup3()">Ok</a>
+    </div>
+</div>
+<div class="popup-screen" id="popup4" >
+    <div class="popup-box" >
+        <span class="details"><h6> INFORMAÇÕES DO PARQUE DA BELA VISTA</h6></span>
+        <br>
+        <span class="details"><h5> Lotação atual do parque: </h5></span><h5>xxx</h5>
+        <span class="details"><h5> Tempo médio de permanencia no parque:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Lotação do parque de estacionamento:</h5></span><h5>xxx</h5>
+        <span class="details"><h5> Meteorlogia no local:</h5></span><h5>xxx</h5>
+        <a href="#" class="btn" onclick="closePopup4()">Ok</a>
+    </div>
+</div>
+<!--FIM POPUPS para cada parque -->
+    
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row">
@@ -106,8 +151,8 @@
             </div>
         </div>
     </section>
-    <!-- breadcrumb start-->
 
+    
      <!--top place start-->
      <section class="top_place section_padding">
         <div class="container">
@@ -126,16 +171,7 @@
                         <div class="hover_Text d-flex align-items-end justify-content-between">
                             <div class="hover_text_iner">
                                 <button type="place_btn" class="place_btn" onclick="openPopup()">Sobre</button>
-                                <div class="popup" id="popup">
-                                    <img src="img/info.jpg"> 
-                                    <h6> INFORMAÇÕES DO PARQUE JARDIM DA ESTRELA</h6>
-                                    <br>
-                                    <h5> Lotação atual do parque: xxx </h5>
-                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
-                                    <h5> Lotação do parque de estacionamento: xxx </h5>
-                                    <h5> Meteorlogia no local:  xxx </h5>
-                                    <button type="button" onclick="closePopup()">OK</button>
-                                </div>
+                                <!--AQUI ESTAVA POPUP-->
                                 <h3>Parque Jardim da Estrela</h3>
                                 <br>
                                 <p>O Jardim da Estrela, mais tarde renomeado Jardim Guerra Junqueiro, é um jardim público situado na freguesia da Estrela, em Lisboa, estando uma das suas entradas em frente da Basílica da Estrela. O Jardim da Estrela foi construído ao estilo dos jardins ingleses, de inspiração romântica.</p>
@@ -158,16 +194,7 @@
                         <div class="hover_Text d-flex align-items-end justify-content-between">
                             <div class="hover_text_iner">
                                 <button type="place_btn" class="place_btn" onclick="openPopup2()">Sobre</button>
-                                <div class="popup2" id="popup2">
-                                    <img src="img/info.jpg"> 
-                                    <h6> INFORMAÇÕES DO PARQUE EDUARDO VII</h6>
-                                    <br>
-                                    <h5> Lotação atual do parque: xxx </h5>
-                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
-                                    <h5> Lotação do parque de estacionamento: xxx </h5>
-                                    <h5> Meteorlogia no local:  xxx </h5>
-                                    <button type="button" onclick="closePopup2()">OK</button>
-                                </div>
+                                <!--AQUI ESTAVA POPUP-->
                                 <h3>Parque Eduardo VII</h3>
                                 <br>
                                 <p>O Parque Eduardo VII de Inglaterra é o maior parque do centro de Lisboa, sendo comummente conhecido apenas por Parque Eduardo VII.</p>
@@ -189,16 +216,7 @@
                         <div class="hover_Text d-flex align-items-end justify-content-between">
                             <div class="hover_text_iner">
                                 <button type="place_btn" class="place_btn" onclick="openPopup3()">Sobre</button>
-                                <div class="popup3" id="popup3">
-                                    <img src="img/info.jpg"> 
-                                    <h6> INFORMAÇÕES DO PARQUE FLORESTAL DE MONSANTO</h6>
-                                    <br>
-                                    <h5> Lotação atual do parque: xxx </h5>
-                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
-                                    <h5> Lotação do parque de estacionamento: xxx </h5>
-                                    <h5> Meteorlogia no local:  xxx </h5>
-                                    <button type="button" onclick="closePopup3()">OK</button>
-                                </div>
+                               <!--AQUI ESTAVA POPUP-->
                                 <h3>Parque Florestal de Monsanto</h3>
                                 <p>O Parque Florestal de Monsanto situa-se na Serra de Monsanto, no concelho de Lisboa. Tem uma área de 1000 hectares submetidos ao regime florestal total, cerca de 10% do concelho de Lisboa, integrando o território de sete freguesias: Benfica; São Domingos de Benfica; Campolide; Campo de Ourique; Belém; Ajuda.</p>
                                 <div class="place_review">
@@ -219,16 +237,7 @@
                         <div class="hover_Text d-flex align-items-end justify-content-between">
                             <div class="hover_text_iner">
                                 <button type="place_btn" class="place_btn" onclick="openPopup4()">Sobre</button>
-                                <div class="popup4" id="popup4">
-                                    <img src="img/info.jpg"> 
-                                    <h6> INFORMAÇÕES DO PARQUE DA BELA VISTA</h6>
-                                    <br>
-                                    <h5> Lotação atual do parque: xxx </h5>
-                                    <h5> Tempo médio de permanencia no parque: xxxx </h5>
-                                    <h5> Lotação do parque de estacionamento: xxx </h5>
-                                    <h5> Meteorlogia no local:  xxx </h5>
-                                    <button type="button" onclick="closePopup4()">OK</button>
-                                </div>
+                                <!--AQUI ESTAVA POPUP-->
                                 <h3>Parque da Bela Vista</h3>
                                 <p>O Parque da Bela Vista é um parque na Bela Vista, de grande extensão. É uma antiga quinta cujo aspecto rural foi preservado. Na sua extensa área encontram-se vários exemplos de fauna e flora tipicamente portuguesas, destacando-se uma grande variedade de aves.</p>
                                 <div class="place_review">
@@ -243,49 +252,45 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    let popup = document.getElementById ("popup");
-                    function openPopup (){
-                        popup.classList.add("open-popup");
-                    }
-                    function closePopup (){
-                        popup.classList.remove("open-popup");
-                    }
-
-                    //popUP para o 2º parque
-                    let popup2 = document.getElementById ("popup2");
-                    function openPopup2 (){
-                        popup2.classList.add("open-popup2");
-                    }
-                    function closePopup2 (){
-                        popup2.classList.remove("open-popup2");
-                    }
-
-                     //popUP para o 3º parque
-                     let popup3 = document.getElementById ("popup3");
-                    function openPopup3 (){
-                        popup3.classList.add("open-popup3");
-                    }
-                    function closePopup3 (){
-                        popup3.classList.remove("open-popup3");
-                    }
-
-                     //popUP para o 4º parque
-                     let popup4 = document.getElementById ("popup4");
-                    function openPopup4 (){
-                        popup4.classList.add("open-popup4");
-                    }
-                    function closePopup4 (){
-                        popup4.classList.remove("open-popup4");
-                    }
-
-                </script>
+                
                 <a href="parques.html" class="btn_1 text-cnter">Descubra mais</a>
             </div>
         </div>
     </section>
     <!--top place end-->
+    <script>
+        //popUP para o 1º parque
+        function openPopup (){
+            document.getElementById("popup").classList.toggle("active");
+        }
+        function closePopup (){
+            document.getElementById("popup").classList.remove("active");
+        }
 
+        //popUP para o 2º parque
+        function openPopup2 (){
+            document.getElementById("popup2").classList.toggle("active");
+        }
+        function closePopup2 (){
+            document.getElementById("popup2").classList.remove("active");
+        }
+
+         //popUP para o 3º parque
+        function openPopup3 (){
+            document.getElementById("popup3").classList.toggle("active");
+        }
+        function closePopup3 (){
+            document.getElementById("popup3").classList.remove("active");
+        }
+
+         //popUP para o 4º parque
+        function openPopup4 (){
+            document.getElementById("popup4").classList.toggle("active");
+        }
+        function closePopup4 (){
+            document.getElementById("popup4").classList.remove("active");
+        }
+    </script>
 
     <!--::industries start::-->
     <section class="best_services section_padding">
