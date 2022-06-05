@@ -97,24 +97,50 @@
             <i class="fas fa-times close-btn"> </i>
             <h2>AJUDA-NOS A MELHORAR</h2>
             <div class="user-details">
-                <div class="input-box">
-                  <span class="details">Em que parque estás?</span>
-                  <input type="text" placeholder="Enter your name" required>
+                <div class="select1">
+                  <span class="selected">Em que parque se encontra?</span>
+                  <div class="caret"></div>
                 </div>
-                <div class="input-box">
+                <ul class="menu">
+                    <li>Parque Jardim da Estrela</li>
+                    <li>Parque Eduardo VII</li>
+                    <li >Parque Florestal de Monsanto</li>
+                    <li>Parque da Bela Vista</li>
+                </ul>
+            
+                <span class="details"><h5>Qual a lotação atual do parque?</h5></span>
+                <div class="radio">                                     
+                    <input class="radio__input" type="radio" value="option1" name="myRadio" id="myRadio1">
+                    <label class="radio__label" for="myRadio1"> Inferior a 50 </label>
+                    <input class="radio__input" type="radio" value="option2" name="myRadio" id="myRadio2">
+                    <label class="radio__label" for="myRadio2"> Entre 50 a 100</label>
+                    <input class="radio__input" type="radio" value="option3" name="myRadio" id="myRadio3">
+                    <label class="radio__label" for="myRadio3"> >100 </label>
+                </div>          
+                <span class="details"><h5>Qual a quantidade de lixo existente nos caixotes?</h5></span>
+                <div class="radio">                                     
+                    <input class="radio__input" type="radio" value="option1" name="myRadio" id="myRadio1">
+                    <label class="radio__label" for="myRadio1"> Nenhum </label>
+                    <input class="radio__input" type="radio" value="option2" name="myRadio" id="myRadio2">
+                    <label class="radio__label" for="myRadio2"> Muito</label>
+                    <input class="radio__input" type="radio" value="option3" name="myRadio" id="myRadio3">
+                    <label class="radio__label" for="myRadio3"> Pouco </label>
+                </div>
+                <span class="details"><h5>Como está o tempo?</h5></span>
+                <div class="radio">                                     
+                    <input class="radio__input" type="radio" value="option1" name="myRadio" id="myRadio1">
+                    <label class="radio__label" for="myRadio1"> Nublado/Trovoada </label>
+                    <input class="radio__input" type="radio" value="option2" name="myRadio" id="myRadio2">
+                    <label class="radio__label" for="myRadio2"> Sol</label>
+                    <input class="radio__input" type="radio" value="option3" name="myRadio" id="myRadio3">
+                    <label class="radio__label" for="myRadio3"> Chuva </label>
+                </div>
+            </div>
+                <!--<div class="input-box">
                   <span class="details">Qual a lotação atual do parque?</span>
                   <input type="text" placeholder="Enter your username" required>
-                </div>
-                <div class="input-box">
-                  <span class="details">Qual a quantidade de lixo existente nos caixotes?</span>
-                  <input type="text" placeholder="Enter your email" required>
-                </div>
-                <div class="input-box">
-                  <span class="details">Como está o tempo?</span>
-                  <input type="text" placeholder="Enter your number" required>
-                </div>
-              </div>
-        <a href="#" class="btn">Submeter</a>
+                </div>-->            
+            <a href="#" class="btn">Submeter</a>        
         </div>
     </div>
     <section class="banner_part">
@@ -137,6 +163,7 @@
         const popupScreen = document.querySelector (".popup-screen");
         const popupBox = document.querySelector (".popup-box");
         const closeBtn = document.querySelector (".close-btn");
+        const dropdowns = document.querySelectorAll (".user-details");
 
         window.addEventListener("load", () => {
             setTimeout (() => {
@@ -148,7 +175,36 @@
             popupScreen.classList.remove("active"); //close the popup screen on click the close button
         });
 
+        //Loop through all dropdown elements
+        dropdowns.forEach(dropdown => {
+            //Get iner elements from each dropdown
+            const select = dropdown.querySelector(".select1");
+            const caret = dropdown.querySelector(".caret");
+            const menu = dropdown.querySelector(".menu");
+            const options = dropdown.querySelectorAll(".menu li");
+            const selected = dropdown.querySelector(".selected");
+
+            //Add a click event to the select1 element 
+            select.addEventListener("click", () => {
+                select.classList.toggle("select1-clicked");
+                caret.classList.toggle("caret-rotate");
+                menu.classList.toggle("menu-open");
+            });
+
+            //Loop through all option elements
+            options.forEach(option => {
+                option.addEventListener("click", () => {
+                    selected.innerText = option.innerText;
+                    select.classList.remove("select1-clicked");
+                    caret.classList.remove("caret-rotate");
+                    menu.classList.remove("menu-open");
+                    //Add active class to clicked option element
+                    options.classList.add(".menu li");
+                });
+            });
+        });
     </script>
+    
     <!-- banner part start-->
 
        <!-- about us css start-->
