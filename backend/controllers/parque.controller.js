@@ -190,11 +190,15 @@ function listarparques(req, res){
     const get = [nome, descricao, imagem, localizacao, longitude, latitude, capacidade, mapa, idParque];
     const query = connect.con.query('SELECT * FROM parque', get, function(error, results, fields) {
         console.log(results)
+        res({
+            'statusCode': 200,
+            'body': (results)
+        }) 
         });
-            res({
+            /*res({
                 'statusCode': 200,
-                'body': ("Parques listados com sucesso")
-            }) 
+                'body': (results)
+            }) */
 }
 
 
