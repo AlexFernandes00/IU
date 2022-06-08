@@ -79,7 +79,7 @@ function listarAtividades(req, res){
 
 
     const get = [nome, descricao, dataInicio, dataFim, idAtividade];
-    const query = connect.con.query('SELECT idAtividade, atividade.nome, atividade.descricao, dataInicio, dataFim, atividade.idParque, parque.nome as nomeParque FROM atividade INNER JOIN parque ON atividade.idParque=parque.idParque;', get, function(error, results, fields) {
+    const query = connect.con.query('SELECT idAtividade, atividade.nome, atividade.descricao, dataInicio, dataFim, atividade.idParque, parque.imagem, parque.nome as nomeParque FROM atividade INNER JOIN parque ON atividade.idParque=parque.idParque;', get, function(error, results, fields) {
         console.log(results)
         res({
             'statusCode': 200,

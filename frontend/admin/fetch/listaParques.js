@@ -39,20 +39,21 @@ window.onload = () => {
         // let products = "";
     
         //fetch("http://127.0.0.1:8080/allprodutos", requestOptions).then(response => {return response.json()}).then(result => products=result)
-        const response = await fetch(`http://127.0.0.1:8080/registo`, requestOptions)
+        const response = await fetch(`http://127.0.0.1:8080/listarparques`, requestOptions)
     
         let products = await response.json();
-        products = products.body;
-        console.log(products)
-        for (let i = 0; i < products.length; i++) {
+        parques = products.body;
+        console.log(parques)
+        for (let i = 0; i < parques.length; i++) {
     
-          let anzol = products[i].qtd;
+          /*let anzol = parques[i].qtd;
           let shade = "";
-          let mar = (anzol / shade) * 100;
+          let mar = (anzol / shade) * 100;*/
     
-          let imagem = "" 
+          let imagem = parques[i].imagem; 
+          let mapa = parques[i].mapa;
     
-          if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
+          /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
     
             const idImagem = products[i].idImage;
             const idImagem1 = idImagem.replace("<p>","").replace(`<span style="font-family: Verdana;">`,"").replace(`</span>`,"").replace(`</p>`,"")     
@@ -60,21 +61,22 @@ window.onload = () => {
     
           } else {
             imagem = products[i].image
-          }
+          }*/
     
           strHtml += `
                 <tr>
                 
-                <td> ${products[i].nome} </td>
-                <td> ${products[i].descricao} </td>
+                <td> ${parques[i].nome} </td>
+                <td> ${parques[i].descricao} </td>
                 <td class="py-1">
                   <img src="`+ `` + imagem + `" />
                 </td>
-                <td> ${products[i].localizacao} </td>
-                <td> ${products[i].longitude} </td>
-                <td> ${products[i].latitude} </td>
+                <td> ${parques[i].localizacao} </td>
+                <td> ${parques[i].longitude} </td>
+                <td> ${parques[i].latitude} </td>
+                <td> ${parques[i].capacidade} </td>
                 <td class="py-1">
-                  <img src="`+ `` + imagem + `" />
+                  <img src="`+ `` + mapa + `" />
                 </td>  
               </tr>`
     
@@ -273,7 +275,7 @@ window.onload = () => {
         credentials: 'include'
       };
     
-      fetch(`https://easymarket-backend.beagoddess.repl.co/admin/perfil`, requestOptions)
+      /*fetch(`https://easymarket-backend.beagoddess.repl.co/admin/perfil`, requestOptions)
         .then(response => {
           return response.json();
         })
@@ -287,7 +289,7 @@ window.onload = () => {
             moradaEsquerdo.innerHTML = result.utilizador.morada;
           }
     
-        });
+        });*/
     
     }
     

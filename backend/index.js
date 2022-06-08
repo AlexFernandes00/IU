@@ -37,6 +37,8 @@ app.use(passport.session()); // persistent login sessions
 
 app.use('/', require('./routes/main.routes'));
 
+app.use(bodyParser.json({limit: '100mb'}));
+
 app.listen(port, function(err) {
     if (!err) {
       console.log('Your app is listening on ' + host + ' and port ' + port);
