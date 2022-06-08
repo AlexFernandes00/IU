@@ -67,10 +67,33 @@ function apagarParqueEstacionamento(req, callback) {
     }
 };
 
+function listarParquesEstacionamento(req, res){
+    const idParqueEstacionamento = req.body.idParqueEstacionamento;
+    const nome = req.body.nome;
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
+    const lotacao = req.body.lotacao;
+
+
+    const get = [nome, longitude, latitude, lotacao, idParqueEstacionamento];
+    const query = connect.con.query('SELECT * FROM parqueEstacionamento', get, function(error, results, fields) {
+        console.log(results)
+        res({
+            'statusCode': 200,
+            'body': (results)
+        }) 
+        });
+            /*res({
+                'statusCode': 200,
+                'body': (results)
+            }) */
+};
+
 
 
 module.exports = {
     criarParqueEstacionamento: criarParqueEstacionamento,
     editarParqueEstacionamento: editarParqueEstacionamento,
     apagarParqueEstacionamento: apagarParqueEstacionamento,
+    listarParquesEstacionamento: listarParquesEstacionamento,
 }

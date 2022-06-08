@@ -174,6 +174,16 @@ router.delete('/apagarParqueEstacionamento', (req,res)=>{
 });
 
 
+router.get('/listarparquesEstacionamento', (req,res)=>{
+  controllerParqueEstacionamento.listarParquesEstacionamento(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
 router.post('/criarAtividade', (req,res)=>{
   controllerAtividade.criarAtividade(req, function(result){
 
