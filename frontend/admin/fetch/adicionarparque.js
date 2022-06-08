@@ -28,7 +28,7 @@ window.onload = function () {
                 return response.json();
             }).then((result) => {
                 console.log("dsdsdsf"+result)
-                window.location.href = 'a-listaparques.html';
+                //window.location.href = 'a-listaparques.html';
 
 /*
                 if (result.body == "Registo feito com sucesso") {

@@ -29,10 +29,10 @@ function criarParque (req, callback){
     let base64imagem = req.body.imagem;
     let base64mapa = req.body.mapa;
     
-    //base64imagem = "base64imagem".replace('<img src="data:image/jpeg;base64,','');
+    base64imagem = "base64imagem".replace('<img src="data:image/jpeg;base64,','');
     //base64imagem = "base64imagem".replace('data:image/jpeg;base64,','');
     //base64mapa = "base64mapa".replace('<img src="data:image/jpeg;base64,','');
-    //base64mapa = "base64mapa".replace('data:image/jpeg;base64,','');
+    base64mapa = "base64mapa".replace('data:image/jpeg;base64,','');
     var bodyData = new FormData();
     var bodyData2 = new FormData();
     bodyData.append('image', base64imagem);
