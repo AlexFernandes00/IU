@@ -45,23 +45,30 @@ function editarpublicacao (req, callback) {
     const idPost = req.body.idPost;
     const titulo = req.body.titulo;
     const conteudo = req.body.conteudo;
-    utilizadorController.getId(req, (res)=> {
-        const idUtilizador = res.body.idUtilizador;
-        //temos que verificar se o id do Utilizador de quem quer editar é igual a quem criou o post
+    const idUtilizador = req.body.idUtilizador;
 
-        const idParque = 1;
-        if (idPost != "NULL" && typeof (idPost) != 'undefined') {
-        const put = [titulo, conteudo, idParque, idPost]
-        const query = connect.con.query('UPDATE post SET titulo = ?, conteudo = ?, idParque = ? WHERE idPost = ?', put, function(err, rows, fields) {
-            console.log(query.sql);
-            });
-                callback({
-                    'statusCode': 200,
-                    'body': ("Publicação editada com sucesso")
-                })
+    utilizadorController.getId(req, (res)=> {
+        const idCriador = res.body.idUtilizador;
+        //temos que verificar se o id do Utilizador de quem quer editar é igual a quem criou o post
+        if(idCriador==idUtilizador){
+            const idParque = 1;
+            if (idPost != "NULL" && typeof (idPost) != 'undefined') {
+            const put = [titulo, conteudo, idParque, idPost]
+            const query = connect.con.query('UPDATE post SET titulo = ?, conteudo = ?, idParque = ? WHERE idPost = ?', put, function(err, rows, fields) {
+                console.log(query.sql);
+                });
+                    callback({
+                        'statusCode': 200,
+                        'body': ("Publicação editada com sucesso")
+                    })
             }
-    
-        })
+        }else{
+            callback({
+                'statusCode': 403,
+                'body': ("Não tem autorização para alterar a publicação")
+            })
+        }
+    })
     
 }
 
