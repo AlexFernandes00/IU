@@ -11,12 +11,10 @@
     <link rel="shortcut icon" href="admin/assets/images/Mini.png" />
   </head>
   <body>
-
     <!-- Page Preloder -->
     <div id="preloder">
       <div class="loader"></div>
     </div>
-
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -40,7 +38,6 @@
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-               
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" id="logout" href="./a-index.html" > 
                   <i class="mdi mdi-logout mr-2 text-primary"></i> Sair </a>
@@ -177,6 +174,7 @@
                           <label for="exampleInputMobile" class="col-sm-3 col-form-label">Imagem do Parque</label>
                           <div class="col-sm-9">
                             <input type="file" class="form-control" id="imgNovoProd" onchange="encode();" placeholder="Imagem do Parque" required>
+                            <div id="imgTest"></div>
                             <!--Function to convert image o Base64 string-->
                             <script>
                               function encode() {
@@ -198,44 +196,39 @@
                             </script> 
                           </div>
                         </div> 
-    
                         <br>
-                        
-                        <div class="form-group row">
-                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mapa do Parque</label>
-                            <div class="col-sm-9">
-                              <input type="file" class="form-control" id="mapaParque" placeholder="Mapa do Parque" required>
-                            </div>
-                          </div> 
-
-                          <div class="form-group row">
-                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Localização</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="locParque" placeholder="Localização do Parque" required>
-                            </div>
-                          </div>  
-  
-                        <div class="row">
-                          <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Latitude</label>
+                              <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mapa do Parque</label>
                               <div class="col-sm-9">
-                                <input id="latitude" type="number" step="0.000001" min="-10" oninput="validity.valid||(value='');"  class="form-control" placeholder="Latitude" required/>
+                                <input type="file" class="form-control" id="mapaParque" placeholder="Mapa do Parque" required>
+                              </div>
+                            </div> 
+                            <div class="form-group row">
+                              <label for="exampleInputMobile" class="col-sm-3 col-form-label">Localização</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="locParque" placeholder="Localização do Parque" required>
+                              </div>
+                            </div>  
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Latitude</label>
+                                <div class="col-sm-9">
+                                  <input id="latitude" type="number" step="0.000001" min="-10" oninput="validity.valid||(value='');"  class="form-control" placeholder="Latitude" required/>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Longitude</label>
-                              <div class="col-sm-9">
-                                <input id="longitude" type="number" step="0.000001" min="-10" oninput="validity.valid||(value='');" class="form-control" placeholder="Longitude" required/>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Longitude</label>
+                                <div class="col-sm-9">
+                                  <input id="longitude" type="number" step="0.000001" min="-10" oninput="validity.valid||(value='');" class="form-control" placeholder="Longitude" required/>
+                                </div>
                               </div>
-                            </div>
+                            </div>  
                           </div>  
-                        </div>  
                         <br>
-                      <button type="submit" class="btn btn-primary" style="    border-radius: .125rem;
+                        <button type="submit" class="btn btn-primary" style="    border-radius: .125rem;
                         font-size: 14px;
                         font-weight: initial;
                         line-height: 1.5;
@@ -250,7 +243,6 @@
           </div>
         </div>
       </div>
-     <!--<script src="admin/fetch/perfil.js"></script>-->
      
      <script src="admin/assets/vendors/js/vendor.bundle.base.js"></script>
      <script src="admin/assets/vendors/chart.js/Chart.min.js"></script>
@@ -291,5 +283,5 @@
     </script>
     <script src="admin/fetch/adicionarparque.js"></script>
     <script src="admin/assets/js/preloder.js"></script>
-   </body>
- </html>
+  </body>
+</html>
