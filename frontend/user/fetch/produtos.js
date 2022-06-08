@@ -1,5 +1,5 @@
 window.onload = () => {
-    isLoggedIn();
+    //isLoggedIn();
 
     const loader = document.querySelector("#loading");
 
@@ -53,10 +53,10 @@ window.onload = () => {
             credentials: 'include'
         };
 
-        const response = await fetch(`https://easymarket-backend.beagoddess.repl.co/user/produto`, requestOptions)
+        const response = await fetch(`127.0.0.1:8080/listarparques`, requestOptions)
         let products = await response.json();
         //console.log(products.body)
-        let AProduto = products.produtos;
+        let AProduto = products.body;
 
         let strHtml = ``
         let unidade = 0;

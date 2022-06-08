@@ -37,6 +37,7 @@ function login(request, response) {
 			// Se existe
 			if (results.length > 0) {
 				// Autenticar utilizador
+				let idUtilizador = results.idUtilizador; 
 				request.session.loggedin = true;
 				request.session.email = email;
 				// redireciona para pagina
@@ -56,6 +57,7 @@ function login(request, response) {
 
 async function getId(request, response) {
 	let email = request.session.email;
+	console.log(request.session.idUtilizador)
 	if (email) {
 		
 		connect.con.query('SELECT idUtilizador FROM utilizador WHERE email = ?', [email], function(error, results, fields) {

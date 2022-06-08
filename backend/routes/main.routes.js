@@ -174,6 +174,16 @@ router.delete('/apagarParqueEstacionamento', (req,res)=>{
 });
 
 
+router.get('/listarparquesEstacionamento', (req,res)=>{
+  controllerParqueEstacionamento.listarParquesEstacionamento(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
 router.post('/criarAtividade', (req,res)=>{
   controllerAtividade.criarAtividade(req, function(result){
 
@@ -196,6 +206,17 @@ router.put('/editarAtividade', (req,res)=>{
 
 router.delete('/apagarAtividade', (req,res)=>{
   controllerAtividade.apagarAtividade(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+
+router.get('/listarAtividades', (req,res)=>{
+  controllerAtividade.listarAtividades(req, function(result){
 
     res.send(result);
 

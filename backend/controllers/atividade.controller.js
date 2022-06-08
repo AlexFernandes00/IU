@@ -70,9 +70,33 @@ function apagarAtividade(req, callback) {
 };
 
 
+function listarAtividades(req, res){
+    const idAtividade = req.body.idParqueEstacionamento;
+    const nome = req.body.nome;
+    const descricao = req.body.descricao;
+    const dataInicio = req.body.dataInicio;
+    const dataFim = req.body.dataFim;
+
+
+    const get = [nome, descricao, dataInicio, dataFim, idAtividade];
+    const query = connect.con.query('SELECT idAtividade, atividade.nome, atividade.descricao, dataInicio, dataFim, atividade.idParque, parque.imagem, parque.nome as nomeParque FROM atividade INNER JOIN parque ON atividade.idParque=parque.idParque;', get, function(error, results, fields) {
+        console.log(results)
+        res({
+            'statusCode': 200,
+            'body': (results)
+        }) 
+        });
+            /*res({
+                'statusCode': 200,
+                'body': (results)
+            }) */
+};
+
+
 
 module.exports = {
     criarAtividade: criarAtividade,
     editarAtividade: editarAtividade,
     apagarAtividade: apagarAtividade,
+    listarAtividades: listarAtividades,
 }
