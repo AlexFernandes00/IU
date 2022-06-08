@@ -118,143 +118,51 @@
     <!-- Header part end-->
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="login100-more" style="background-image: url('img/banner_bg.png');">
-			<!-- <div class="auth-form-light text-center p-5  ">
-				<div class="brand-logo1">
-					<img src="img/logo1.png" height="350" width="750">
-				</div>
-				<br>
-				<br>
-				<h4 style="align-content: center; text-align: center;" class="font-weight-normal"> Registe-se ou inicie
-					sessão </h4>
-			</div> -->
-		</div>
+			<div class="login100-more" style="background-image: url('img/banner_bg.png');"></div>
+
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-				<form id="login" class="login100-form validate-form">
+				<form id="registo" class="login100-form validate-form">
 					<span class="login100-form-title p-b-59">
 						Entrar
 					</span>
 
-					<div class="wrap-input100 validate-input"
-							data-validate="Email válido é obrigatório: ex@abc.xyz">
-							<span class="label-input100">E-mail</span>
-							<input class="input100" id="email" type="text" name="email" placeholder="Endereço Email..."
-								required>
-							<span class="focus-input100"></span>
-						</div>
+					<div class="wrap-input100 validate-input" data-validate = "Email válido é obrigatório: ex@abc.xyz">
+						<span class="label-input100">E-mail</span>
+						<input class="input100" id="email" type="text" name="email" placeholder="Endereço Email..." required>
+						<span class="focus-input100"></span>
+					</div>	
 
-						<div class="wrap-input100 validate-input" data-validate="Password é obrigatório">
-							<span class="label-input100">Password</span>
-							<input class="input100" id="password" type="password" name="pass"
-								placeholder="*************" required>
-							<span class="focus-input100"></span>
-						</div>
-
-					<div class="flex-m w-full p-b-33">
-						<span class="txt1">
-							<p><a href="registoparti.html" class="txt2 hov1"> Ainda não tens conta? Regista-te. </a></p>
-							<p><a href="#" class="txt2 hov1"> Esqueceste-te da palavra-passe? </a></p>
-						</span>
+					<div class="wrap-input100 validate-input" data-validate = "Password é obrigatório">
+						<span class="label-input100">Password</span>
+						<input class="input100" id="pass" type="password" name="pass" placeholder="*************" required>
+						<span class="focus-input100"></span>
 					</div>
 
+					<div class="flex-m w-full p-b-33" style="padding-bottom:10px">
+						<a href="pass.html" class="txt2 hov1"> Esqueceste-se da password? </a>
+					</div>
+
+					<div class="flex-m w-full p-b-33" style="padding-bottom:10px">
+						<a href="registoparti.html" class="txt2 hov1"> Ainda não tens conta? Regista-te. </a>
+					</div>
+					<br>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-								<button class="login100-form-btn">
+							<button class="login100-form-btn">
 								Iniciar Sessão
-								</button>
+							</button>
 						</div>
 					</div>
-					<div class="flex-m w-full p-b-33">
-						<span class="txt1">
-							<br>
-							<p><a href="registomanu.html" class="txt2 hov1"> Registo Empregados da Câmara </a></p>
-						</span>
+					<br>
+					<div class="flex-m w-full p-b-33" style="padding-bottom:10px">
+						<a href="registomanu.html" class="txt2 hov1"> Registo Empregados da Câmara. </a>
 					</div>
+					<br>
 				</form>
 			</div>
 		</div>
-		
-		<script>
-			
-
-			(function($) {
-			  'use strict';
-			  $(function() {
-				var body = $('body');
-				var contentWrapper = $('.container');
-				var scroller = $('.container-scroller');
-				var footer = $('.footer');
-				var sidebar = $('.sidebar');
-			
-				var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
-				$('.nav li a', sidebar).each(function() {
-				  var $this = $(this);
-				  addActiveClass($this);
-				})
-			
-				$('.horizontal-menu .nav li a').each(function() {
-				  var $this = $(this);
-				  addActiveClass($this);
-				})
-			
-				//Close other submenu in sidebar on opening any
-			
-				sidebar.on('show.bs.collapse', '.collapse', function() {
-				  sidebar.find('.collapse.show').collapse('hide');
-				});
-			
-			
-				//Change sidebar and content-wrapper height
-				applyStyles();
-			
-				function applyStyles() {
-				  //Applying perfect scrollbar
-				  if (!body.hasClass("rtl")) {
-					if (body.hasClass("sidebar-fixed")) {
-					  var fixedSidebarScroll = new PerfectScrollbar('#sidebar .nav');
-					}
-				  }
-				}
-			
-				$('[data-toggle="minimize"]').on("click", function() {
-				  if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
-					body.toggleClass('sidebar-hidden');
-				  } else {
-					body.toggleClass('sidebar-icon-only');
-				  }
-				});
-			
-				//checkbox and radios
-				$(".form-check label,.form-radio label").append('<i class="input-helper"></i>');
-			
-				//fullscreen
-				$("#fullscreen-button").on("click", function toggleFullScreen() {
-				  if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
-					if (document.documentElement.requestFullScreen) {
-					  document.documentElement.requestFullScreen();
-					} else if (document.documentElement.mozRequestFullScreen) {
-					  document.documentElement.mozRequestFullScreen();
-					} else if (document.documentElement.webkitRequestFullScreen) {
-					  document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-					} else if (document.documentElement.msRequestFullscreen) {
-					  document.documentElement.msRequestFullscreen();
-					}
-				  } else {
-					if (document.cancelFullScreen) {
-					  document.cancelFullScreen();
-					} else if (document.mozCancelFullScreen) {
-					  document.mozCancelFullScreen();
-					} else if (document.webkitCancelFullScreen) {
-					  document.webkitCancelFullScreen();
-					} else if (document.msExitFullscreen) {
-					  document.msExitFullscreen();
-					}
-				  }
-				})
-			  });
-			})(jQuery);
-					</script>
+	</div>
 	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -272,7 +180,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	<script src="fetch/login.js"></script>
 
 </body>
 </html>
