@@ -7,14 +7,16 @@ window.onload = function () {
             let data = {
                 nome: document.getElementById("nomeParque").value,
                 descricao: document.getElementById("descrParque").value,
-                imagem: document.getElementById("imgNovoProd").value,
+                //imagem: document.getElementById("imgNovoProd").value,
+                imagem: document.getElementById("imgTest").innerHTML,
                 localizacao: document.getElementById("locParque").value,
                 longitude: document.getElementById("longitude").value,
                 latitude: document.getElementById("latitude").value,
                 capacidade: document.getElementById("capacidade").value,
-                mapa: document.getElementById("mapaParque").value,
+                //mapa: document.getElementById("mapaParque").value,
+                mapa: document.getElementById("imgTest").innerHTML,
             }
-            
+            console.log(data.mapa)
             console.log(data)
             fetch(`http://127.0.0.1:8080/criarParque`, {
                 headers: {

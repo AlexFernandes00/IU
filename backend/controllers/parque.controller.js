@@ -29,10 +29,12 @@ function criarParque (req, callback){
     let base64imagem = req.body.imagem;
     let base64mapa = req.body.mapa;
     
-    base64imagem = "base64imagem".replace('<img src="data:image/jpeg;base64,','');
+    base64imagem = base64imagem.replace('<img src="data:image/jpeg;base64,','');
+    base64imagem = base64imagem.substring(0, base64imagem.length - 2)
     //base64imagem = "base64imagem".replace('data:image/jpeg;base64,','');
-    //base64mapa = "base64mapa".replace('<img src="data:image/jpeg;base64,','');
-    base64mapa = "base64mapa".replace('data:image/jpeg;base64,','');
+    base64mapa = base64mapa.replace('<img src="data:image/jpeg;base64,','');
+    base64mapa = base64mapa.substring(0, base64mapa.length - 2)
+    //base64mapa = "base64mapa".replace('data:image/jpeg;base64,','');
     var bodyData = new FormData();
     var bodyData2 = new FormData();
     bodyData.append('image', base64imagem);
@@ -43,7 +45,7 @@ function criarParque (req, callback){
         image: req.body.imagem,
     }
 
-
+    
 
     //console.log("image: " + req.body.imagem)
     /*
@@ -85,6 +87,9 @@ function criarParque (req, callback){
       }).then((resolve) => {
         console.log(resolve.data);
       }).catch(error => console.log(error.response.data));*/
+
+
+
     
       Axios.post('https://api.imgbb.com/1/upload?expiration=600&key=8b6ee1c4b875473d85898d90a8209aac', bodyData, {
         headers: bodyData.getHeaders(),
@@ -110,7 +115,7 @@ function criarParque (req, callback){
         });
       });
     
-
+      
     }
 
 //update
