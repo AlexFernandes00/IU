@@ -212,3 +212,14 @@ router.delete('/apagarAtividade', (req,res)=>{
     }
   );
 });
+
+
+
+router.get('/listarAtividades', (req,res)=>{
+  controllerAtividade.listarAtividades(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
