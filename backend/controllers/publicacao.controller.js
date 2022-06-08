@@ -11,6 +11,7 @@ function fazerpublicacao (req, callback) {
     const titulo = req.body.titulo;
     const conteudo = req.body.conteudo;
     let date_ob = new Date();
+    const idParque = req.body.idParque;
 
     // current date
     // adjust 0 before single digit date
@@ -26,8 +27,6 @@ function fazerpublicacao (req, callback) {
     utilizadorController.getId(req, (res)=> {
         const idUtilizador = res.body.idUtilizador;
 
-
-        const idParque = 1;
 
         const post = { titulo:titulo, conteudo:conteudo, data:data, idUtilizador:idUtilizador, idParque:idParque }
         const query = connect.con.query('INSERT INTO post SET ?', post, function(err, rows, fields) {
@@ -46,12 +45,11 @@ function editarpublicacao (req, callback) {
     const titulo = req.body.titulo;
     const conteudo = req.body.conteudo;
     const idUtilizador = req.body.idUtilizador;
+    const idParque = req.body.idParque;
 
     utilizadorController.getId(req, (res)=> {
         const idCriador = res.body.idUtilizador;
-        //temos que verificar se o id do Utilizador de quem quer editar é igual a quem criou o post
         if(idCriador==idUtilizador){
-            const idParque = 1;
             if (idPost != "NULL" && typeof (idPost) != 'undefined') {
             const put = [titulo, conteudo, idParque, idPost]
             const query = connect.con.query('UPDATE post SET titulo = ?, conteudo = ?, idParque = ? WHERE idPost = ?', put, function(err, rows, fields) {
