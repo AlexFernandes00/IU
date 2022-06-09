@@ -70,6 +70,42 @@ router.post('/criarComentario', (req,res)=>{
   );
 });
 
+router.put('/editarcomentario', (req,res)=>{
+  controllerComentario.editarcomentario(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+router.delete('/apagarcomentario', (req,res)=>{
+  controllerComentario.apagarcomentario(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+router.get('/listarComentarios', (req,res)=>{
+  controllerComentario.listarComentarios(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+router.get('/listarComentariosPorPost', (req,res)=>{
+  controllerComentario.listarComentariosPorPost(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
 router.post('/fazerpublicacao', (req,res)=>{
   controllerPublicacao.fazerpublicacao(req, function(result){
 
@@ -97,6 +133,14 @@ router.delete('/apagarpublicacao', (req,res)=>{
   );
 });
 
+router.get('/listarPub', (req,res)=>{
+  controllerPublicacao.listarPub(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
 
 router.post('/criarParque', (req,res)=>{
   controllerParque.criarParque(req, function(result){

@@ -14,7 +14,7 @@ window.onload = function () {
                 latitude: document.getElementById("latitude").value,
                 capacidade: document.getElementById("capacidade").value,
                 //mapa: document.getElementById("mapaParque").value,
-                mapa: document.getElementById("imgTest").innerHTML,
+                mapa: document.getElementById("imgMap").innerHTML,
             }
             console.log(data.mapa)
             console.log(data)
@@ -30,7 +30,9 @@ window.onload = function () {
                 return response.json();
             }).then((result) => {
                 console.log("dsdsdsf"+result)
-                //window.location.href = 'a-listaparques.html';
+                
+                window.location.href = 'a-listaparques.html';
+                
 
 /*
                 if (result.body == "Registo feito com sucesso") {
@@ -84,6 +86,7 @@ console.log("ola")
                     }*/
                /* }*/
             })
+            .catch(error => alert("Ocorreu um erro. Coloque uma imagem mais pequena."));
         
 
     });
