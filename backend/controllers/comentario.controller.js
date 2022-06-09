@@ -10,6 +10,7 @@ const utilizadorController = require('./utilizador.controller.js');
 function criarComentario (req, callback){
     console.log(req.body);
     const conteudo = req.body.conteudo;
+    const idPost = req.body.idPost;
 
     let date_ob = new Date();
 
@@ -27,11 +28,9 @@ function criarComentario (req, callback){
     utilizadorController.getId(req, (res)=> {
         const idUtilizador = res.body.idUtilizador;
 
-        console.log(idUtilizador)
-        console.log(data)
+        //console.log(idUtilizador)
+        //console.log(data)
         
-        const idPost = 1;
-
         const post = { conteudo: conteudo, data: data, idPost: idPost, idUtilizador: idUtilizador};
         const query = connect.con.query('INSERT INTO comentario SET ?', post, function(err, rows, fields) {
         console.log(query.sql);
@@ -119,10 +118,6 @@ function listarComentarios(req, res){
             'body': (results)
         }) 
         });
-            /*res({
-                'statusCode': 200,
-                'body': (results)
-            }) */
 };
 
 function listarComentariosPorPost(req, res){
@@ -133,18 +128,14 @@ function listarComentariosPorPost(req, res){
     const idPost = req.body.idPost;
 
 
-    const get = [conteudo, data, idUtilizador, idPost, idComentario];
-    const query = connect.con.query('SELECT * FROM comentario', get, function(error, results, fields) {
+    const get = [idPost];
+    const query = connect.con.query('SELECT * FROM comentario WHERE idPost = ?', get, function(error, results, fields) {
         console.log(results)
         res({
             'statusCode': 200,
             'body': (results)
         }) 
         });
-            /*res({
-                'statusCode': 200,
-                'body': (results)
-            }) */
 };
 
 

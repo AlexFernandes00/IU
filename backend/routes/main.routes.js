@@ -97,6 +97,15 @@ router.get('/listarComentarios', (req,res)=>{
   );
 });
 
+router.get('/listarComentariosPorPost', (req,res)=>{
+  controllerComentario.listarComentariosPorPost(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
 router.post('/fazerpublicacao', (req,res)=>{
   controllerPublicacao.fazerpublicacao(req, function(result){
 
