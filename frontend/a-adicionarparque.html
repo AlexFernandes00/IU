@@ -200,7 +200,27 @@
                             <div class="form-group row">
                               <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mapa do Parque</label>
                               <div class="col-sm-9">
-                                <input type="file" class="form-control" id="mapaParque" placeholder="Mapa do Parque" required>
+                                <input type="file" class="form-control" id="mapaParque" onchange="encodeMap();" placeholder="Mapa do Parque" required>
+                                <div id="imgMap"></div>
+                                  <!--Function to convert image o Base64 string-->
+                                  <script>
+                                    function encodeMap() {
+                                      var filesSelected = document.getElementById("mapaParque").files;
+                                      if (filesSelected.length > 0) {
+                                        var fileToLoad = filesSelected[0];                            
+                                        var fileReader = new FileReader();                            
+                                        fileReader.onload = function(fileLoadedEvent) {
+                                          var srcData = fileLoadedEvent.target.result; // <--- data: base64                            
+                                          var newImage = document.createElement('img');
+                                          newImage.src = srcData;                            
+                                          document.getElementById("imgMap").innerHTML = newImage.outerHTML;
+                                          alert("Converted Base64 version is " + document.getElementById("imgMap").innerHTML);
+                                          console.log("Converted Base64 version is " + document.getElementById("imgTest").innerHTML);
+                                        }
+                                        fileReader.readAsDataURL(fileToLoad);
+                                      }
+                                    }
+                                  </script> 
                               </div>
                             </div> 
                             <div class="form-group row">
