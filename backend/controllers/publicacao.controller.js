@@ -52,7 +52,7 @@ function editarpublicacao (req, callback) {
         if(idCriador==idUtilizador){
             if (idPost != "NULL" && typeof (idPost) != 'undefined') {
             const put = [titulo, conteudo, idParque, idPost]
-            const query = connect.con.query('UPDATE post SET titulo = ?, conteudo = ?, idParque = ? WHERE idPost = ?', put, function(err, rows, fields) {
+            const query = connect.con.query('UPDATE post SET titulo = ?, conteudo = ?, idParque = ? WHERE idPost = ? ', put, function(err, rows, fields) {
                 console.log(query.sql);
                 });
                     callback({
@@ -73,26 +73,62 @@ function editarpublicacao (req, callback) {
 
 function apagarpublicacao (req, callback) {
     const idPost = req.body.idPost;
+    const idUtilizador = req.body.idUtilizador;
 //temos que verificar se o id do Utilizador de quem quer apagar é igual a quem criou o post
 
-    if (idPost != "NULL" && typeof (idPost) != 'undefined') {
-        const update = [idPost];
-        const query = connect.con.query('DELETE FROM post WHERE idPost = ?', update, function(err, rows, fields) {
-            console.log(query.sql);
-            });
-        callback({
-            'statusCode': 200,
-            'body': ("Publicacao apagada com sucesso")
-        })
-        
-    }
+    utilizadorController.getId(req, (res)=> {
+        const idCriador = res.body.idUtilizador;
+        console.log(idCriador);
+        console.log(idUtilizador);
+        if(idCriador==idUtilizador){
+            if (idPost != "NULL" && typeof (idPost) != 'undefined') {
+                const update = [idPost];
+                const query = connect.con.query('DELETE FROM post WHERE idPost = ?', update, function(err, rows, fields) {
+                    console.log(query.sql);
+                    });
+                callback({
+                    'statusCode': 200,
+                    'body': ("Publicacao apagada com sucesso")
+                })
+            }
+        }else{
+            callback({
+                'statusCode': 403,
+                'body': ("Não tem autorização para eliminar a publicação")
+            })
+        }
+    })
 }
+
+function listarPub(req, res){
+    const idPost = req.body.idPost;
+    const titulo = req.body.titulo;
+    const conteudo = req.body.conteudo;
+    const data = req.body.data;
+    const idUtilizador = req.body.idUtilizador;
+    const idParque = req.body.idParque;
+
+
+    const get = [titulo, conteudo, data, idUtilizador, idPost, idParque];
+    const query = connect.con.query('SELECT * FROM post', get, function(error, results, fields) {
+        console.log(results)
+        res({
+            'statusCode': 200,
+            'body': (results)
+        }) 
+        });
+            /*res({
+                'statusCode': 200,
+                'body': (results)
+            }) */
+};
 
 //temos que mudar o idParque de estático
 
 module.exports = {
     fazerpublicacao: fazerpublicacao,
     editarpublicacao:editarpublicacao,
-    apagarpublicacao:apagarpublicacao
+    apagarpublicacao:apagarpublicacao,
+    listarPub:listarPub
    
 }

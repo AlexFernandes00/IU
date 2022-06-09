@@ -46,12 +46,106 @@ function criarComentario (req, callback){
 
 
 function editarcomentario (req, callback) {
+    const idComentario = req.body.idComentario;
+    const conteudo = req.body.conteudo;
+    const data = req.body.data;
+    const idUtilizador = req.body.idUtilizador;
+    const idPost = req.body.idPost;
 
+    utilizadorController.getId(req, (res)=> {
+        const idCriador = res.body.idUtilizador;
+        if(idCriador==idUtilizador){
+            if (idComentario != "NULL" && typeof (idComentario) != 'undefined') {
+                const put = [conteudo, idComentario]
+                const query = connect.con.query('UPDATE comentario SET conteudo = ? WHERE idComentario = ? ', put, function(err, rows, fields) {
+                    console.log(query.sql);
+                    });
+                        callback({
+                            'statusCode': 200,
+                            'body': ("Comentário editada com sucesso")
+                        })
+                }
+        }else{
+            callback({
+                'statusCode': 403,
+                'body': ("Não tem autorização para alterar o comentário")
+            })
+        }
+    })
 }
 
 function apagarcomentario(req, callback) {
+    const idComentario = req.body.idComentario;
+    const idUtilizador = req.body.idUtilizador;
+//temos que verificar se o id do Utilizador de quem quer apagar é igual a quem criou o post
 
+    utilizadorController.getId(req, (res)=> {
+        const idCriador = res.body.idUtilizador;
+        console.log(idCriador);
+        console.log(idUtilizador);
+        if(idCriador==idUtilizador){
+            if (idComentario != "NULL" && typeof (idComentario) != 'undefined') {
+                const update = [idComentario];
+                const query = connect.con.query('DELETE FROM comentario WHERE idComentario = ?', update, function(err, rows, fields) {
+                    console.log(query.sql);
+                    });
+                callback({
+                    'statusCode': 200,
+                    'body': ("Comentario apagado com sucesso")
+                })
+            }
+        }else{
+            callback({
+                'statusCode': 403,
+                'body': ("Não tem autorização para eliminar o comentario")
+            })
+        }
+    })
 }
+
+function listarComentarios(req, res){
+    const idComentario = req.body.idComentario;
+    const conteudo = req.body.conteudo;
+    const data = req.body.data;
+    const idUtilizador = req.body.idUtilizador;
+    const idPost = req.body.idPost;
+
+
+    const get = [conteudo, data, idUtilizador, idPost, idComentario];
+    const query = connect.con.query('SELECT * FROM comentario', get, function(error, results, fields) {
+        console.log(results)
+        res({
+            'statusCode': 200,
+            'body': (results)
+        }) 
+        });
+            /*res({
+                'statusCode': 200,
+                'body': (results)
+            }) */
+};
+
+function listarComentariosPorPost(req, res){
+    const idComentario = req.body.idComentario;
+    const conteudo = req.body.conteudo;
+    const data = req.body.data;
+    const idUtilizador = req.body.idUtilizador;
+    const idPost = req.body.idPost;
+
+
+    const get = [conteudo, data, idUtilizador, idPost, idComentario];
+    const query = connect.con.query('SELECT * FROM comentario', get, function(error, results, fields) {
+        console.log(results)
+        res({
+            'statusCode': 200,
+            'body': (results)
+        }) 
+        });
+            /*res({
+                'statusCode': 200,
+                'body': (results)
+            }) */
+};
 
 
 
@@ -59,6 +153,8 @@ function apagarcomentario(req, callback) {
 module.exports = {
     criarComentario: criarComentario,
     editarcomentario:editarcomentario,
-    apagarcomentario:apagarcomentario
+    apagarcomentario:apagarcomentario,
+    listarComentarios:listarComentarios,
+    listarComentariosPorPost:listarComentariosPorPost
    
 }
