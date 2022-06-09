@@ -5870,7 +5870,7 @@ h1{
 }
 
 
-.event-container h5.year {
+.event-container h3.year {
   font-size: 40px;
   text-align: center;
   border-bottom: 1px solid #8a4343;
@@ -5883,6 +5883,7 @@ h1{
   margin: 32px 0;
 }
 
+
 .event .event-left {
   background: #222;
   min-width: 82px;
@@ -5894,6 +5895,10 @@ h1{
   font-weight: bold;
   text-align: center;
   border-radius: 8px 0 0 8px;
+}
+
+.event .event-left:hover{
+  background: #008168;
 }
 
 .event .event-left .date {
