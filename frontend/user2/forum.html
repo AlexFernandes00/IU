@@ -90,7 +90,31 @@
         </div>
     </header>
     <!-- Header part end-->
-
+    <div class="popup-screen" id="popup">
+        <div class="popup-box">
+            <i class="fas fa-times close-btn"> </i>
+            <h2>AJUDA-NOS A MELHORAR</h2>
+            <div class="user-details">
+                <div class="select1">
+                 <span class="selected">Em que parque se encontra?</span>
+                  <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>Parque Jardim da Estrela</li>
+                    <li>Parque Eduardo VII</li>
+                    <li >Parque Florestal de Monsanto</li>
+                    <li>Parque da Bela Vista</li>
+                </ul>
+                <br>
+            </div>
+                <!--<div class="input-box">
+                  <span class="details">Qual a lotação atual do parque?</span>
+                  <input type="text" placeholder="Enter your username" required>
+                </div>-->            
+            <a href="forum.html" class="btn">Submeter</a>        
+        </div>
+    </div>
+    
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
@@ -106,6 +130,17 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+        const popupScreen = document.querySelector (".popup-screen");
+        const popupBox = document.querySelector (".popup-box");
+        const closeBtn = document.querySelector (".close-btn");
+        const dropdowns = document.querySelectorAll (".user-details");
+
+        closeBtn.addEventListener("click", () => {
+            popupScreen.classList.remove("active"); //close the popup screen on click the close button
+        });     
+
+    </script>
     
     <!--<section class="about_us section_padding">-->
    
@@ -124,19 +159,6 @@
             </div>
         </div>
 
-        <!--SearchBox Section-->
-        <!-- <div class="navbar2">
-            <nav class="navigation hide" id="navigation">
-                <span class="close-icon" id="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="forums.html">Forums</a></li>
-                    <li class="nav-item"><a href="posts.html">Posts</a></li>
-                    <li class="nav-item"><a href="detail.html">Detail</a></li>
-                </ul>
-            </nav>
-            <a class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
-            <div class="brand">My Forum</div>
-        </div> -->
         <div class="search-box">
             <form action="" class="search-bar">
                 <input type="text" name="q" placeholder="Procurar ...">
@@ -148,12 +170,13 @@
     <br>
 
     <div class="container2"> 
-        <button type="button" class="button" >
+        <button type="button" class="button" onclick="openPopup()">
             <span class="button__text">Criar Post</span>
-            <span class="button__icon">
+            <span class="button__icon" >
                 <ion-icon name="add-circle-outline"></ion-icon>
             </span>
         </button>
+
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         
 
@@ -332,6 +355,16 @@
     </footer>
     <!-- footer part end-->
 
+    <script>
+        //popUP para o 1º parque
+        function openPopup (){
+            document.getElementById("popup").classList.toggle("active");
+        }
+        function closePopup (){
+            document.getElementById("popup").classList.remove("active");
+        }
+        </script>
+        
     <!-- jquery plugins here-->
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->
