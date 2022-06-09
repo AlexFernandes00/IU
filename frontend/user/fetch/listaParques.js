@@ -2,30 +2,15 @@
 window.onload = () => {
     //logout()
     
-    const loader = document.querySelector("#loading");
+    //const loader = document.querySelector("#loading");
     
-    loader.classList.add("display");
+    //loader.classList.add("display");
     
       const renderProducts = async () => {
         var myHeaders = new Headers();
-        const tblProdutos = document.getElementById("produtosadmin");
-    
-        let strHtml = `
-        
-                 <thead> 
-                 <th> Nome </th>
-                 <th> Descrição </th>
-                 <th> Imagem </th>
-                 <th> Localização </th>
-                 <th> Longitude </th>
-                 <th> Latitude </th>
-                 <th> Capacidade </th>
-                 <th> Mapa </th>
-    
-               </tr>
-             </thead>
-             <tbody>
-            `
+        const tblProdutos = document.getElementById("listagem");
+        console.log(tblProdutos)
+        let strHtml = ``
     
         myHeaders.append("Content-Type", "application/json");
     
@@ -41,17 +26,18 @@ window.onload = () => {
         //fetch("http://127.0.0.1:8080/allprodutos", requestOptions).then(response => {return response.json()}).then(result => products=result)
         const response = await fetch(`http://127.0.0.1:8080/listarparques`, requestOptions)
     
-        let products = await response.json();
-        parques = products.body;
+        let parques = await response.json();
+        parques = parques.body;
         console.log(parques)
         for (let i = 0; i < parques.length; i++) {
     
-          /*let anzol = parques[i].qtd;
-          let shade = "";
-          let mar = (anzol / shade) * 100;*/
+          let nome = parques[i].nome;
+          let nomeParque = parques[i].nomeParque;
+          let descricao = parques[i].descricao;
+          let dataInicio = parques[i].dataIcnicio;
+          let dataFim = parques[i].dataFim;
     
-          let imagem = parques[i].imagem; 
-          let mapa = parques[i].mapa;
+          let imagem = parques[i].imagem;
     
           /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
     
@@ -63,22 +49,29 @@ window.onload = () => {
             imagem = products[i].image
           }*/
     
-          strHtml += `
-                <tr>
-                
-                <td> ${parques[i].nome} </td>
-                <td> ${parques[i].descricao} </td>
-                <td class="py-1">
-                  <img src="`+ `` + imagem + `" />
-                </td>
-                <td> ${parques[i].localizacao} </td>
-                <td> ${parques[i].longitude} </td>
-                <td> ${parques[i].latitude} </td>
-                <td> ${parques[i].capacidade} </td>
-                <td class="py-1">
-                  <img src="`+ `` + mapa + `" />
-                </td>  
-              </tr>`
+          strHtml += `<div class="col-lg-6 col-md-6">
+          <div class="single_place">
+              <img src="img/park1.jpg" width="560" height="382" alt="">
+              <div class="hover_Text d-flex align-items-end justify-content-between">
+                  <div class="hover_text_iner">
+                      <button type="place_btn" class="place_btn" onclick="openPopup()">Sobre</button>
+                      <!--AQUI ESTAVA POPUP-->
+                      <h3>Parque Jardim da Estrela</h3>
+                      <br>
+                      <p>O Jardim da Estrela, mais tarde renomeado Jardim Guerra Junqueiro, é um jardim público situado na freguesia da Estrela, em Lisboa, estando uma das suas entradas em frente da Basílica da Estrela. O Jardim da Estrela foi construído ao estilo dos jardins ingleses, de inspiração romântica.</p>
+                      <div class="place_review">
+                          
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <span>(146)</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>`
     
         }
         strHtml += "</tbody>"
