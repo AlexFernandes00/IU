@@ -30,11 +30,9 @@ window.onload = function () {
                 return response.json();
             }).then((result) => {
                 console.log("dsdsdsf"+result)
-                if (result.status==200){
-                    window.location.href = 'a-listaparques.html';
-                }else{
-                    alert("Ocorreu um erro. Exprimente colocar uma imagem mais pequena");
-                }
+                
+                window.location.href = 'a-listaparques.html';
+                
 
 /*
                 if (result.body == "Registo feito com sucesso") {
@@ -88,6 +86,7 @@ console.log("ola")
                     }*/
                /* }*/
             })
+            .catch(error => alert("Ocorreu um erro. Coloque uma imagem mais pequena."));
         
 
     });
