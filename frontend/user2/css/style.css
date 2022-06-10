@@ -147,7 +147,7 @@ a:hover {
 }
 
 /* line 74, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_common.scss */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   color: #05271a;
   font-family: "Open Sans", sans-serif;
 }
@@ -6122,7 +6122,7 @@ button {
   font-size: 14px;
   padding: 4px 8px;
   color: rgba(0, 0, 0, 0.85);
-  background-color: #fff;
+  background-color: #009578;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
@@ -6130,8 +6130,10 @@ button:hover,
 button:focus,
 button:active {
   cursor: pointer;
-  background-color: #ecf0f1;
+  background-color: #73716d;
 }
+
+
 .comment-thread {
   width: 700px;
   max-width: 100%;
