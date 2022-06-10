@@ -462,6 +462,38 @@ form .btn button:hover{
 	transition: all 0.3s ease;
   }
   
+  input[type="radio"]{
+    display: none;
+}
+
+
+label span{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px 10px 10px;
+    border-radius: 31px;
+    transition: .25s ease;
+}
+
+label span:hover,
+input[type="radio"]:checked + span{
+    background-color: #d6e4e5;
+}
+
+label span:before{
+    content: "";
+    background-color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: .25s ease;
+    box-shadow:  inset 0 0 0 2px #1f7348;
+}
+
+input[type="radio"]:checked + span:before{
+    box-shadow: inset 0 0 0 10px #1f7348;
+}
 
    /* --------------------------CREATE DROP DOWN MENU IN FORMS-------------------------*/
 .user-details{
