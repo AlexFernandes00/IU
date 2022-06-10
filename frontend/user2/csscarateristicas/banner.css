@@ -52,12 +52,12 @@ h6{
 	font-size: 175% !important;
 }
 h4{
-	font-family: 'Basic' !important;
-	margin-bottom: 10% !important;
-    font-weight: 700;
-    font-size: 130% !important;
-    color: #ffffff !important;
-    text-transform: uppercase;
+	font-size: 200% !important; 
+	font-weight: 300;
+	color: #fff !important;
+	font-family: 'Basic';
+	font-size: 200% !important;
+
 }
 .texto1{
 	color: #48a16a !important;
