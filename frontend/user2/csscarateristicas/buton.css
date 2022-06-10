@@ -397,7 +397,7 @@ form .textarea textarea{
   resize: none;
 }
 .textarea textarea:focus{
-  border-color: #444;
+  border-color: #2a7d4a;
 }
 form .btn{
   height: 45px;
@@ -438,8 +438,8 @@ form .btn button:hover{
 	display: block;
 	font-weight: 500;
 	margin-bottom: 5px;
-  }
-  .user-details .input-box input{
+  }*/
+  .user-details input{
 	height: 45px;
 	width: 100%;
 	outline: none;
@@ -449,7 +449,19 @@ form .btn button:hover{
 	border: 1px solid #ccc;
 	border-bottom-width: 2px;
 	transition: all 0.3s ease;
-  }*/
+  }
+  .user-details textarea{
+	height: 150px;
+	width: 100%;
+	outline: none;
+	font-size: 16px;
+	border-radius: 5px;
+	padding-left: 15px;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+  }
+  
 
    /* --------------------------CREATE DROP DOWN MENU IN FORMS-------------------------*/
 .user-details{
