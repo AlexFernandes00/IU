@@ -2230,7 +2230,7 @@ ul {
 @media (max-width: 575px) {
   /* line 7, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_menu.scss */
   .main_menu .navbar-brand img {
-    max-width: 150px;
+    max-width: 200%;
   }
 }
 
@@ -5666,10 +5666,158 @@ h1{
     background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(119, 221, 190, 0.982), rgb(0, 0, 0));
 }
 
+
+
 }
 
 .subforum-devider{
   display: none;   
+}
+
+/* posts table's head  */
+.table-head{
+  display: flex;
+}
+
+.table-head div{
+  padding: 5px;
+  margin: 2px;
+  background-color: #a5d2bc;
+  font-weight: bold;
+}
+
+
+.table-head .subjects{
+  flex: 70%;
+}
+
+.table-head .replies{
+  flex: 10%;
+}
+
+.table-head .last-reply{
+  flex: 15%;
+}
+
+/* posts table's body  */
+
+.table-row{
+  display: flex;
+}
+
+.table-row .status, .table-row .subjects, .table-row .replies, .table-row .last-reply{
+  padding: 5px;
+  margin: 2px;
+  background-color: #a5d2bc;
+}
+
+
+.table-row .subjects{
+  flex: 70%;
+}
+
+.table-row .replies{
+  flex: 10%;
+  display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.table-row .last-reply{
+  flex: 15%;
+}
+
+.comment__container {
+  display: none;
+  position: relative;
+}
+
+.comment__container.opened {
+  display: block;
+}
+
+.comment__container::before {
+  content: "";
+  background-color: rgb(170, 170, 170);
+  position: absolute;
+  min-height: 100%;
+  width: 1px;
+  left: -10px;
+}
+
+.comment__container:not(:first-child) {
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+
+.comment__card {
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  min-width: 100%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.comment__card h3,
+.comment__card p {
+  margin-bottom: 1rem;
+}
+
+.comment__card-footer {
+  display: flex;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  gap: 30px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* navigation path*/
+.navigate{
+  margin-block: 20px;
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+.navigate a{
+  color: #fff;
+}
+
+.navigate a:hover{
+  color:#FF0042;
+  font-weight: bolder;
+}
+
+/* Pagination*/
+
+.pagination{
+  padding: 20px;
+  font-size: 15px;
+}
+
+.pagination a{
+  color: #fff;
+  margin-inline: 5px;
+  padding: 5px 10px;
+  border: solid 0.5px #fff;
+}
+
+.pagination a:hover{
+  opacity: 0.5;
+}
+
+.note{
+  background-color:#111314;
+  padding: 20px;
+  display: block;
+}
+
+.note span{
+  font-size: 20px;
+  margin-block: 5px;
 }
 
 /* Search Box styles */
@@ -5960,6 +6108,182 @@ h1{
   .event .event-left .event-date {
     padding: 10px 0;
   }
+}
+
+
+/* ########################################### */
+/*           Posts.html                       */
+/* ########################################### */
+
+button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 14px;
+  padding: 4px 8px;
+  color: rgba(0, 0, 0, 0.85);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+button:hover,
+button:focus,
+button:active {
+  cursor: pointer;
+  background-color: #ecf0f1;
+}
+.comment-thread {
+  width: 700px;
+  max-width: 100%;
+  margin: auto;
+  padding: 0 30px;
+  background-color: #fff;
+  border: 1px solid transparent; /* Removes margin collapse */
+}
+.m-0 {
+  margin: 0;
+}
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Comment */
+
+.comment {
+  position: relative;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  min-width: 100%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+.comment-heading {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  font-size: 14px;
+
+}
+.comment-voting {
+  width: 20px;
+  height: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.comment-voting button {
+  display: block;
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  border: 0;
+  font-size: 10px;
+}
+.comment-info {
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 10px;
+}
+.comment-author {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+.comment-author:hover {
+  text-decoration: underline;
+}
+
+
+.replies {
+  margin-left: 20px;
+}
+
+/* Adjustments for the comment border links */
+
+.comment-border-link {
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: -25px;
+  width: 12px;
+  height: calc(100% - 50px);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
+}
+.comment-border-link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.comment-body {
+  padding: 0 20px;
+  padding-left: 28px;
+}
+.replies {
+  margin-left: 28px;
+}
+
+/* Adjustments for toggleable comments */
+
+details.comment summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+}
+details.comment summary::-webkit-details-marker {
+  display: none;
+}
+details.comment:not([open]) .comment-heading {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.comment-heading::after {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  align-self: center;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.55);
+}
+details.comment[open] .comment-heading::after {
+  content: "Mostrar Menos";
+}
+details.comment:not([open]) .comment-heading::after {
+  content: "Mostrar Mais";
+}
+
+/* Adjustment for Internet Explorer */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* Resets cursor, and removes prompt text on Internet Explorer */
+  .comment-heading {
+      cursor: default;
+  }
+  details.comment[open] .comment-heading::after,
+  details.comment:not([open]) .comment-heading::after {
+      content: " ";
+  }
+}
+
+/* Styling the reply to comment form */
+
+.reply-form textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.d-none {
+  display: none;
 }
 
 /*
