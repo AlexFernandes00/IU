@@ -241,7 +241,7 @@
 
 .popup-box{
 	position: relative;
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.854);
 	backdrop-filter: blur(10px);
 	max-width: 500px;
 	display: flex;
@@ -470,7 +470,7 @@ form .btn button:hover{
 label span{
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px 10px 10px;
+    padding: 5px 8px 5px 2px;
     border-radius: 31px;
     transition: .25s ease;
 }
@@ -483,8 +483,8 @@ input[type="radio"]:checked + span{
 label span:before{
     content: "";
     background-color: #fff;
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     margin-right: 10px;
     transition: .25s ease;
@@ -597,6 +597,80 @@ input[type="radio"]:checked + span:before{
 .radio__input:checked + .radio__label{
 	background: #2a7d4a;
 }
+
+/*TEMPO METEOROLOGIAAAAA*/
+/*TEMPO METEOROLOGIAAAAA*/
+
+.radio-buttons {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .custom-radio input {
+        display: none;
+      }
+
+      .radio-btn {
+        margin: 5px;
+        width: 90px;
+        height: 100px;
+        border: 3px solid transparent;
+        display: inline-block;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c367;
+        cursor: pointer;
+      }
+
+      .radio-btn > i {
+        color: #ffffff;
+        background-color: #2a7d4a;
+        font-size: 20px;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) scale(4);
+        border-radius: 50px;
+        padding: 3px;
+        transition: 0.2s;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .radio-btn .hobbies-icon {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .radio-btn .hobbies-icon i {
+        color: #1f7348;
+        line-height: 50px;
+        font-size: 30px;
+      }
+
+      .radio-btn .hobbies-icon h3 {
+        color: #2a7d4a;
+        font-family: "Raleway", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      .custom-radio input:checked + .radio-btn {
+        border: 3px solid #2a7d4a;
+      }
+
+      .custom-radio input:checked + .radio-btn > i {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+
 /*.choice-radio{
 	margin: 1em;
 	align-items: center;

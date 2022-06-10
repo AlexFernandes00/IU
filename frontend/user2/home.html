@@ -10,6 +10,15 @@
     <!-- Bootstrap CSS -->
 	<link href='https://fonts.googleapis.com/css?family=Caesar Dressing' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Line Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- animate CSS -->
     <link rel="stylesheet" href="css/animate.css">
@@ -98,8 +107,7 @@
     <div class="popup-screen">
         <div class="popup-box">
             <i class="fas fa-times close-btn"> </i>
-            <h2>AJUDA-NOS A MELHORAR</h2>
-            <br>
+            <h2 style="font-size:26px;">AJUDA-NOS A MELHORAR</h2>
             <div class="user-details">
                 <div class="select1">
                  <span class="selected">Em que parque se encontra? </span>
@@ -117,34 +125,81 @@
                 <form action="">
                     <label>
                         <input type="radio" id="html" name="radio" />
-                        <span>Pouco</span>
+                        <span>Pouca</span>
                     </label>
                     <label>
-                        <input type="radio" id="css" name="radio" checked/>
-                        <span>Razoável</span>
+                        <input type="radio" id="css" name="radio" />
+                        <span>Alguma</span>
+                    </label>
+                    <label>
+                        <input type="radio" id="javascript" name="radio"/>
+                        <span>Muita</span>
+                    </label>
+                </form>
+                <br>
+
+                <span class="details"><h5>Qual a quantidade de lixo existente nos caixotes?</h5></span>
+                <form action="">
+                    <label>
+                        <input type="radio" id="html" name="radio" />
+                        <span>Nenhum</span>
+                    </label>
+                    <label>
+                        <input type="radio" id="css" name="radio" />
+                        <span>Pouco</span>
                     </label>
                     <label>
                         <input type="radio" id="javascript" name="radio"/>
                         <span>Muito</span>
                     </label>
                 </form>
+
                 <br>
 
-                <span class="details"><h5>Qual a lotação atual do parque?</h5></span>
-                <form action="">
-                    <label>
-                        <input type="radio" id="html" name="radio" />
-                        <span>HTML</span>
+                <span class="details"><h5>Como está o tempo?</h5></span>
+                <div class="radio-buttons">
+                    <label class="custom-radio">
+                      <input type="radio" name="radio"  />
+                      <span class="radio-btn"
+                        ><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                          <i class="las la-cloud"></i>
+                          <p style="font-weight: normal;">Nublado</p>
+                        </div>
+                      </span>
                     </label>
-                    <label>
-                        <input type="radio" id="css" name="radio" checked/>
-                        <span>CSS</span>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn"
+                        ><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                          <i class="las la-bolt"></i>
+                          <p style="font-weight: normal;">Trovoada</p>
+                        </div>
+                      </span>
                     </label>
-                    <label>
-                        <input type="radio" id="javascript" name="radio"/>
-                        <span>Javascript</span>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn"
+                        ><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                          <i class="las la-cloud-rain"></i>
+                          <p style="font-weight: normal;">Chuva</p>
+                        </div>
+                      </span>
                     </label>
-                </form>
+                    <label class="custom-radio">
+                        <input type="radio" name="radio" />
+                        <span class="radio-btn"
+                          ><i class="las la-check"></i>
+                          <div class="hobbies-icon">
+                            <i class="las la-sun"></i>
+                            <p style="font-weight: normal;">Sol</p>
+                          </div>
+                        </span>
+                      </label>
+                  </div>
+
                 <!-- <div class="radio">                                     
                     <input class="radio__input" type="radio" value="option1" name="myRadio" id="myRadio1">
                     <label class="radio__label" for="myRadio1"> Inferior a 50 </label>
