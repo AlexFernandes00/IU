@@ -26,25 +26,19 @@ window.onload = function () {
       return response.json();
     })
       .then((result) => {
-        //if (result.body.message == "Login feito com sucesso" && result.body.company == "false") {
-         //window.location.href = 'home.html';
+        if (result.body == "Login feito com sucesso" && result.idTipoUtilizador == 1) {
+         window.location.href = '../a-index.html';
           /* response.text().then((data) => {*/
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
-          if (result.body == "Login feito com sucesso") {
-          //window.location.href = 'home.html';
-          alert(result.body)
-          console.log(result.idTipoUtilizador);
-
-        }else{
-          alert(result.body)
         }
-        /*else {
-          if (result.body.message == "Login feito com sucesso" && result.body.company == "true") {
-            window.location.href = 'a-index.html';
+        else {
+          if (result.body == "Login feito com sucesso" && result.idTipoUtilizador == 11) {
+            console.log("certo")
+            window.location.href = '../m-index.html';
           } else {
-            if (result.body.message == "Login feito com sucesso" && result.body.company == "none") {
-              window.location.href = 'https://easymarketisi.web.app/a-entregador.html';
+            if (result.body == "Login feito com sucesso" && result.idTipoUtilizador == 21) {
+              window.location.href = 'home.html';
             } else {
 
               if (result.body.message == "Password errada") {
@@ -64,7 +58,7 @@ window.onload = function () {
               }
             }
           }
-        }*/
+        }
       }).catch(error => { console.log(error) })
 
   })
