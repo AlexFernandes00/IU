@@ -2,26 +2,15 @@
 window.onload = () => {
     //logout()
     
-    const loader = document.querySelector("#loading");
+    //const loader = document.querySelector("#loading");
     
-    loader.classList.add("display");
+    //loader.classList.add("display");
     
       const renderProducts = async () => {
         var myHeaders = new Headers();
         const tblProdutos = document.getElementById("containerPosts");
     
         let strHtml = `
-          <button type="button" class="button" id="btnCriarPost" onclick="openPopup()">
-              <span class="button__text">Criar Post</span>
-              <span class="button__icon" >
-                  <ion-icon name="add-circle-outline"></ion-icon>
-              </span>
-          </button>
-
-          <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-          
-          <br>
-          <br>
         ` 
     
         myHeaders.append("Content-Type", "application/json");
@@ -36,51 +25,125 @@ window.onload = () => {
         // let products = "";
     
         //fetch("http://127.0.0.1:8080/allprodutos", requestOptions).then(response => {return response.json()}).then(result => products=result)
-        const response = await fetch(`http://127.0.0.1:8080/listaratividades`, requestOptions)
+        const response = await fetch(`http://127.0.0.1:8080/listarPub`, requestOptions)
     
-        let atividades = await response.json();
-        atividades = atividades.body;
-        console.log(atividades)
-        for (let i = 0; i < atividades.length; i++) {
+        let publicacoes = await response.json();
+        publicacoes = publicacoes.body;
+        console.log(publicacoes)
+        for (let i = 0; i < publicacoes.length; i++) {
     
-          let nome = atividades[i].nome;
-          let nomeParque = atividades[i].nomeParque;
-          let descricao = atividades[i].descricao;
-          let dataInicio = atividades[i].dataIcnicio;
-          let dataFim = atividades[i].dataFim;
+          let nome = publicacoes[i].nome;
+          let nomeParque = publicacoes[i].nomeParque;
+          let descricao = publicacoes[i].descricao;
+          let dataInicio = publicacoes[i].dataIcnicio;
+          let dataFim = publicacoes[i].dataFim;
     
-          let imagem = atividades[i].imagem;
+          let imagem = publicacoes[i].imagem;
     
-          /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
     
-            const idImagem = products[i].idImage;
-            const idImagem1 = idImagem.replace("<p>","").replace(`<span style="font-family: Verdana;">`,"").replace(`</span>`,"").replace(`</p>`,"")     
-            imagem = "https://drive.google.com/uc?export=view&id="+idImagem1
-    
-          } else {
-            imagem = products[i].image
-          }*/
-    
-          strHtml += `
-                <tr>
-                
-                <td> ${nome} </td>
-                <td> ${descricao} </td>
-                <td class="py-1">
-                  <img src="`+ `` + imagem + `" />
-                </td>
-                <td> ${dataInicio} </td>
-                <td> ${dataFim} </td>
-                <td> ${nomeParque} </td>
-                <td class="py-1">
-                  <img src="`+ `` + imagem + `" />
-                </td>  
-              </tr>`
+          strHtml += `<div class="comment-thread">
+          <!-- Comment 1 start -->
+          <details class="comment" id="comment-1">
+              <a href="#comment-1" class="comment-border-link">
+                  <span class="sr-only">Jump to comment-1</span>
+              </a>
+
+              <!-- <div class="comment__card">
+                  <h3>TÍTULO DO POST</h3> -->
+              <summary>
+                  <div class="comment-heading">
+                      <div class="comment-info">
+                          <h3>TÍTULO DO POST</h3>
+                          <a href="#" class="comment-author">someguy14</a>
+                          <p class="m-0">
+                              05 Comentários &bull; 05 Junho 2022
+                          </p>
+                      </div>
+                  </div>
+              </summary>
+              <br>
+              <div class="comment-body">
+                  <p>
+                      This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
+                  </p>
+                  <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form" style="color: #fff;">Comentar</button>
+              </div>
+                  <!-- Reply form start -->
+                  <form method="POST" class="reply-form d-none" id="comment-1-reply-form">
+                      <textarea placeholder="Escrever Comentário..." rows="4"></textarea>
+                      <button type="submit">Enviar Comentário</button>
+                      <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Cancelar</button>
+                  </form>
+                  <!-- Reply form end -->
+              <!-- </div> -->
+      
+              <div class="replies">
+                  <!-- Comment 2 start -->
+                  <details  class="comment" id="comment-2">
+                      <a href="#comment-2" class="comment-border-link">
+                          <span class="sr-only">Jump to comment-2</span>
+                      </a>
+                      <summary>
+                          <div class="comment-heading">
+                              <div class="comment-info">
+                                  <a href="#" class="comment-author">randomperson81</a>
+                                  <p class="m-0">
+                                      10 Junho 2022
+                                  </p>
+                              </div>
+                          </div>
+                      </summary>
+      
+                      <div class="comment-body">
+                          <p>
+                              Took the words right out of my mouth!
+                          </p>
+                      
+                      </div>
+                  </details>
+                  <!-- Comment 2 end -->
+              </div>
+              <div class="replies">
+                  <!-- Comment 2 start -->
+                  <details  class="comment" id="comment-2">
+                      <a href="#comment-2" class="comment-border-link">
+                          <span class="sr-only">Jump to comment-2</span>
+                      </a>
+                      <summary>
+                          <div class="comment-heading">
+                              <div class="comment-info">
+                                  <a href="#" class="comment-author">randomperson81</a>
+                                  <p class="m-0">
+                                      4 points &bull; 3 days ago
+                                  </p>
+                              </div>
+                          </div>
+                      </summary>
+      
+                      <div class="comment-body">
+                          <p>
+                              Took the words right out of my mouth!
+                          </p>
+                          <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Reply</button>
+                      </div>
+                          <!-- Reply form start -->
+                          <form method="POST" class="reply-form d-none" id="comment-2-reply-form">
+                              <textarea placeholder="Reply to comment" rows="4"></textarea>
+                              <button type="submit">Submit</button>
+                              <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Cancel</button>
+                          </form>
+                          <!-- Reply form end -->
+                  </details>
+                  <!-- Comment 2 end -->
+              </div>
+          </details>
+          <!-- Comment 1 end -->
+      </div>`
     
         }
-        strHtml += "</tbody>"
+        
     
-        loader.style.display="none"
+        //loader.style.display="none"
         tblProdutos.innerHTML = strHtml
     
         // Get the modal
