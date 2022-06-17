@@ -11,18 +11,18 @@ window.onload = () => {
         const tblProdutos = document.getElementById("containerPosts");
     
         let strHtml = `
-        
-                 <thead> 
-                 <th> Nome </th>
-                 <th> Descrição </th>
-                 <th> Data Início </th>
-                 <th> Data Fim </th>
-                 <th> Parque </th>
-    
-               </tr>
-             </thead>
-             <tbody>
-            `
+          <button type="button" class="button" id="btnCriarPost" onclick="openPopup()">
+              <span class="button__text">Criar Post</span>
+              <span class="button__icon" >
+                  <ion-icon name="add-circle-outline"></ion-icon>
+              </span>
+          </button>
+
+          <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+          
+          <br>
+          <br>
+        ` 
     
         myHeaders.append("Content-Type", "application/json");
     
