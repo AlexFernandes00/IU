@@ -76,7 +76,7 @@ function listarParquesEstacionamento(req, res){
 
 
     const get = [nome, longitude, latitude, lotacao, idParqueEstacionamento];
-    const query = connect.con.query('SELECT * FROM parqueEstacionamento', get, function(error, results, fields) {
+    const query = connect.con.query('SELECT parqueEstacionamento.*, parque.nome as nomeParque FROM parqueEstacionamento INNER JOIN parqueEstacionamentoParque ON parqueEstacionamento.idParqueEstacionamento=parqueEstacionamentoParque.idPaqueEstacionamento INNER JOIN parque ON parque.idParque=parqueEstacionamentoParque.idParque;', get, function(error, results, fields) {
         console.log(results)
         res({
             'statusCode': 200,

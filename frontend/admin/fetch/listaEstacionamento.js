@@ -8,17 +8,18 @@ window.onload = () => {
     
       const renderProducts = async () => {
         var myHeaders = new Headers();
-        const tblProdutos = document.getElementById("atividades");
+        const tblEst = document.getElementById("listaest");
+        console.log("aqui");
     
         let strHtml = `
         
                  <thead> 
                  <th> Nome </th>
-                 <th> Descrição </th>
-                 <th> Data Início </th>
-                 <th> Data Fim </th>
                  <th> Parque </th>
-    
+                 <th> Capacidade </th>
+                 <th> Localização </th>
+                 <th> Latitude </th>
+                 <th> Longitude </th>
                </tr>
              </thead>
              <tbody>
@@ -36,49 +37,33 @@ window.onload = () => {
         // let products = "";
     
         //fetch("http://127.0.0.1:8080/allprodutos", requestOptions).then(response => {return response.json()}).then(result => products=result)
-        const response = await fetch(`http://127.0.0.1:8080/listaratividades`, requestOptions)
+        const response = await fetch(`http://127.0.0.1:8080/listarParquesEstacionamento`, requestOptions)
     
-        let atividades = await response.json();
-        atividades = atividades.body;
-        console.log(atividades)
-        for (let i = 0; i < atividades.length; i++) {
+        let estacionamento = await response.json();
+        estacionamento = estacionamento.body;
+        for (let i = 0; i < estacionamento.length; i++) {
     
-          let nome = atividades[i].nome;
-          let descricao = atividades[i].descricao;
-          let dataInicio = atividades[i].dataInicio;
-          let dataFim = atividades[i].dataFim;
-          let nomeParque = atividades[i].nomeParque;
-    
-          let imagem = atividades[i].imagem;
-    
-          /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
-    
-            const idImagem = products[i].idImage;
-            const idImagem1 = idImagem.replace("<p>","").replace(`<span style="font-family: Verdana;">`,"").replace(`</span>`,"").replace(`</p>`,"")     
-            imagem = "https://drive.google.com/uc?export=view&id="+idImagem1
-    
-          } else {
-            imagem = products[i].image
-          }*/
+          let nome = estacionamento[i].nome;
+          let parque = estacionamento[i].nomeParque;
+          let capacidade = estacionamento[i].lotacao;
+          let latitude = estacionamento[i].latitude;
+          let longitude = estacionamento[i].longitude;
     
           strHtml += `
                 <tr>
                 
                 <td> ${nome} </td>
-                <td> ${descricao} </td>
-                <td> ${dataInicio} </td>
-                <td> ${dataFim} </td>
-                <td> ${nomeParque}</td>
-                 <td> <class="py-1">
-                  <img src="`+ `` + imagem + `" />
-                </td>  
+                <td> ${parque} </td>
+                <td> ${capacidade} </td>
+                <td> ${latitude} </td>
+                <td> ${longitude}</td>
               </tr>`
     
         }
         strHtml += "</tbody>"
     
         loader.style.display="none"
-        tblProdutos.innerHTML = strHtml
+        tblEst.innerHTML = strHtml
     
         // Get the modal
         var modal = document.getElementById("modalP");
