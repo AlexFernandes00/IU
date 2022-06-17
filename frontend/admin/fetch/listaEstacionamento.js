@@ -46,6 +46,7 @@ window.onload = () => {
           let nome = estacionamento[i].nome;
           let parque = estacionamento[i].nomeParque;
           let capacidade = estacionamento[i].lotacao;
+          let local = estacionamento[i].localizacao;
           let latitude = estacionamento[i].latitude;
           let longitude = estacionamento[i].longitude;
     
@@ -55,6 +56,7 @@ window.onload = () => {
                 <td> ${nome} </td>
                 <td> ${parque} </td>
                 <td> ${capacidade} </td>
+                <td> ${local} </td>
                 <td> ${latitude} </td>
                 <td> ${longitude}</td>
               </tr>`

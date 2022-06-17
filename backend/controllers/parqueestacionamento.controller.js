@@ -72,11 +72,12 @@ function listarParquesEstacionamento(req, res){
     const nome = req.body.nome;
     const longitude = req.body.longitude;
     const latitude = req.body.latitude;
+    const localizacao = req.body.localizacao;
     const lotacao = req.body.lotacao;
 
 
-    const get = [nome, longitude, latitude, lotacao, idParqueEstacionamento];
-    const query = connect.con.query('SELECT parqueEstacionamento.*, parque.nome as nomeParque FROM parqueEstacionamento INNER JOIN parqueEstacionamentoParque ON parqueEstacionamento.idParqueEstacionamento=parqueEstacionamentoParque.idPaqueEstacionamento INNER JOIN parque ON parque.idParque=parqueEstacionamentoParque.idParque;', get, function(error, results, fields) {
+    const get = [nome, longitude, latitude, localizacao, lotacao, idParqueEstacionamento];
+    const query = connect.con.query('SELECT parqueEstacionamento.*, parque.nome as nomeParque, localizacao FROM parqueEstacionamento INNER JOIN parqueEstacionamentoParque ON parqueEstacionamento.idParqueEstacionamento=parqueEstacionamentoParque.idPaqueEstacionamento INNER JOIN parque ON parque.idParque=parqueEstacionamentoParque.idParque;', get, function(error, results, fields) {
         console.log(results)
         res({
             'statusCode': 200,
