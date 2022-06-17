@@ -7,13 +7,11 @@ window.onload = function () {
             let data = {
                 nome: document.getElementById("nomeParque").value,
                 descricao: document.getElementById("descrParque").value,
-                //imagem: document.getElementById("imgNovoProd").value,
                 imagem: document.getElementById("imgTest").innerHTML,
                 localizacao: document.getElementById("locParque").value,
                 longitude: document.getElementById("longitude").value,
                 latitude: document.getElementById("latitude").value,
                 capacidade: document.getElementById("capacidade").value,
-                //mapa: document.getElementById("mapaParque").value,
                 mapa: document.getElementById("imgMap").innerHTML,
             }
             console.log(data.mapa)
