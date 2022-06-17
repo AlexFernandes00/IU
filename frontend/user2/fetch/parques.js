@@ -69,7 +69,7 @@ window.onload = () => {
         }
         strHtml += "</tbody>"
         console.log("string hotml----------------" + strHtml)
-        loader.style.display="none"
+        //loader.style.display="none"
         tblProdutos.innerHTML = strHtml
     
         // Get the modal
