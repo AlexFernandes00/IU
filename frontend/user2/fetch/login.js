@@ -27,33 +27,27 @@ window.onload = function () {
     })
       .then((result) => {
         if (result.body == "Login feito com sucesso" && result.idTipoUtilizador == 1) {
-         window.location.href = '../a-index.html';
-          /* response.text().then((data) => {*/
-          //  localStorage.setItem("email", data.email);
-          // console.log(localStorage.getItem("email"));
-        }
-        else {
+         window.location.href = '../a-index.html'
+        }else {
           if (result.body == "Login feito com sucesso" && result.idTipoUtilizador == 11) {
-            console.log("certo")
-            window.location.href = '../m-index.html';
-          } else {
+            window.location.href = '../m-index.html'
+          }else {
             if (result.body == "Login feito com sucesso" && result.idTipoUtilizador == 21) {
-              window.location.href = 'home.html';
+              window.location.href = 'home.html'
             } else {
-
-              if (result.body.message == "Password errada") {
+              if (result.body == "Password errada") {
                 Swal.fire({
-                  title: "Email ou Password errados",
-                  text: "Por favor confirme as suas credencias",
+                  title: "Email ou password errados!",
+                  text: "Por favor, confirme as suas credenciais.",
                   icon: "error",
-                  width: "25rem"
+                  width: "30rem"
                 })
               } else {
                 Swal.fire({
-                  title: "Email ou Password errados",
-                  text: "Por favor confirme as suas credencias",
+                  title: "Email ou password errados!",
+                  text: "Por favor, confirme as suas credenciais",
                   icon: "error",
-                  width: "25rem"
+                  width: "30rem"
                 })
               }
             }
