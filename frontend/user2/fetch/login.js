@@ -1,7 +1,6 @@
 window.onload = function () {
 
-  const btnLogin = document.getElementById("loginform")
-
+  const btnLogin = document.getElementById("loginbtn");
   // Autenticar gestor de espaço na área privada
   btnLogin.addEventListener("click", async function (event) {
 
@@ -35,7 +34,10 @@ window.onload = function () {
           if (result.body == "Login feito com sucesso") {
           //window.location.href = 'home.html';
           alert(result.body)
+          console.log(result.idTipoUtilizador);
 
+        }else{
+          alert(result.body)
         }
         /*else {
           if (result.body.message == "Login feito com sucesso" && result.body.company == "true") {

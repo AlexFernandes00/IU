@@ -28,7 +28,7 @@ function registo (req, callback){
 function login(request, response) {
 	let email = request.body.email;
 	let password = request.body.password;
-    
+    console.log(request.body);
 	if (email && password) {
 		
 		connect.con.query('SELECT * FROM utilizador WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
@@ -37,21 +37,29 @@ function login(request, response) {
 			// Se existe
 			if (results.length > 0) {
 				// Autenticar utilizador
-				let idUtilizador = results.idUtilizador; 
+				console.log(results[0].idTipoUtilizador);
+				let idTipoUtilizador = results[0].idTipoUtilizador;
 				request.session.loggedin = true;
 				request.session.email = email;
 				// redireciona para pagina
 				response({
                     'statusCode': 200,
-                    'body': ("Login feito com sucesso")
+                    'body': ("Login feito com sucesso"),
+					'idTipoUtilizador': (idTipoUtilizador)
                 });
 			} else {
-				response.send('Email ou password incorretos!');
+				response({
+                    'statusCode': 401,
+                    'body': ("Email ou password errados")
+                });
 			}			
 			//response.end();
 		});
 	} else {
-		response.send('Introduzir email e password');
+		response({
+			'statusCode': 422 ,
+			'body': ("Preencha todos os campos")
+		});
 	}
 }
 
