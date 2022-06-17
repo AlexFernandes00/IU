@@ -1,19 +1,17 @@
 window.onload = function () {
 
-  const btnLogin = document.getElementById("login")
+  const btnLogin = document.getElementById("loginform")
 
   // Autenticar gestor de espaço na área privada
   btnLogin.addEventListener("click", async function (event) {
 
-
     event.preventDefault();
 
     const email = document.getElementById('email')
-    const password = document.getElementById('password')
+    const password = document.getElementById('pass')
     let data = {}
     data.email = email.value;
     data.password = password.value;
-    console.log(data)
 
     fetch(`http://127.0.0.1:8080/login`, {
       mode: 'cors',
@@ -29,15 +27,14 @@ window.onload = function () {
       return response.json();
     })
       .then((result) => {
-        console.log(result)
-        //alert(result.body.company)
         //if (result.body.message == "Login feito com sucesso" && result.body.company == "false") {
-         // window.location.href = 'home.html';
+         //window.location.href = 'home.html';
           /* response.text().then((data) => {*/
           //  localStorage.setItem("email", data.email);
           // console.log(localStorage.getItem("email"));
           if (result.body == "Login feito com sucesso") {
-          window.location.href = 'home.html';
+          //window.location.href = 'home.html';
+          alert(result.body)
 
         }
         /*else {
