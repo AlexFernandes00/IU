@@ -2,25 +2,15 @@
 window.onload = () => {
     //logout()
     
-    const loader = document.querySelector("#loading");
+    //const loader = document.querySelector("#loading");
     
     //loader.classList.add("display");
     
-      const renderParques = async () => {
+      const renderProducts = async () => {
         var myHeaders = new Headers();
         const tblProdutos = document.getElementById("listagem");
-    
-        let strHtml = ''            
-            /*<div class="place_review">
-                
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <span>(146)</span>
-            </div>   
-            ''*/
+        console.log(tblProdutos)
+        let strHtml = ``
     
         myHeaders.append("Content-Type", "application/json");
     
@@ -38,37 +28,54 @@ window.onload = () => {
     
         let parques = await response.json();
         parques = parques.body;
-        console.log("TESTANDO -----> "+parques.body)
+        console.log(parques)
         for (let i = 0; i < parques.length; i++) {
-            let nome = parques[i].nome; 
-            let descricao = parques[i].descricao;
-            let imagem = parques[i].imagem;
     
-          strHtml += `
-          <img src="`+ `` + imagem + `" width="560" height="382" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <button type="place_btn" class="place_btn" onclick="openPopup()">Sobre</button>
-                                <h3>${nome}</h3>
-                                <br>
-                                <p>${descricao}</p>
-                                <div class="place_review">
-                                    
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(146)</span>
-                                </div>
-                            </div>
-                        </div>
-          
-          `
+          let nome = parques[i].nome;
+          let nomeParque = parques[i].nomeParque;
+          let descricao = parques[i].descricao;
+          let dataInicio = parques[i].dataIcnicio;
+          let dataFim = parques[i].dataFim;
+    
+          let imagem = parques[i].imagem;
+    
+          /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
+    
+            const idImagem = products[i].idImage;
+            const idImagem1 = idImagem.replace("<p>","").replace(`<span style="font-family: Verdana;">`,"").replace(`</span>`,"").replace(`</p>`,"")     
+            imagem = "https://drive.google.com/uc?export=view&id="+idImagem1
+    
+          } else {
+            imagem = products[i].image
+          }*/
+    
+          strHtml += `<div class="col-lg-6 col-md-6">
+          <div class="single_place">
+              <img src="img/park1.jpg" width="560" height="382" alt="">
+              <div class="hover_Text d-flex align-items-end justify-content-between">
+                  <div class="hover_text_iner">
+                      <button type="place_btn" class="place_btn" onclick="openPopup()">Sobre</button>
+                      <!--AQUI ESTAVA POPUP-->
+                      <h3>Parque Jardim da Estrela</h3>
+                      <br>
+                      <p>O Jardim da Estrela, mais tarde renomeado Jardim Guerra Junqueiro, é um jardim público situado na freguesia da Estrela, em Lisboa, estando uma das suas entradas em frente da Basílica da Estrela. O Jardim da Estrela foi construído ao estilo dos jardins ingleses, de inspiração romântica.</p>
+                      <div class="place_review">
+                          
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <a href="#"><i class="fas fa-star"></i></a>
+                          <span>(146)</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>`
     
         }
         strHtml += "</tbody>"
-        console.log("string hotml----------------" + strHtml)
+    
         loader.style.display="none"
         tblProdutos.innerHTML = strHtml
     
@@ -233,7 +240,7 @@ window.onload = () => {
                   const spaces = await response.json()
                    swal({title:'Removido!',
                   confirmButtonColor: '#7FB08F'})
-                  renderParques()
+                  renderProducts()
     
                 } catch (err) {
                   swal({ type: 'error', title: 'Erro', text: err })
@@ -244,7 +251,7 @@ window.onload = () => {
         }
     
       } 
-      renderParques()
+      renderProducts()
     
       const nomePerfil = document.getElementById("nomePerfil");
       const nomeEsquerdo = document.getElementById("nomeEsquerdo");
@@ -259,7 +266,24 @@ window.onload = () => {
         method: 'GET',
         headers: myHeaders,
         credentials: 'include'
-      };    
+      };
+    
+      /*fetch(`https://easymarket-backend.beagoddess.repl.co/admin/perfil`, requestOptions)
+        .then(response => {
+          return response.json();
+        })
+        .then((result) => {
+          if(result.login){
+            window.location.href = 'https://easymarketisi.web.app/';
+    
+          }else{
+            nomePerfil.innerHTML = result.utilizador.nome;
+            nomeEsquerdo.innerHTML = result.utilizador.nome;
+            moradaEsquerdo.innerHTML = result.utilizador.morada;
+          }
+    
+        });*/
+    
     }
     
     function logout(){

@@ -50,7 +50,7 @@ function login(request, response) {
 			} else {
 				response({
                     'statusCode': 401,
-                    'body': ("Email ou password errados")
+                    'body': ("Password errada")
                 });
 			}			
 			//response.end();
