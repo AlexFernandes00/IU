@@ -2,15 +2,27 @@
 window.onload = () => {
     //logout()
     
-    //const loader = document.querySelector("#loading");
+    const loader = document.querySelector("#loading");
     
-    //loader.classList.add("display");
+    loader.classList.add("display");
     
       const renderProducts = async () => {
         var myHeaders = new Headers();
-        const tblProdutos = document.getElementById("listagem");
-        console.log(tblProdutos)
-        let strHtml = ``
+        const tblProdutos = document.getElementById("containerPosts");
+    
+        let strHtml = `
+        
+                 <thead> 
+                 <th> Nome </th>
+                 <th> Descrição </th>
+                 <th> Data Início </th>
+                 <th> Data Fim </th>
+                 <th> Parque </th>
+    
+               </tr>
+             </thead>
+             <tbody>
+            `
     
         myHeaders.append("Content-Type", "application/json");
     
@@ -24,20 +36,20 @@ window.onload = () => {
         // let products = "";
     
         //fetch("http://127.0.0.1:8080/allprodutos", requestOptions).then(response => {return response.json()}).then(result => products=result)
-        const response = await fetch(`http://127.0.0.1:8080/listarparques`, requestOptions)
+        const response = await fetch(`http://127.0.0.1:8080/listaratividades`, requestOptions)
     
-        let parques = await response.json();
-        parques = parques.body;
-        console.log(parques)
-        for (let i = 0; i < parques.length; i++) {
+        let atividades = await response.json();
+        atividades = atividades.body;
+        console.log(atividades)
+        for (let i = 0; i < atividades.length; i++) {
     
-          let nome = parques[i].nome;
-          let nomeParque = parques[i].nomeParque;
-          let descricao = parques[i].descricao;
-          let dataInicio = parques[i].dataIcnicio;
-          let dataFim = parques[i].dataFim;
+          let nome = atividades[i].nome;
+          let nomeParque = atividades[i].nomeParque;
+          let descricao = atividades[i].descricao;
+          let dataInicio = atividades[i].dataIcnicio;
+          let dataFim = atividades[i].dataFim;
     
-          let imagem = parques[i].imagem;
+          let imagem = atividades[i].imagem;
     
           /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
     
@@ -49,29 +61,21 @@ window.onload = () => {
             imagem = products[i].image
           }*/
     
-          strHtml += `<div class="col-lg-6 col-md-6">
-          <div class="single_place">
-              <img src="img/park1.jpg" width="560" height="382" alt="">
-              <div class="hover_Text d-flex align-items-end justify-content-between">
-                  <div class="hover_text_iner">
-                      <button type="place_btn" class="place_btn" onclick="openPopup()">Sobre</button>
-                      <!--AQUI ESTAVA POPUP-->
-                      <h3>Parque Jardim da Estrela</h3>
-                      <br>
-                      <p>O Jardim da Estrela, mais tarde renomeado Jardim Guerra Junqueiro, é um jardim público situado na freguesia da Estrela, em Lisboa, estando uma das suas entradas em frente da Basílica da Estrela. O Jardim da Estrela foi construído ao estilo dos jardins ingleses, de inspiração romântica.</p>
-                      <div class="place_review">
-                          
-                          <a href="#"><i class="fas fa-star"></i></a>
-                          <a href="#"><i class="fas fa-star"></i></a>
-                          <a href="#"><i class="fas fa-star"></i></a>
-                          <a href="#"><i class="fas fa-star"></i></a>
-                          <a href="#"><i class="fas fa-star"></i></a>
-                          <span>(146)</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>`
+          strHtml += `
+                <tr>
+                
+                <td> ${nome} </td>
+                <td> ${descricao} </td>
+                <td class="py-1">
+                  <img src="`+ `` + imagem + `" />
+                </td>
+                <td> ${dataInicio} </td>
+                <td> ${dataFim} </td>
+                <td> ${nomeParque} </td>
+                <td class="py-1">
+                  <img src="`+ `` + imagem + `" />
+                </td>  
+              </tr>`
     
         }
         strHtml += "</tbody>"
