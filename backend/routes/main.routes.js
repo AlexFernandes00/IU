@@ -218,7 +218,7 @@ router.delete('/apagarParqueEstacionamento', (req,res)=>{
 });
 
 
-router.get('/listarparquesEstacionamento', (req,res)=>{
+router.get('/listarParquesEstacionamento', (req,res)=>{
   controllerParqueEstacionamento.listarParquesEstacionamento(req, function(result){
 
     res.send(result);

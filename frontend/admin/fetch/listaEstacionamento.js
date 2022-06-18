@@ -41,6 +41,7 @@ window.onload = () => {
     
         let estacionamento = await response.json();
         estacionamento = estacionamento.body;
+        console.log(estacionamento)
         for (let i = 0; i < estacionamento.length; i++) {
     
           let nome = estacionamento[i].nome;

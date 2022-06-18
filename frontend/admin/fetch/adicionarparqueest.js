@@ -1,13 +1,42 @@
-window.onload = function () {
+window.onload = () => {
+    const renderProducts = async () => {
+        var myHeaders = new Headers();
     const formParque = document.getElementById("adicionaresta");
+    const listaparques = document.getElementById("categgNovoProd");
+
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        mode: 'cors',
+        method: 'GET',
+        headers: myHeaders,
+        credentials: 'include'
+      };
+      let stringhtml = "";
+
+      const response = await fetch(`http://127.0.0.1:8080/listarparques`, requestOptions)
     
+
+      let products = await response.json();
+        parques = products.body;
+        //console.log(parques)
+        for (let i = 0; i < parques.length; i++) {
+            let nome = parques[i].nome;
+            let identificacaoParque = parques[i].idParque;
+            console.log("Parques:" + parques[i])
+            stringhtml += `<option id=${identificacaoParque}>${nome}</option>`
+        }
+        listaparques.innerHTML= stringhtml;
+
     formParque.addEventListener('submit', async function (event) {
         event.preventDefault();
+        console.log("Cheguei até aqui")
             let data = {
                 nome: document.getElementById("nomeest").value,
                 lotacao: document.getElementById("lotacao").value,
                 longitude: document.getElementById("longitude").value,
                 latitude: document.getElementById("latitude").value,
+                idParque: listaparques.options[listaparques.selectedIndex].id,
             }
             fetch(`http://127.0.0.1:8080/criarParqueEstacionamento`, {
                 headers: {
@@ -76,5 +105,6 @@ console.log("ola")
         
 
     });
-
+    }
+    renderProducts()
 }

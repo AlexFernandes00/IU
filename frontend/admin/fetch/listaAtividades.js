@@ -50,16 +50,7 @@ window.onload = () => {
           let nomeParque = atividades[i].nomeParque;
     
           let imagem = atividades[i].imagem;
-    
-          /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
-    
-            const idImagem = products[i].idImage;
-            const idImagem1 = idImagem.replace("<p>","").replace(`<span style="font-family: Verdana;">`,"").replace(`</span>`,"").replace(`</p>`,"")     
-            imagem = "https://drive.google.com/uc?export=view&id="+idImagem1
-    
-          } else {
-            imagem = products[i].image
-          }*/
+  
     
           strHtml += `
                 <tr>
