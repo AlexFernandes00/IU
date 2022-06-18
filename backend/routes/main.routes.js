@@ -6,6 +6,7 @@ const controllerPublicacao = require('../controllers/publicacao.controller.js');
 const controllerParque = require('../controllers/parque.controller.js');
 const controllerParqueEstacionamento = require('../controllers/parqueestacionamento.controller.js');
 const controllerAtividade = require('../controllers/atividade.controller.js');
+const controllerInformacao = require('../controllers/informacao.controller.js');
 
 
 router.get('/', (req, res) => {
@@ -261,6 +262,17 @@ router.delete('/apagarAtividade', (req,res)=>{
 
 router.get('/listarAtividades', (req,res)=>{
   controllerAtividade.listarAtividades(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+
+
+router.post('/criarInformacao', (req,res)=>{
+  controllerInformacao.criarInformacao(req, function(result){
 
     res.send(result);
 
