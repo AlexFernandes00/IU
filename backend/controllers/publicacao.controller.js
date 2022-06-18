@@ -110,7 +110,7 @@ function listarPub(req, res){
 
 
     const get = [titulo, conteudo, data, idUtilizador, idPost, idParque];
-    const query = connect.con.query('SELECT * FROM post', get, function(error, results, fields) {
+    const query = connect.con.query('SELECT idPost, titulo, conteudo, data, post.idUtilizador, idParque, utilizador.nome FROM post Inner Join utilizador on post.idUtilizador = utilizador.idUtilizador', get, function(error, results, fields) {
         console.log(results)
         res({
             'statusCode': 200,

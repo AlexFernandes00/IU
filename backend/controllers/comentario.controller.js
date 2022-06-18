@@ -125,11 +125,11 @@ function listarComentariosPorPost(req, res){
     const conteudo = req.body.conteudo;
     const data = req.body.data;
     const idUtilizador = req.body.idUtilizador;
-    const idPost = req.body.idPost;
+    const idPost = req.query.idPost;
 
 
     const get = [idPost];
-    const query = connect.con.query('SELECT * FROM comentario WHERE idPost = ?', get, function(error, results, fields) {
+    const query = connect.con.query('SELECT idComentario, conteudo, data, comentario.idUtilizador, utilizador.nome FROM comentario Inner JOIN utilizador on comentario.idUtilizador = utilizador.idUtilizador WHERE idPost = ?', get, function(error, results, fields) {
         console.log(results)
         res({
             'statusCode': 200,

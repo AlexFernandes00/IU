@@ -31,32 +31,31 @@ window.onload = () => {
         publicacoes = publicacoes.body;
         console.log(publicacoes)
         for (let i = 0; i < publicacoes.length; i++) {
-    
-          let nome = publicacoes[i].nome;
-          let nomeParque = publicacoes[i].nomeParque;
-          let descricao = publicacoes[i].descricao;
-          let dataInicio = publicacoes[i].dataIcnicio;
-          let dataFim = publicacoes[i].dataFim;
-    
-          let imagem = publicacoes[i].imagem;
-    
-    
+          let contador = 0;
+          let idPost = publicacoes[i].idPost;
+          let titulo = publicacoes[i].titulo;
+          let conteudo = publicacoes[i].conteudo;
+          let data = new Date(publicacoes[i].data);
+          let idUtilizador = publicacoes[i].idUtilizador;
+          let idParque = publicacoes[i].idParque;
+          let autorPost = publicacoes[i].nome;
+          
           strHtml += `<div class="comment-thread">
           <!-- Comment 1 start -->
-          <details class="comment" id="comment-1">
+          <details class="comment" id="Post${idPost}">
               <a href="#comment-1" class="comment-border-link">
                   <span class="sr-only">Jump to comment-1</span>
               </a>
 
               <!-- <div class="comment__card">
-                  <h3>TÍTULO DO POST</h3> -->
+                  <h3>${titulo}</h3> -->
               <summary>
                   <div class="comment-heading">
                       <div class="comment-info">
-                          <h3>TÍTULO DO POST</h3>
-                          <a href="#" class="comment-author">someguy14</a>
+                          <h3>${titulo}</h3>
+                          <a href="#" class="comment-author">${autorPost}</a>
                           <p class="m-0">
-                              05 Comentários &bull; 05 Junho 2022
+                              ${data.toISOString().substring(0, 10)}
                           </p>
                       </div>
                   </div>
@@ -64,20 +63,74 @@ window.onload = () => {
               <br>
               <div class="comment-body">
                   <p>
-                      This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
+                      ${conteudo}
                   </p>
-                  <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form" style="color: #fff;">Comentar</button>
+                  <button type="button" data-toggle="reply-form" data-target="Post-${idPost}-reply-form" style="color: #fff;">Comentar</button>
               </div>
                   <!-- Reply form start -->
-                  <form method="POST" class="reply-form d-none" id="comment-1-reply-form">
+                  <form method="POST" class="reply-form d-none" id="Post-${idPost}-reply-form">
                       <textarea placeholder="Escrever Comentário..." rows="4"></textarea>
                       <button type="submit">Enviar Comentário</button>
-                      <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Cancelar</button>
+                      <button type="button" data-toggle="reply-form" data-target="Post-${idPost}-reply-form">Cancelar</button>
                   </form>
                   <!-- Reply form end -->
               <!-- </div> -->
-      
-              <div class="replies">
+      `
+      let data2 = {};
+      data2.idPost = idPost;
+      var requestOptions2 = {
+        mode: 'cors',
+        method: 'GET',
+        headers: myHeaders,
+        credentials: 'include',
+      };
+          
+          
+      const response = await fetch(`http://127.0.0.1:8080/listarComentariosPorPost?idPost=` + idPost, requestOptions2)
+      let comentarios = await response.json();
+      comentarios = comentarios.body;
+        console.log(comentarios)
+        for (let j = 0; j < comentarios.length; j++) {
+          contador+=1;
+          let conteudoComentario = comentarios[j].conteudo;
+          let autorComentario = comentarios[j].nome;
+          let dataComentario = new Date(comentarios[j].data);
+          strHtml+= `<div class="replies">
+          <!-- Comment 2 start -->
+          <details  class="comment" id="comment-2">
+              <a href="#comment-2" class="comment-border-link">
+                  <span class="sr-only">Jump to comment-2</span>
+              </a>
+              <summary>
+                  <div class="comment-heading">
+                      <div class="comment-info">
+                          <a href="#" class="comment-author">${autorComentario}</a>
+                          <p class="m-0">
+                              ${data.toISOString().substring(0, 10)}
+                          </p>
+                      </div>
+                  </div>
+              </summary>
+
+              <div class="comment-body">
+                  <p>
+                      ${conteudoComentario}
+                  </p>
+              
+              </div>
+          </details>
+          <!-- Comment 2 end -->
+      </div>`
+
+
+
+        }
+          strHtml+= `</details>
+                  <!-- Comment 1 end -->
+              </div>`
+        }
+        
+    /*<div class="replies">
                   <!-- Comment 2 start -->
                   <details  class="comment" id="comment-2">
                       <a href="#comment-2" class="comment-border-link">
@@ -102,47 +155,9 @@ window.onload = () => {
                       </div>
                   </details>
                   <!-- Comment 2 end -->
-              </div>
-              <div class="replies">
-                  <!-- Comment 2 start -->
-                  <details  class="comment" id="comment-2">
-                      <a href="#comment-2" class="comment-border-link">
-                          <span class="sr-only">Jump to comment-2</span>
-                      </a>
-                      <summary>
-                          <div class="comment-heading">
-                              <div class="comment-info">
-                                  <a href="#" class="comment-author">randomperson81</a>
-                                  <p class="m-0">
-                                      4 points &bull; 3 days ago
-                                  </p>
-                              </div>
-                          </div>
-                      </summary>
-      
-                      <div class="comment-body">
-                          <p>
-                              Took the words right out of my mouth!
-                          </p>
-                          <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Reply</button>
-                      </div>
-                          <!-- Reply form start -->
-                          <form method="POST" class="reply-form d-none" id="comment-2-reply-form">
-                              <textarea placeholder="Reply to comment" rows="4"></textarea>
-                              <button type="submit">Submit</button>
-                              <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Cancel</button>
-                          </form>
-                          <!-- Reply form end -->
-                  </details>
-                  <!-- Comment 2 end -->
-              </div>
-          </details>
-          <!-- Comment 1 end -->
-      </div>`
-    
-        }
-        
-    
+              </div>*/
+
+              
         //loader.style.display="none"
         tblProdutos.innerHTML = strHtml
     
