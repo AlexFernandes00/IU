@@ -108,12 +108,13 @@
         <div class="popup-box">
             <i class="fas fa-times close-btn"> </i>
             <h2 style="font-size:26px;">AJUDA-NOS A MELHORAR</h2>
+            <form id="popupparque" class="form-sample">
             <div class="user-details">
                 <div class="select1">
                  <span class="selected">Em que parque se encontra? </span>
                   <div class="caret"></div>
                 </div>
-                <ul class="menu">
+                <ul id="parque" class="menu">
                     <li>Parque Jardim da Estrela</li>
                     <li>Parque Eduardo VII</li>
                     <li >Parque Florestal de Monsanto</li>
@@ -122,6 +123,7 @@
                 <br>
             </div>
                 <span class="details"><h5>Qual a lotação atual do parque?</h5></span>
+                <ul id="lotacao">
                 <form action="">
                     <label>
                         <input type="radio" id="html" name="radio" />
@@ -135,10 +137,11 @@
                         <input type="radio" id="javascript" name="radio"/>
                         <span>Muita</span>
                     </label>
-                </form>
+                </form></ul>
                 <br>
 
                 <span class="details"><h5>Qual a quantidade de lixo existente nos caixotes?</h5></span>
+                <ul id="lixo">
                 <form action="">
                     <label>
                         <input type="radio" id="html" name="radio" />
@@ -152,12 +155,12 @@
                         <input type="radio" id="javascript" name="radio"/>
                         <span>Muito</span>
                     </label>
-                </form>
+                </form></ul>
 
                 <br>
 
                 <span class="details"><h5>Como está o tempo?</h5></span>
-                <div class="radio-buttons">
+                <div id="tempo" class="radio-buttons">
                     <label class="custom-radio">
                       <input type="radio" name="radio"  />
                       <span class="radio-btn"
@@ -233,8 +236,9 @@
                   <span class="details">Qual a lotação atual do parque?</span>
                   <input type="text" placeholder="Enter your username" required>
                 </div>-->            
-            <a href="home.html" class="btn">Submeter</a>        
+            <a href="home.html" class="btn" type="submit">Submeter</a>        
         </div>
+    </form>
     </div>
     <section class="banner_part">
         <div class="container">
