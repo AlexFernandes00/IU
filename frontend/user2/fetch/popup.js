@@ -1,5 +1,5 @@
 window.onload = function () {
-    const popup = document.getElementById("popupparque");
+    const popup = document.getElementById("btnSubmeter");
 
     popup.addEventListener('click', async function (event) {
         event.preventDefault();
@@ -14,7 +14,7 @@ window.onload = function () {
                 data: datahora,
                 idParque: document.querySelector('#select1').value,
                 quantidadeLixo: document.querySelector('input[name="radioLixo"]:checked').value,
-                tempo: document.document.querySelector('input[name="radioTempo"]:checked').value,    
+                tempo: document.querySelector('input[name="radioTempo"]:checked').value,    
             }
         console.log(data);
             fetch(`http://127.0.0.1:8080/criarInformacao`, {
