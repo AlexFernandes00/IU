@@ -103,6 +103,7 @@ function apagarpublicacao (req, callback) {
 }
 
 function listarPub(req, res){
+    console.log(req.session.email)
     const idPost = req.body.idPost;
     const titulo = req.body.titulo;
     const conteudo = req.body.conteudo;

@@ -82,7 +82,7 @@ window.onload = () => {
         mode: 'cors',
         method: 'GET',
         headers: myHeaders,
-        credentials: 'include',
+        credentials: 'same-origin',
       };
           
           
@@ -174,9 +174,7 @@ window.onload = () => {
               
               fetch(`http://127.0.0.1:8080/fazerpublicacao`, {
               
-                  headers: {
-                      "Content-Type": "application/json"
-                  },
+                  headers: myHeaders,
                   mode: 'cors',
                   method: 'POST',
                   body: JSON.stringify(data)

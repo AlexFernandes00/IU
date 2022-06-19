@@ -32,6 +32,7 @@ app.use(session({ secret: 'iu',
                   resave: false, 
                   saveUninitialized:true,
                   cookie: { maxAge: 60000 },
+                  rolling: true
                 })); // session secret
 
  

@@ -41,7 +41,7 @@ function login(request, response) {
 				let idTipoUtilizador = results[0].idTipoUtilizador;
 				request.session.loggedin = true;
 				request.session.email = email;
-				request.session.save();
+				request.session.save()
 				// redireciona para pagina
 				response({
                     'statusCode': 200,

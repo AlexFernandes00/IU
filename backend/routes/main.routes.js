@@ -118,6 +118,7 @@ router.get('/listarComentariosPorPost', (req,res)=>{
 });
 
 router.post('/fazerpublicacao', (req,res)=>{
+  console.log("nas rotas: " + req.session.email);
   controllerPublicacao.fazerpublicacao(req, function(result){
 
     res.send(result);
