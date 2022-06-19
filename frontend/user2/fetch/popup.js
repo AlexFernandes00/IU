@@ -7,14 +7,16 @@ window.onload = function () {
         var hora = date.getHours();       
         var min = date.getMinutes();
         var datahora = hora + ':' + min;
+        var lot = 'Muita';
             let data = {
-                lotacao: document.querySelector('input[name="radioL"]:checked').value,
-                quantidadeLixo: document.querySelector('input[name="radioLixo"]:checked').value,
-                data: datahora.value,
-                tempo: document.getElementById('input[name="radioTempo"]:checked').innerHTML,    
+                //lotacao: document.querySelector('input[name="radioL"]:checked').value,
+                lotacao: lot,
+                data: datahora,
                 idParque: document.querySelector('#select1').value,
+                quantidadeLixo: document.querySelector('input[name="radioLixo"]:checked').value,
+                tempo: document.document.querySelector('input[name="radioTempo"]:checked').value,    
             }
-            console.log(data)
+        console.log(data);
             fetch(`http://127.0.0.1:8080/criarInformacao`, {
                 headers: {
                     "Content-Type": "application/json"
@@ -26,9 +28,7 @@ window.onload = function () {
             }).then(response => {
                 return response.json();
             }).then((result) => {
-                
                 window.location.href = 'home.html';
-                
             })
         
 

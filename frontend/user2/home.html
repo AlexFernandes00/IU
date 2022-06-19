@@ -114,55 +114,64 @@
                  <span class="selected">Em que parque se encontra? </span>
                   <div class="caret"></div>
                 </div>
-                <ul id="parque" class="menu">
-                    <li>Parque Jardim da Estrela</li>
-                    <li>Parque Eduardo VII</li>
-                    <li >Parque Florestal de Monsanto</li>
-                    <li>Parque da Bela Vista</li>
-                </ul>
+                <!-- <ul id="parque" class="menu">
+                    <li value="3">Parque Jardim da Estrela</li>
+                    <li value="2">Parque Eduardo VII</li>
+                    <li value="1">Parque Florestal de Monsanto</li>
+                    <li value="0">Parque da Bela Vista</li>
+                </ul> -->
+                <select id="select1">
+                    <option value="0">Parque Jardim da Estrela</option>
+                    <option value="1">Parque Eduardo VII</option>
+                    <option value="2">Parque Florestal de Monsanto</option>
+                    <option value="3">Parque da Bela Vista</option>
+                </select> 
                 <br>
             </div>
                 <span class="details"><h5>Qual a lotação atual do parque?</h5></span>
+                <div id="lot" class="radio-buttons">
                 <ul id="lotacao">
                 <form action="">
                     <label>
-                        <input type="radio" id="html" name="radio" />
+                        <input type="radio" id="html" name="radioL" />
                         <span>Pouca</span>
                     </label>
                     <label>
-                        <input type="radio" id="css" name="radio" />
+                        <input type="radio" id="css" name="radioL" />
                         <span>Alguma</span>
                     </label>
                     <label>
-                        <input type="radio" id="javascript" name="radio"/>
+                        <input type="radio" id="javascript" name="radioL"/>
                         <span>Muita</span>
                     </label>
                 </form></ul>
+            </div>
                 <br>
 
                 <span class="details"><h5>Qual a quantidade de lixo existente nos caixotes?</h5></span>
+                <div id="lixo" class="radio-buttons">
                 <ul id="lixo">
                 <form action="">
                     <label>
-                        <input type="radio" id="html" name="radio" />
+                        <input type="radio" id="html1" value="Nenhum" name="radioLixo" />
                         <span>Nenhum</span>
                     </label>
                     <label>
-                        <input type="radio" id="css" name="radio" />
+                        <input type="radio" id="css1" value="Pouco" name="radioLixo" />
                         <span>Pouco</span>
                     </label>
                     <label>
-                        <input type="radio" id="javascript" name="radio"/>
+                        <input type="radio" id="javascript1" value="Muito" name="radioLixo"/>
                         <span>Muito</span>
                     </label>
                 </form></ul>
-
+                </div>
                 <br>
 
                 <span class="details"><h5>Como está o tempo?</h5></span>
                 <div id="tempo" class="radio-buttons">
                     <label class="custom-radio">
-                      <input type="radio" name="radio"  />
+                      <input type="radio" value="Nublado" name="radioTempo"  />
                       <span class="radio-btn"
                         ><i class="las la-check"></i>
                         <div class="hobbies-icon">
@@ -172,7 +181,7 @@
                       </span>
                     </label>
                     <label class="custom-radio">
-                      <input type="radio" name="radio" />
+                      <input type="radio" value="Trovoada" name="radioTempo" />
                       <span class="radio-btn"
                         ><i class="las la-check"></i>
                         <div class="hobbies-icon">
@@ -182,7 +191,7 @@
                       </span>
                     </label>
                     <label class="custom-radio">
-                      <input type="radio" name="radio" />
+                      <input type="radio" value="Chuva" name="radioTempo" />
                       <span class="radio-btn"
                         ><i class="las la-check"></i>
                         <div class="hobbies-icon">
@@ -192,7 +201,7 @@
                       </span>
                     </label>
                     <label class="custom-radio">
-                        <input type="radio" name="radio" />
+                        <input type="radio" value="Sol" name="radioTempo" />
                         <span class="radio-btn"
                           ><i class="las la-check"></i>
                           <div class="hobbies-icon">
@@ -236,7 +245,7 @@
                   <span class="details">Qual a lotação atual do parque?</span>
                   <input type="text" placeholder="Enter your username" required>
                 </div>-->            
-            <a href="home.html" class="btn" type="submit">Submeter</a>        
+            <a href="home.html" class="btn" type="click">Submeter</a>        
         </div>
     </form>
     </div>
@@ -429,6 +438,7 @@
     <script src="js/contact.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
+    <script src="fetch/popup.js"></script>
     <!--<script src="fetch/loggedin.js"></script>-->
 </body>
 
