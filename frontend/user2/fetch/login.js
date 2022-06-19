@@ -54,6 +54,12 @@ window.onload = function () {
           }
         }
       }).catch(error => { console.log(error) })
-
+    //--------------------------------------------------------------------------------Teste html
+    /*if(data.email == true){
+      $("openbtn").hide();
+      document.getElementById("userName").innerHTML = user.displayName;
+      $("userName").show();
+      //--------------------------------------------------------------------------------Teste html
+    }*/
   })
 }

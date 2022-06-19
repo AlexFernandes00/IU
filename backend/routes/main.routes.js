@@ -44,6 +44,16 @@ router.post('/login', (req,res)=>{
   );
 });
 
+//Nova rota loggedin
+router.get('/user/loggedin', (req,res)=>{
+  controllerUtilizador.loggedin(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
 router.get('/getId', (req,res)=>{
   controllerUtilizador.getId(req, function(result){
 

@@ -135,6 +135,32 @@ function registoManutencao (req, callback){
         })
 }
 
+async function utilizadorAutenticado(request, response) {
+	let email = request.session.email;
+	if (email) {
+		
+		connect.con.query('SELECT * FROM utilizador WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
+			
+			if (error) throw error;
+			// Se existe
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.email = email;
+				response({
+                    'statusCode': 200,
+                    'body': (results[0]),
+					'loggedin': (request.session.loggedin ), 
+					'email': (request.session.email)
+                });
+			} else {
+				response.send('Erro com este email');
+			}			
+			//response.end();
+		});
+	} else {
+		response.send('Erro, falta email');
+	}
+}
 
 module.exports = {
     registo: registo,
@@ -142,4 +168,5 @@ module.exports = {
     getId: getId,
 	registoManutencao: registoManutencao,
 	getIdTipoUtilizador: getIdTipoUtilizador,
+	utilizadorAutenticado: utilizadorAutenticado
 }
