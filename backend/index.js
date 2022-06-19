@@ -8,26 +8,31 @@ const app = express();
 global.urlBase = `127.0.0.1`;
 
 var passport   = require('passport')
-var session    = require('express-session')
+var session = require('express-session')
 const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const sanitizer = require('express-sanitizer');
+const cookieParser = require("cookie-parser");
 //const session = require('express-session');
 var env = require('dotenv').config();
 const cors = require('cors');
 const corsOptions ={
   origin: true, 
   credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200,
 }
 
 app.use(sanitizer());
 app.use(cors(corsOptions));
+app.use(cookieParser());
 //app.use(validator());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({ secret: 'iu',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'iu',
+                  resave: false, 
+                  saveUninitialized:true,
+                  cookie: { maxAge: 60000 },
+                })); // session secret
 
  
 app.use(passport.initialize());
@@ -49,5 +54,7 @@ app.listen(port, function(err) {
     }
   }
 );
+
+
 
 module.exports = app;

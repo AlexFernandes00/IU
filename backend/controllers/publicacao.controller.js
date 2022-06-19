@@ -7,11 +7,13 @@ const controllerUtilizador = require('./utilizador.controller.js');
 const { con } = require('../config/connectMySQL');
 const utilizadorController = require('./utilizador.controller.js');
 
-function fazerpublicacao (req, callback) {
-    const titulo = req.body.titulo;
-    const conteudo = req.body.conteudo;
+function fazerpublicacao (request, callback) {
+    console.log("chegou ao fazer publicacao");
+    console.log(request.session.email);
+    const titulo = request.body.titulo;
+    const conteudo = request.body.conteudo;
     let date_ob = new Date();
-    const idParque = req.body.idParque;
+    const idParque = 1;
 
     // current date
     // adjust 0 before single digit date
@@ -24,7 +26,7 @@ function fazerpublicacao (req, callback) {
     let year = date_ob.getFullYear();
 
     const data = year + "-" + month + "-" + date;
-    utilizadorController.getId(req, (res)=> {
+    utilizadorController.getId(request, (res)=> {
         const idUtilizador = res.body.idUtilizador;
 
 

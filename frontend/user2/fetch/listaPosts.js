@@ -70,7 +70,7 @@ window.onload = () => {
                   <!-- Reply form start -->
                   <form method="POST" class="reply-form d-none" id="Post-${idPost}-reply-form">
                       <textarea placeholder="Escrever Comentário..." rows="4"></textarea>
-                      <button type="submit">Enviar Comentário</button>
+                      <button type="submit" id="btnEnviar-${idPost}">Enviar Comentário</button>
                       <button type="button" data-toggle="reply-form" data-target="Post-${idPost}-reply-form">Cancelar</button>
                   </form>
                   <!-- Reply form end -->
@@ -161,6 +161,37 @@ window.onload = () => {
         //loader.style.display="none"
         tblProdutos.innerHTML = strHtml
     
+        const botao = document.getElementById("btnPublicar");
+
+        botao.addEventListener('click', async function (event) {
+          event.preventDefault();
+
+          let data = {
+              titulo: document.getElementById("tituloPost").value,
+              descricao: document.getElementById("descricaoPost").value,
+          }
+
+              
+              fetch(`http://127.0.0.1:8080/fazerpublicacao`, {
+              
+                  headers: {
+                      "Content-Type": "application/json"
+                  },
+                  mode: 'cors',
+                  method: 'POST',
+                  body: JSON.stringify(data)
+
+              }).then(response => {
+                  return response.json();
+              }).then((result) => {
+                  console.log("dsdsdsf"+result)
+
+                  
+                    })
+              })
+      
+        
+
         // Get the modal
         var modal = document.getElementById("modalP");
         /*   var modalD = document.getElementById("modald");  */

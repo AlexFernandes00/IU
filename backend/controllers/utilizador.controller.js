@@ -41,6 +41,7 @@ function login(request, response) {
 				let idTipoUtilizador = results[0].idTipoUtilizador;
 				request.session.loggedin = true;
 				request.session.email = email;
+				request.session.save();
 				// redireciona para pagina
 				response({
                     'statusCode': 200,
@@ -66,6 +67,7 @@ function login(request, response) {
 async function getId(request, response) {
 	let email = request.session.email;
 	console.log(request.session.idUtilizador)
+	console.log("email="+email)
 	if (email) {
 		
 		connect.con.query('SELECT idUtilizador FROM utilizador WHERE email = ?', [email], function(error, results, fields) {
@@ -90,6 +92,7 @@ async function getId(request, response) {
 
 async function getIdTipoUtilizador(request, response) {
 	let email = request.session.email;
+	console.log("email="+email)
 	if (email) {
 		
 		connect.con.query('SELECT idTipoUtilizador FROM utilizador WHERE email = ?', [email], function(error, results, fields) {
