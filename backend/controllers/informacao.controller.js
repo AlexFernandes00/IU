@@ -15,7 +15,7 @@ function criarInformacao (req, callback){
     const tempo = req.body.tempo;
     const idParque = req.body.idParque;
 
-    const post = { lotacao: lotacao, quantidadeLixo: quantidadeLixo, data: data, tempo: tempo, idParque: idParque};
+    const post = {lotacao: lotacao, quantidadeLixo: quantidadeLixo, data: data, tempo: tempo, idParque: idParque};
     const query = connect.con.query('INSERT INTO Informacao SET ?', post, function(err, rows, fields) {
     console.log(query.sql);
     });
