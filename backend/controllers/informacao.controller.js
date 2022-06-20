@@ -2,7 +2,7 @@ const req = require('request');
 const querystring = require('querystring');
 const request = require('request');
 const connect = require ('../config/connectMySQL');
-
+var moment = require("moment");
 
 const { con } = require('../config/connectMySQL');
 
@@ -11,7 +11,7 @@ function criarInformacao (req, callback){
     console.log(req.body);
     const lotacao = req.body.lotacao;
     const quantidadeLixo = req.body.quantidadeLixo;
-    const data = req.body.data;
+    const data = moment().format('YYYY-MM-DD hh:mm:ss');
     const tempo = req.body.tempo;
     const idParque = req.body.idParque;
 
