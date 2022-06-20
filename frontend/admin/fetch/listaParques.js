@@ -52,7 +52,7 @@ window.onload = () => {
     
           let imagem = parques[i].imagem; 
           let mapa = parques[i].mapa;
-    
+          let idParque = parques[i].idParque;
           /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
     
             const idImagem = products[i].idImage;
@@ -83,12 +83,12 @@ window.onload = () => {
                 font-size: 12px;
                 font-weight: initial;
                 line-height: 1;
-                padding: .575rem .7625rem;" id="${parques[i].nome}"> Editar </button> 
+                padding: .575rem .7625rem;" id="Editar-${parques[i].idParque}"> Editar </button> 
                 <button class="btn btn-danger" style="    border-radius: .125rem;
                 font-size: 12px;
                 font-weight: initial;
                 line-height: 1;
-                padding: .575rem .7625rem;" name="remove"  id="${parques[i].nome}" > Desativar </button>
+                padding: .575rem .7625rem;" name="remove"  id="Eliminar-${parques[i].idParque}" > Desativar </button>
                 </td> 
               </tr>`
     
