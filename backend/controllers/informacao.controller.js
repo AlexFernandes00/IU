@@ -27,7 +27,32 @@ function criarInformacao (req, callback){
     
 
     }
-
+    
+    function listarInformacoes(req, res){
+        /*const idInformacao = req.body.idParque;
+        const nome = req.body.nome;
+        const descricao = req.body.descricao;
+        const imagem = req.body.imagem;
+        const localizacao = req.body.localizacao;
+        const longitude = req.body.longitude;
+        const latitude = req.body.latitude;
+        const capacidade = req.body.capacidade;
+        const mapa = req.body.mapa;*/
+    
+    
+        const get = [];
+        const query = connect.con.query('SELECT * FROM Informacao', get, function(error, results, fields) {
+            console.log(results)
+            res({
+                'statusCode': 200,
+                'body': (results)
+            }) 
+            });
+                /*res({
+                    'statusCode': 200,
+                    'body': (results)
+                }) */
+    }
 
 
 /*function listarAtividades(req, res){
@@ -53,4 +78,5 @@ function criarInformacao (req, callback){
 
 module.exports = {
     criarInformacao: criarInformacao,
+    listarInformacoes: listarInformacoes,
 }

@@ -12,16 +12,15 @@ window.onload = () => {
     
         let strHtml = `
         
-                 <thead> 
-                 <th> Título </th>
-                 <th> Conteúdo </th>
-                 <th> Data </th>
-                 <th> Autor </th>
-                 
-    
-               </tr>
-             </thead>
-             <tbody>
+        <thead>
+        <tr>
+          <th> Hora </th>
+          <th> Lotação </th>
+          <th> Lixo </th>
+          <th> Meteorologia </th>
+          <th> Parque </th>
+        </tr>
+      </thead>
             `
     
         myHeaders.append("Content-Type", "application/json");
@@ -36,21 +35,22 @@ window.onload = () => {
         // let products = "";
     
         //fetch("http://127.0.0.1:8080/allprodutos", requestOptions).then(response => {return response.json()}).then(result => products=result)
-        const response = await fetch(`http://127.0.0.1:8080/listarPub`, requestOptions)
+        const response = await fetch(`http://127.0.0.1:8080/listarInformacoes`, requestOptions)
     
-        let products = await response.json();
-        posts = products.body;
-        console.log(posts)
-        for (let i = 0; i < posts.length; i++) {
+        let respostas = await response.json();
+        respostas = respostas.body;
+        console.log(respostas)
+        for (let i = 0; i < respostas.length; i++) {
     
           /*let anzol = parques[i].qtd;
           let shade = "";
           let mar = (anzol / shade) * 100;*/
     
-          let titulo = posts[i].titulo; 
-          let conteudo = posts[i].conteudo;
-          let data = posts[i].data;
-          let autor = posts[i].idUtilizador;
+          let data = respostas[i].data; 
+          let lotacao = respostas[i].lotacao;
+          let quantidadeLixo = respostas[i].quantidadeLixo;
+          let tempo = respostas[i].tempo;
+          let idParque = respostas[i].idParque;
     
           /*if(products[i].image=="https://www.moloni.pt/_imagens/?macro=imgList_BO_s3&img=" || products[i].image== null) {
     
@@ -65,10 +65,11 @@ window.onload = () => {
           strHtml += `
                 <tr>
                 
-                <td> ${titulo} </td>
-                <td> ${conteudo} </td>
-                <td> ${data.substring(0, 10)} </td>
-                <td> ${autor} </td>
+                <td> ${data} </td>
+                <td> ${lotacao} </td>
+                <td> ${quantidadeLixo} </td>
+                <td> ${tempo} </td>
+                <td> ${idParque} </td>
               </tr>`
     
         }

@@ -297,3 +297,16 @@ router.post('/criarInformacao', (req,res)=>{
     }
   );
 });
+
+
+
+router.get('/listarInformacoes', (req,res)=>{
+  controllerInformacao.listarInformacoes(req, function(result){
+
+    res.send(result);
+
+    }
+  );
+});
+
+//listarInformacoes
