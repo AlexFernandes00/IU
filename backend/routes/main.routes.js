@@ -37,7 +37,12 @@ router.post('/registoManutencao', (req,res)=>{
 
 router.post('/login', (req,res)=>{
   controllerUtilizador.login(req, function(result){
-
+    res.cookie("id", req.session.idUtilizador, {
+      httpOnly: false,
+    })
+    res.cookie("isloggedIn", true, {
+      httpOnly: false,
+    })
     res.send(result);
 
     }
@@ -55,6 +60,8 @@ router.get('/user/loggedin', (req,res)=>{
 });
 
 router.get('/getId', (req,res)=>{
+  
+
   controllerUtilizador.getId(req, function(result){
 
     res.send(result);

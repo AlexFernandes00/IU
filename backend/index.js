@@ -23,16 +23,19 @@ const corsOptions ={
 
 app.use(sanitizer());
 app.use(cors(corsOptions));
-app.use(cookieParser());
+//app.use(cookieParser());
 //app.use(validator());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({ secret: 'iu',
+app.use(session({ name: 'session',
+                  secret: 'iu',
                   resave: false, 
                   saveUninitialized:true,
-                  cookie: { maxAge: 60000 },
-                  rolling: true
+                  cookie: { httponly: false,maxAge: 60000 },
+                  rolling: true,
+                  secure: false,
+                  httponly: false,
                 })); // session secret
 
  

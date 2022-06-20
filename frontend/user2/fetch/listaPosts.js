@@ -9,11 +9,10 @@ window.onload = () => {
       const renderProducts = async () => {
         var myHeaders = new Headers();
         const tblProdutos = document.getElementById("containerPosts");
-    
+        myHeaders.append("Content-Type", "application/json");
         let strHtml = `
         ` 
     
-        myHeaders.append("Content-Type", "application/json");
     
         var requestOptions = {
           mode: 'cors',
@@ -69,8 +68,8 @@ window.onload = () => {
               </div>
                   <!-- Reply form start -->
                   <form method="POST" class="reply-form d-none" id="Post-${idPost}-reply-form">
-                      <textarea placeholder="Escrever Comentário..." rows="4"></textarea>
-                      <button type="submit" id="btnEnviar-${idPost}">Enviar Comentário</button>
+                      <textarea placeholder="Escrever Comentário..." rows="4" class="txtComentar" id="texto-comentario-${idPost}"></textarea>
+                      <button type="click" id="btnEnviar-${idPost}">Enviar Comentário</button>
                       <button type="button" data-toggle="reply-form" data-target="Post-${idPost}-reply-form">Cancelar</button>
                   </form>
                   <!-- Reply form end -->
@@ -166,21 +165,17 @@ window.onload = () => {
         botao.addEventListener('click', async function (event) {
           event.preventDefault();
 
-          
-
-            fetch ('http://127.0.0.1:8080/getId', {
-              
-              headers: myHeaders,
-              mode: 'cors',
-              method: 'GET',
-
-          }).then(response => {
-              idUtilizador = response.json().body.idUtilizador;
-              console.log(response.json().body.idUtilizador)
-              let data = {
+          var requestOptions3 = {
+            mode: 'cors',
+            method: 'GET',
+            headers: myHeaders,
+            credentials: 'same-origin',
+          };
+            
+              let data3 = {
               titulo: document.getElementById("tituloPost").value,
-              descricao: document.getElementById("descricaoPost").value,
-              idUtilizador : idUtilizador,
+              conteudo: document.getElementById("descricaoPost").value,
+              idUtilizador : getCookie("id"),
               }
 
 
@@ -189,7 +184,7 @@ window.onload = () => {
                   headers: myHeaders,
                   mode: 'cors',
                   method: 'POST',
-                  body: JSON.stringify(data)
+                  body: JSON.stringify(data3)
 
               }).then(response => {
                   return response.json();
@@ -199,8 +194,33 @@ window.onload = () => {
                   
                     })
               })
-          })
+          
         
+
+
+              function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length,c.length);
+                    }
+                }
+                return "";
+            }
+
+
+
+            
+            /*document.querySelectorAll('.btnComentar').forEach(item => {
+              item.addEventListener('click', event => {
+                console.log(item.getAttribute);
+              })
+            })*/
 
         // Get the modal
         var modal = document.getElementById("modalP");
