@@ -190,7 +190,7 @@ window.onload = () => {
                   return response.json();
               }).then((result) => {
                   console.log("dsdsdsf"+result)
-
+                  window.location.href = './forum.html'
                   
                     })
               })
