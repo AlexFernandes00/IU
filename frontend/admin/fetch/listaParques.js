@@ -157,19 +157,19 @@ window.onload = () => {
               document.getElementById("qunt").value = parques[i].descricao
               document.getElementById("prec").value = parques[i].capacidade
              
-              if(products[i].mercado=="LO") { document.getElementById("quntMax").value = products[i].qtdMax
-               }
-               else {
+              // if(products[i].mercado=="LO") { document.getElementById("quntMax").value = products[i].qtdMax
+              //  }
+              //  else {
                
-                document.getElementById("quntMax").value = products[i].summary 
-               }
+              //   document.getElementById("quntMax").value = products[i].summary 
+              //  }
           
             
             formEditarProduct.addEventListener('submit', async function (event) {
               event.preventDefault();
               const quantidade = document.getElementById('qunt').value;
               const price = document.getElementById('prec').value;
-              const quntMax = document.getElementById('quntMax').value;
+              // const quntMax = document.getElementById('quntMax').value;
               
              // let idE = btnEditar[i].getAttribute("id")
               console.log(idE)
