@@ -10,18 +10,8 @@ window.onload = () => {
         var myHeaders = new Headers();
         const tblProdutos = document.getElementById("listagem");
     
-        let strHtml = ''            
-            /*<div class="place_review">
-                
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <a href="#"><i class="fas fa-star"></i></a>
-                <span>(146)</span>
-            </div>   
-            ''*/
-    
+        let strHtml = '';
+
         myHeaders.append("Content-Type", "application/json");
     
         var requestOptions = {
@@ -52,15 +42,6 @@ window.onload = () => {
                                 <h3>${nome}</h3>
                                 <br>
                                 <p>${descricao}</p>
-                                <div class="place_review">
-                                    
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(146)</span>
-                                </div>
                             </div>
                         </div>
           
