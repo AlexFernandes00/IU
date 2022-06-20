@@ -77,7 +77,19 @@ window.onload = () => {
                 <td> ${parques[i].capacidade} </td>
                 <td class="py-1">
                   <img src="`+ `` + mapa + `" />
-                </td>  
+                </td> 
+                <td> 
+                <button  name="editpr" class="btn btn-primary" style="    border-radius: .125rem;
+                font-size: 12px;
+                font-weight: initial;
+                line-height: 1;
+                padding: .575rem .7625rem;" id="${parques[i].nome}"> Editar </button> 
+                <button class="btn btn-danger" style="    border-radius: .125rem;
+                font-size: 12px;
+                font-weight: initial;
+                line-height: 1;
+                padding: .575rem .7625rem;" name="remove"  id="${parques[i].nome}" > Desativar </button>
+                </td> 
               </tr>`
     
         }
@@ -142,8 +154,8 @@ window.onload = () => {
             let idE = btnEditar[i].getAttribute("id")
     
           
-              document.getElementById("qunt").value = products[i].qtd
-              document.getElementById("prec").value = products[i].unitPrice
+              document.getElementById("qunt").value = parques[i].descricao
+              document.getElementById("prec").value = parques[i].capacidade
              
               if(products[i].mercado=="LO") { document.getElementById("quntMax").value = products[i].qtdMax
                }
