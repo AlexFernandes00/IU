@@ -23,6 +23,7 @@
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
     "lodash": "^4.17.21",
+    "moment": "^2.29.3",
     "mongoose": "^6.4.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
