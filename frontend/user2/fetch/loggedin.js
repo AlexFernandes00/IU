@@ -16,12 +16,8 @@ window.onload = function() {
       credentials : 'include'
     };
 
-    fetch(`http://127.0.0.1:8080/user/loggedin`,requestOptions)
-    .then(response => {
-        return response.json();
-    })
-    .then((result) => {
-       if(result.login=="false"){
+    
+       if(getCookie("isLoggedIn")==""){
 
             header.innerHTML = `<ul class="navbar-nav">
             <li class="nav-item" class="active">
@@ -54,7 +50,7 @@ window.onload = function() {
                 <a class="nav-link" href="contact.html">Contacto</a>
             </li>
         </ul>
-        <a href="singin.html" class="btn_12" >ENTRAR</a> `
+        <a href="singin.html" class="btn_12">ENTRAR</a> `
 
         } else {
             header.innerHTML =`<ul class="navbar-nav">
@@ -88,15 +84,52 @@ window.onload = function() {
                 <a class="nav-link" href="contact.html">Contacto</a>
             </li>
         </ul>
-        <a href="singin.html" class="btn_12">Sair</a> `
+        <a href="singin.html" class="btn_12" id="btnSair">Sair</a> `
 
             //logout();
 
         }
-    })
-//}
+        const botao = document.getElementById("btnSair");
+
+  botao.addEventListener('click', async function (event) {
+    event.preventDefault();
+    logout();
+    window.location.href = './singin.html'
+  })
+    }
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
 }
 
+
+function logout(){
+    delete_cookie("isLoggedIn")
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  
+
+  function delete_cookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  }
 /*function logout(){
     const logout = document.getElementById("logout");
 
