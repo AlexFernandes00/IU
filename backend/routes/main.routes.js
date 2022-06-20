@@ -40,7 +40,10 @@ router.post('/login', (req,res)=>{
     res.cookie("id", req.session.idUtilizador, {
       httpOnly: false,
     })
-    res.cookie("isloggedIn", true, {
+    res.cookie("isLoggedIn", true, {
+      httpOnly: false,
+    })
+    res.cookie("nome", req.session.nome, {
       httpOnly: false,
     })
     res.send(result);

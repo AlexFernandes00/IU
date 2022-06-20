@@ -42,6 +42,7 @@ function login(request, response) {
 				request.session.loggedin = true;
 				request.session.email = email;
 				request.session.idUtilizador = results[0].idUtilizador;
+				request.session.nome = results[0].nome + " " + results[0].apelido;
 				request.session.save()
 				// redireciona para pagina
 				response({
