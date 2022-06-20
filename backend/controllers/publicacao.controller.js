@@ -26,8 +26,8 @@ function fazerpublicacao (request, callback) {
     let year = date_ob.getFullYear();
 
     const data = year + "-" + month + "-" + date;
-    utilizadorController.getId(request, (res)=> {
-        const idUtilizador = res.body.idUtilizador;
+    
+        const idUtilizador = request.body.idUtilizador;
 
 
         const post = { titulo:titulo, conteudo:conteudo, data:data, idUtilizador:idUtilizador, idParque:idParque }
@@ -39,7 +39,7 @@ function fazerpublicacao (request, callback) {
                     'body': ("Publicação feito com sucesso")
                 })
     
-        })
+        
 }
 
 function editarpublicacao (req, callback) {

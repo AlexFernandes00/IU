@@ -66,7 +66,6 @@ function login(request, response) {
 
 async function getId(request, response) {
 	let email = request.session.email;
-	console.log(request.session.idUtilizador)
 	console.log("email="+email)
 	if (email) {
 		

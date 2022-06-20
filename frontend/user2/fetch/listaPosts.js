@@ -166,12 +166,24 @@ window.onload = () => {
         botao.addEventListener('click', async function (event) {
           event.preventDefault();
 
-          let data = {
+          
+
+            fetch ('http://127.0.0.1:8080/getId', {
+              
+              headers: myHeaders,
+              mode: 'cors',
+              method: 'GET',
+
+          }).then(response => {
+              idUtilizador = response.json().body.idUtilizador;
+              console.log(response.json().body.idUtilizador)
+              let data = {
               titulo: document.getElementById("tituloPost").value,
               descricao: document.getElementById("descricaoPost").value,
-          }
+              idUtilizador : idUtilizador,
+              }
 
-              
+
               fetch(`http://127.0.0.1:8080/fazerpublicacao`, {
               
                   headers: myHeaders,
@@ -187,7 +199,7 @@ window.onload = () => {
                   
                     })
               })
-      
+          })
         
 
         // Get the modal
