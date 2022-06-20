@@ -110,38 +110,39 @@
             <h2 style="font-size:26px;">AJUDA-NOS A MELHORAR</h2>
             <form id="popupparque" class="form-sample">
             <div class="user-details">
-                <div class="select1">
+                <span class="details"><h5>Em que parque se encontra?</h5></span>
+               <!--  <div class="select1">
                  <span class="selected">Em que parque se encontra? </span>
                   <div class="caret"></div>
-                </div>
+                </div> -->
                 <!-- <ul id="parque" class="menu">
                     <li value="3">Parque Jardim da Estrela</li>
                     <li value="2">Parque Eduardo VII</li>
                     <li value="1">Parque Florestal de Monsanto</li>
                     <li value="0">Parque da Bela Vista</li>
                 </ul> -->
-                <select id="select1">
-                    <option value="0">Parque Jardim da Estrela</option>
-                    <option value="1">Parque Eduardo VII</option>
-                    <option value="2">Parque Florestal de Monsanto</option>
-                    <option value="3">Parque da Bela Vista</option>
+                <select class="form-control" id="value" placeholder="Categoria" required>
+                    <option>Parque Jardim da Estrela</option>
+                    <option>Parque Eduardo VII</option>
+                    <option>Parque Florestal de Monsanto</option>
+                    <option>Parque da Bela Vista</option>
                 </select> 
-                <br>
+                
             </div>
                 <span class="details"><h5>Qual a lotação atual do parque?</h5></span>
                 <div id="lot" class="radio-buttons">
                 <ul id="lotacao">
                 <form action="">
                     <label>
-                        <input type="radio" id="html" name="radioL" />
+                        <input type="radio" id="html" value="Pouca" name="radioL" />
                         <span>Pouca</span>
                     </label>
                     <label>
-                        <input type="radio" id="css" name="radioL" />
+                        <input type="radio" id="css"  value="Alguma" name="radioL" />
                         <span>Alguma</span>
                     </label>
                     <label>
-                        <input type="radio" id="javascript" name="radioL"/>
+                        <input type="radio" id="javascript" value="Muita" name="radioL"/>
                         <span>Muita</span>
                     </label>
                 </form></ul>
