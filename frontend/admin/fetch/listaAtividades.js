@@ -127,22 +127,24 @@ window.onload = () => {
             let idE = btnEditar[i].getAttribute("id")
     
           
-              document.getElementById("qunt").value = products[i].qtd
-              document.getElementById("prec").value = products[i].unitPrice
-             
-              if(products[i].mercado=="LO") { document.getElementById("quntMax").value = products[i].qtdMax
-               }
-               else {
+              document.getElementById("qunt").value = atividades[i].nome
+              document.getElementById("prec").value = atividades[i].descricao
+              document.getElementById("qunt").value = atividades[i].dataInicio
+              document.getElementById("prec").value = atividades[i].dataFim
+
+              // if(products[i].mercado=="LO") { document.getElementById("quntMax").value = products[i].qtdMax
+              //  }
+              //  else {
                
-                document.getElementById("quntMax").value = products[i].summary 
-               }
+              //   document.getElementById("quntMax").value = products[i].summary 
+              //  }
           
             
             formEditarProduct.addEventListener('submit', async function (event) {
               event.preventDefault();
               const quantidade = document.getElementById('qunt').value;
               const price = document.getElementById('prec').value;
-              const quntMax = document.getElementById('quntMax').value;
+              // const quntMax = document.getElementById('quntMax').value;
               
              // let idE = btnEditar[i].getAttribute("id")
               console.log(idE)
